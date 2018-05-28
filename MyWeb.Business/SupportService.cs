@@ -1,0 +1,5 @@
+using System;using System.Collections.Generic;using System.Text;using MyWeb.Data;
+using System.Data;namespace MyWeb.Business{	public class SupportService	{		private static SupportDAL db = new SupportDAL();		#region[Support_GetById]
+        public static DataTable Support_GetById(string Id)		{			return db.Support_GetById(Id);		}		#endregion		#region[Support_GetByTop]
+        public static DataTable Support_GetByTop(string Top, string Where, string Order)		{			return db.Support_GetByTop(Top, Where, Order);		}		#endregion		#region[Support_GetByAll]
+        public static DataTable Support_GetByAll()		{			return db.Support_GetByAll();		}		#endregion		#region[Support_Insert]		public static bool Support_Insert(Support data)		{			return db.Support_Insert(data);		}		#endregion		#region[Support_Update]		public static bool Support_Update(Support data)		{			return db.Support_Update(data);		}		#endregion		#region[Support_Delete]		public static bool Support_Delete(string Id)		{			return db.Support_Delete(Id);		}		#endregion	}}

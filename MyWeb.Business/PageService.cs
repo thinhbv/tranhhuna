@@ -1,0 +1,5 @@
+using System;using System.Collections.Generic;using System.Text;using MyWeb.Data;
+using System.Data;namespace MyWeb.Business{	public class PageService	{		private static PageDAL db = new PageDAL();		#region[Page_GetById]
+        public static DataTable Page_GetById(string Id)		{			return db.Page_GetById(Id);		}		#endregion		#region[Page_GetByTop]
+        public static DataTable Page_GetByTop(string Top, string Where, string Order)		{			return db.Page_GetByTop(Top, Where, Order);		}		#endregion		#region[Page_GetByAll]
+        public static DataTable Page_GetByAll()		{			return db.Page_GetByAll();		}		#endregion		#region[Page_Insert]		public static bool Page_Insert(Page data)		{			return db.Page_Insert(data);		}		#endregion		#region[Page_Update]		public static bool Page_Update(Page data)		{			return db.Page_Update(data);		}		#endregion		#region[Page_Delete]		public static bool Page_Delete(string Id)		{			return db.Page_Delete(Id);		}		#endregion	}}

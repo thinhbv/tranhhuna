@@ -1,0 +1,100 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="DefaultMaster.master.cs" Inherits="MyWeb.DefaultMaster" %>
+
+<%@ Register Src="Controls/U_Top.ascx" TagName="U_Top" TagPrefix="uc1" %>
+<%@ Register Src="Controls/U_Menu.ascx" TagName="U_Menu" TagPrefix="uc2" %>
+<%@ Register Src="Controls/U_Banner.ascx" TagName="U_Banner" TagPrefix="uc3" %>
+<%@ Register Src="Controls/U_Slider.ascx" TagName="U_Slider" TagPrefix="uc4" %>
+<%@ Register Src="Controls/U_Contact.ascx" TagName="U_Contact" TagPrefix="uc5" %>
+<%@ Register Src="Controls/Footer.ascx" TagName="Footer" TagPrefix="uc6" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+	<title>Home</title>
+
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.css" rel="stylesheet">
+
+	<!-- Links -->
+	<link href="css/search.css" rel="stylesheet">
+	<link href="css/camera.css" rel="stylesheet">
+
+
+	<!--JS-->
+	<script src="scripts/jquery.js"></script>
+	<script src="scripts/jquery-migrate-1.2.1.min.js"></script>
+
+	<!--[if lt IE 9]>
+	<div style=' clear: both; text-align:center; position: relative;'>
+		<a href="http://windows.microsoft.com/en-US/internet-explorer/..">
+			<img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820"
+				 alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."/>
+		</a>
+	</div>
+	<script src="scripts/html5shiv.js"></script>
+	<![endif]-->
+	<script src='scripts/device.min.js'></script>
+	<asp:ContentPlaceHolder ID="HeadContent" runat="server">
+	</asp:ContentPlaceHolder>
+</head>
+<body>
+	<div class="page">
+		<!--========================================================
+								  HEADER
+		=========================================================-->
+		<header>
+			<div class="header_container">
+				<uc1:U_Top ID="idU_Top" runat="server" />
+			</div><!--header_container-->
+			<div id="stuck_container" class="stuck_container">
+				<div class="container">
+					<uc2:U_Menu ID="idU_Menu" runat="server" />
+				</div><!--container-->
+			</div><!--stuck_container-->
+
+			<div class="camera_container">
+				<uc3:U_Banner ID="idU_Banner" runat="server" />
+			</div><!--camera_container-->
+		</header>
+
+		<!--========================================================
+								  CONTENT
+		=========================================================-->
+
+		<asp:ContentPlaceHolder ID="MainContent" runat="server">
+		</asp:ContentPlaceHolder>
+
+		<!--========================================================
+								  FOOTER
+		=========================================================-->
+		<footer>
+			<div class="container">
+				<ul class="inline-list">
+					<li><a href="#" class="fa fa-twitter"></a></li>
+					<li><a href="#" class="fa fa-facebook"></a></li>
+					<li><a href="#" class="fa fa-google-plus"></a></li>
+				</ul>
+
+				<hr>
+
+				<h5 class="copyright">
+					<span>Gustavo. Bread Bakery ©</span>
+					<span id="copyright-year"></span>
+					<a href="index-6.html">Privacy Policy</a>.
+					Terms of use
+					<!-- {%FOOTER_LINK} -->
+				</h5>
+			</div>
+		</footer>
+	</div>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="scripts/bootstrap.min.js"></script>
+	<script src="scripts/tm-scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+using System;using System.Collections.Generic;using System.Text;using MyWeb.Data;
+using System.Data;namespace MyWeb.Business{	public class TagsService	{		private static TagsDAL db = new TagsDAL();		#region[Tags_GetById]
+        public static DataTable Tags_GetById(string Id)		{			return db.Tags_GetById(Id);		}		#endregion		#region[Tags_GetByTop]
+        public static DataTable Tags_GetByTop(string Top, string Where, string Order)		{			return db.Tags_GetByTop(Top, Where, Order);		}		#endregion		#region[Tags_GetByAll]
+        public static DataTable Tags_GetByAll()		{			return db.Tags_GetByAll();		}		#endregion		#region[Tags_Insert]		public static bool Tags_Insert(Tags data)		{			return db.Tags_Insert(data);		}		#endregion		#region[Tags_Update]		public static bool Tags_Update(Tags data)		{			return db.Tags_Update(data);		}		#endregion		#region[Tags_Delete]		public static bool Tags_Delete(string Id)		{			return db.Tags_Delete(Id);		}		#endregion	}}

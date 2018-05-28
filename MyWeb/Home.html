@@ -1,0 +1,834 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+	<title>Home</title>
+
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.css" rel="stylesheet">
+
+	<!-- Links -->
+	<link href="css/search.css" rel="stylesheet">
+	<link href="css/camera.css" rel="stylesheet">
+
+
+	<!--JS-->
+	<script src="scripts/jquery.js"></script>
+	<script src="scripts/jquery-migrate-1.2.1.min.js"></script>
+
+	<!--[if lt IE 9]>
+	<div style=' clear: both; text-align:center; position: relative;'>
+		<a href="http://windows.microsoft.com/en-US/internet-explorer/..">
+			<img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820"
+				 alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."/>
+		</a>
+	</div>
+	<script src="scripts/html5shiv.js"></script>
+	<![endif]-->
+	<script src='scripts/device.min.js'></script>
+
+</head>
+<body>
+	<div class="page">
+		<!--========================================================
+								  HEADER
+		=========================================================-->
+		<header>
+			<div class="header_container">
+				<div class="container">
+
+					<div class="navbar-header">
+						<div class="navbar-brand-wrap">
+							<img src="images/logo.png" alt="" class="navbar-brand-img">
+
+							<div class="brand_cnt">
+								<p class="navbar-slogan">
+									bread bakery
+								</p>
+
+								<h1 class="navbar-brand">
+									<a href="./">Gustavo</a>
+								</h1>
+							</div>
+						</div>
+					</div>
+					<div class="info-box">
+						<div class="fa-phone">
+							<p>Phone:</p>
+
+							<a href="callto:#">+1 959 603 6035</a>
+							<span> (585-Support)</span>
+						</div>
+						<div class="fa-map-marker">
+							<p>Location:</p>
+							<address>
+								8901 Marmora Road <br />
+								Glasgow, DO4 89GR.
+							</address>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="stuck_container" class="stuck_container">
+				<div class="container">
+
+					<nav class="navbar navbar-default navbar-static-top ">
+
+						<ul class="navbar-nav sf-menu navbar-left" data-type="navbar">
+							<li class="active">
+								<a href="./">Home</a>
+							</li>
+							<li>
+								<a href="index-1.html">About us</a>
+							</li>
+							<li>
+								<a href="index-2.html">Products</a>
+							</li>
+							<li class="dropdown">
+								<a href="index-3.html">Recipe Corner</a>
+
+								<ul class="dropdown-menu">
+									<li>
+										<a href="#"> Levain Walnut Baguette</a>
+									</li>
+									<li>
+										<a href="#"> Pizza Round</a>
+									</li>
+									<li>
+										<a href="#"> Sourdough Bragel</a>
+
+										<ul class="dropdown-menu">
+											<li>
+												<a href="#">Description</a>
+											</li>
+											<li>
+												<a href="#">Ingredients</a>
+											</li>
+											<li>
+												<a href="#">Details</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="#"> Cranberry Orange Scone</a>
+									</li>
+									<li>
+										<a href="#"> Cinnamon Rolls</a>
+									</li>
+								</ul>
+							</li>
+
+							<li>
+								<a href="index-4.html">News & Events</a>
+							</li>
+
+							<li>
+								<a href="index-5.html">Contact Us</a>
+							</li>
+						</ul>
+					</nav>
+					<div class="sform">
+						<a class="search-form_toggle" href="#"></a>
+					</div>
+
+					<div class="search-form">
+						<form id="search" action="search.php" method="GET" accept-charset="utf-8">
+							<label class="search-form_label" for="in">
+								<input id="in" class="search-form_input" type="text" name="s"
+									   placeholder="Type your search term here..." />
+								<span class="search-form_liveout"></span>
+							</label>
+							<button type="submit" class="search-form_submit fa-search"></button>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<div class="camera_container">
+				<div id="camera" class="camera_wrap">
+					<div data-src="images/page-1_slide01.jpg">
+						<div class="camera_caption fadeIn">
+							<h2>We keep traditions <br> of baking...</h2>
+						</div>
+					</div>
+					<div data-src="images/page-1_slide02.jpg">
+						<div class="camera_caption fadeIn">
+							<h2>Respect the bread <br> you eat...</h2>
+						</div>
+					</div>
+					<div data-src="images/page-1_slide03.jpg">
+						<div class="camera_caption fadeIn">
+							<h2>All sorrows are less <br> with bread...</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!--========================================================
+								  CONTENT
+		=========================================================-->
+
+		<main>
+			<section class="well center767">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-2 col-sm-4 col-xs-6 wow fadeInUp">
+
+							<img src="images/page-1_img01.jpg" alt="">
+
+							<h4 class="badge">$3.29</h4>
+
+							<h6><a href="#">Bragel</a></h6>
+
+							<p class="l-height">Straight from our oven </p>
+						</div>
+						<div class="col-md-2 col-sm-4 col-xs-6 wow fadeInUp" data-wow-delay="0.1s">
+
+							<img src="images/page-1_img02.jpg" alt="">
+
+							<h4 class="badge">$2.49</h4>
+
+							<h6><a href="#">Chocolate Croissant</a></h6>
+
+							<p class="l-height">
+								Straight from our oven
+								to you.
+							</p>
+						</div>
+						<div class="col-md-2 col-sm-4 col-xs-6 wow fadeInUp" data-wow-delay="0.2s">
+
+							<img src="images/page-1_img03.jpg" alt="">
+
+							<h4 class="badge">$1.29</h4>
+
+							<h6><a href="#">Dinner Roll</a></h6>
+
+							<p class="l-height">
+								Straight from our oven
+								to you.
+							</p>
+						</div>
+						<div class="col-md-2 col-sm-4 col-xs-6 wow fadeInUp" data-wow-delay="0.3s">
+
+							<img src="images/page-1_img04.jpg" alt="">
+
+							<h4 class="badge">$4.29</h4>
+
+							<h6><a href="#">Rye Kaiser Roll</a></h6>
+
+							<p class="l-height">
+								Straight from our oven
+								to you.
+							</p>
+						</div>
+						<div class="col-md-2 col-sm-4 col-xs-6 wow fadeInUp" data-wow-delay="0.4s">
+
+							<img src="images/page-1_img05.jpg" alt="">
+
+							<h4 class="badge">$0.99</h4>
+
+							<h6><a href="#">Guava Tart</a></h6>
+
+							<p class="l-height">
+								Straight from our oven
+								to you.
+							</p>
+						</div>
+						<div class="col-md-2 col-sm-4 col-xs-6 wow fadeInUp" data-wow-delay="0.5s">
+
+							<img src="images/page-1_img06.jpg" alt="">
+
+							<h4 class="badge">$2.89</h4>
+
+							<h6><a href="#">Italian Sub</a></h6>
+
+							<p class="l-height">
+								Straight from our oven
+								to you.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="well1 bg-white center479">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8 col-md-7 col-sm-12 col-xs-12 wow fadeInLeft">
+							<h3>Welcome to our bakery!</h3>
+
+							<p class="p_mod">
+								It is our mission to offer you bread with love. Bread, in its pure original
+								formula, making it available
+								for everyone’s enjoyment. From antiquity, bread has been known as the epitome of life and
+								human society. It’s history can be traced back for thousands of years to the ancient
+								Egyptians, Romans and Greeks.
+							</p>
+						</div>
+						<div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 mg_add">
+							<div class="row">
+								<div class="col-md-6 col-sm-6 col-xs-6 wow fadeInRight" data-wow-delay="0.2s">
+									<a href="#" class="btn btn-default">about us</a>
+								</div>
+
+								<div class="col-md-6 col-sm-6 col-xs-6 off8 wow fadeInRight" data-wow-delay="0.4s">
+									<a href="#" class="btn btn-primary">click here</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="well center991">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInLeft">
+
+							<img src="images/page-1_img07.jpg" alt="">
+
+							<h4><strong><a href="#">our misson</a></strong></h4>
+
+							<p>
+								We exclusively use sun ripened whole grain to provide you with a source of power, stamina and
+								health! Spoil yourself with our breads natural flavor! We use only the finest quality
+								ingredients providing your body with important fiber and nutrients. For people who suffer
+								from allergies we offer a delicious range of wheat and yeast free products.
+							</p>
+
+							<a href="#" class="btn-link">Read More >></a>
+						</div>
+						<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp">
+
+							<img src="images/page-1_img08.jpg" alt="">
+
+							<h4>
+								<strong>
+									<a href="#">
+										our values
+									</a>
+								</strong>
+							</h4>
+
+							<p>
+								We strive to care for you and the environment we live in.
+								All breads, fillings, and salads are considered for healthy living and without
+								preservatives, growth hormones, and as close to the source as possible. Our containers are
+								made of recycled paper and we try to recycle as much of our own waste as we can.
+							</p>
+
+							<a href="#" class="btn-link">Read More >></a>
+						</div>
+						<div class="col-md-4 col-sm-6 col-md-offset-0 col-sm-offset-3 col-xs-12 wow fadeInRight">
+
+							<img src="images/page-1_img09.jpg" alt="">
+
+							<h4><strong><a href="#">Breads bakery catering</a></strong></h4>
+
+							<p>
+								Our well known and loved products come to you, impeccably arranged and ready to serve. Our
+								elegant festive trays add
+								style and taste to any event and are prepared with the utmost attention to detail. We would
+								love to create a custom spread
+								for you and will deliver it anywhere you choose – whether
+								home or office.
+							</p>
+
+							<a href="#" class="btn-link">Read More >></a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="parallax well well__ins" data-url="images/parallax1.jpg" data-mobile="true">
+				<div class="container">
+					<ol class="row index-list">
+						<li class="col-md-4 col-sm-4 col-xs-12">
+
+							<h4>Using the natural ingredients</h4>
+
+							<p>
+								Gustavo Bread Bakery products are hand-made with only the finest ingredients and natural
+								starters. No added preservatives will be found in any of the things we bake, and we strive
+								to source our ingredients locally using farmers and growers who practice the purest growing
+								initiatives. We allow our loaves to take their time, and we practise old world European
+								traditions and techniques to make the very best breads.
+							</p>
+						</li>
+						<li class="col-md-4 col-sm-4 col-xs-12">
+
+							<h4>Caring for your bread</h4>
+
+							<p>
+								We recommend that you eat your bread at its peak of freshness. But, as the days go on, you
+								can be creative with what’s left: toast, croutons, bread crumbs, sweet or savory bread
+								pudding...be inventive!
+								We suggest storing Gustavo Bread Bakery at room temperature in a paper, wax or cloth bread
+								bag. To refresh and serve, place your loaf in a 325˚ oven for about 10-12 minutes for a
+								fresh from the oven experience.
+							</p>
+						</li>
+						<li class="col-md-4 col-sm-4 col-xs-12">
+
+							<h4>
+								Freezing your <br class="br_md">
+								bread
+							</h4>
+
+							<p>
+								If you buy loaves to freeze, it’s best to do it while the bread is still fresh. For the best
+								result, and to prevent freezer burn, tightly wrap each loaf in plastic wrap, and seal in a
+								good quality freezer bag and plan to consume your bread within a month. You can also freeze
+								pieces of fresh bread that you don’t finish right away, to come back to them later in the
+								week. To defrost your frozen bread, remove it from the freezer.
+							</p>
+						</li>
+					</ol>
+				</div>
+			</section>
+			<section class="well2 bg-white center991">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-5 col-sm-12 col-xs-12 wow fadeInLeft">
+							<img src="images/page-1_img10.jpg" alt="">
+						</div>
+						<div class="col-md-7 col-sm-12 col-xs-12">
+							<h3>
+								We exclusively use sun ripened
+								whole grain to provide you
+							</h3>
+
+							<p class="p_mod">
+								Spoil yourself with our breads natural flavor! We use only the finest quality
+								ingredients providing your body with important fiber and nutrients. For people who suffer
+								from allergies we offer a delicious range of wheat and yeast free products. Because your
+								health matters to us, our products are baked freshly for you every day! We strive to care
+								for you and the environment we live in. All breads, fillings, and salads are considered for
+								healthy living and without preservatives, growth hormones, and as close to the source as
+								possible. Our containers are made of recycled paper and we try to recycle as much of our own
+								waste as we can.
+							</p>
+
+							<a href="#" class="btn btn-primary">click here</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="well2 well2__ins bg-secondary2 center991">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-7 col-sm-12 col-xs-12">
+							<h3>
+								How long does it stay <br class="br_md">
+								so delicious?
+							</h3>
+
+							<p class="p_mod">
+								In general, since our breads are made with natural levains, or pre-ferments,
+								they stay fresh much longer than standard, speed-process factory loaves. Under good
+								conditions the breads will last for about a week at room temperature. For bread that you
+								will eat same day or next, just leave the loaf on the cutting board with the cut end down.
+								Or keep it wrapped in a paper bag or cover loosely with a plastic bag. For longer storage,
+								freezing is an excellent option. Just wrap the loaf well in a plastic bag and freeze it.
+								When you remove it, let it sit in the bag until signs of water droplets all disappear.
+							</p>
+
+							<a href="#" class="btn btn-default">click here</a>
+						</div>
+
+						<div class="col-md-5 col-sm-12 col-xs-12 wow fadeInRight">
+							<img src="images/page-1_img25.jpg" alt="">
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="parallax well3 text-center" data-url="images/parallax2.jpg" data-mobile="true">
+				<div class="container">
+					<h2 class="wow fadeIn">
+						<strong>
+							<em>
+								A piece of bread in your sack is better than a feather in your
+								hat
+							</em>
+						</strong>
+					</h2>
+				</div>
+			</section>
+			<section class="well4 bg-primary">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInLeft">
+							<div class="box">
+								<div class="box_aside">
+									<span class="fa-eye"></span>
+								</div>
+								<div class="box_cnt__no-flow">
+									<h5>Browse and discover</h5>
+
+									<p>
+										Browse our great line of bread
+										and discover a new taste.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp">
+							<div class="box">
+								<div class="box_aside">
+									<span class="fa-calendar"></span>
+								</div>
+								<div class="box_cnt__no-flow">
+									<h5>Schedule your order</h5>
+
+									<p>
+										Place your order for a date
+										you need in the future.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-6 col-sm-offset-3 col-md-offset-0 col-xs-12 wow fadeInRight">
+							<div class="box">
+								<div class="box_aside">
+									<span class="fa-bus"></span>
+								</div>
+								<div class="box_cnt__no-flow">
+									<h5>packaging and delivery</h5>
+
+									<p>reliable packing and worldwide shipping.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row off">
+						<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInLeft">
+							<div class="box">
+								<div class="box_aside">
+									<span class="fa-group"></span>
+								</div>
+								<div class="box_cnt__no-flow">
+									<h5>Shipping Options</h5>
+
+									<p>The following shipping options are available depending upon the delivery.</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp">
+							<div class="box">
+								<div class="box_aside">
+									<span class="fa-coffee"></span>
+								</div>
+								<div class="box_cnt__no-flow">
+									<h5>Enjoy an awesome bread </h5>
+
+									<p>
+										enjoy a cup of coffee with our
+										amazing breads.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-6 col-sm-offset-3 col-md-offset-0 col-xs-12 wow fadeInRight">
+							<div class="box">
+								<div class="box_aside">
+									<span class="fa-cubes"></span>
+								</div>
+								<div class="box_cnt__no-flow">
+									<h5>Storage and care</h5>
+
+									<p>
+										We store our bread at room temperature in a dark, dry place.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="well4 text-center">
+				<div class="container">
+					<h3 class="clr-default text-center">Our breads</h3>
+
+					<div class="row col-4_mod">
+						<div class="col-md-4 col-sm-6 col-xs-12">
+							<a class="thumb" href="images/page-1_img11_original.jpg">
+								<img src="images/page-1_img11.jpg" alt="" />
+								<span class="thumb_overlay"></span>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-6 col-xs-12">
+							<a class="thumb" href="images/page-1_img12_original.jpg">
+								<img src="images/page-1_img12.jpg" alt="" />
+								<span class="thumb_overlay"></span>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-6 col-xs-12">
+							<a class="thumb" href="images/page-1_img13_original.jpg">
+								<img src="images/page-1_img13.jpg" alt="" />
+								<span class="thumb_overlay"></span>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-6 col-xs-12">
+							<a class="thumb" href="images/page-1_img14_original.jpg">
+								<img src="images/page-1_img14.jpg" alt="" />
+								<span class="thumb_overlay"></span>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-6 col-xs-12">
+							<a class="thumb" href="images/page-1_img15_original.jpg">
+								<img src="images/page-1_img15.jpg" alt="" />
+								<span class="thumb_overlay"></span>
+							</a>
+						</div>
+						<div class="col-md-4 col-sm-6 col-xs-12">
+							<a class="thumb" href="images/page-1_img16_original.jpg">
+								<img src="images/page-1_img16.jpg" alt="" />
+								<span class="thumb_overlay"></span>
+							</a>
+						</div>
+					</div>
+					<a href="#" class="btn btn-primary off2">click here</a>
+				</div>
+			</section>
+			<section class="well bg-white">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4 col-sm-4 col-xs-12 wow fadeInLeft" data-wow-duration="2s"
+							 data-wow-delay="0.1s">
+							<blockquote class="blockquote-panel">
+								<p>
+									<q>
+										<span>“</span>
+										Thank you so much for the great customer service. I placed my order a few days ago and
+										your tasty treats. The chocolate croissant is so fresh and yummy. I can't wait to open
+										the cookies. Each pack is wrapped in bubble wrap.Thanks again for caring about your
+										customers!
+									</q>
+								</p>
+
+								<cite>Robert Taylor, our customer.</cite>
+							</blockquote>
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-12">
+							<blockquote class="blockquote-panel">
+								<p>
+									<q>
+										<span>“</span>
+										I wanted to take a moment and let y’all know that of all the bread companies and
+										bakeries I have worked with in my tenure as a chef, you guys are truly the best. That
+										said between your customer service, minimal mistakes, timely orders, and attentiveness,
+										are all things y’all do right.
+									</q>
+								</p>
+
+								<cite>Lisa Bingo, our customer.</cite>
+							</blockquote>
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-12 wow fadeInRight" data-wow-duration="2s"
+							 data-wow-delay="0.1">
+							<blockquote class="blockquote-panel">
+								<p>
+									<q>
+										<span>“</span>
+										Gustavo Bread Company is one of the best vendors we have. Excellent product, with an
+										excellent price, and the service is over the top. It is so easy to place an order and
+										receive fresh bread daily! It doesn’t get better than this! We never have any
+										issues.
+									</q>
+								</p>
+
+								<cite>David Stern, our customer.</cite>
+							</blockquote>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="well5 bg-secondary3">
+				<div class="container">
+					<ul class="flex-list">
+						<li>
+							<a href="#">
+								<img src="images/page-1_img17.jpg" alt="">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="images/page-1_img18.jpg" alt="">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="images/page-1_img19.jpg" alt="">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="images/page-1_img20.jpg" alt="">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="images/page-1_img21.jpg" alt="">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="images/page-1_img22.jpg" alt="">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="images/page-1_img23.jpg" alt="">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="images/page-1_img24.jpg" alt="">
+							</a>
+						</li>
+					</ul>
+				</div>
+			</section>
+		</main>
+
+		<!--========================================================
+								  FOOTER
+		=========================================================-->
+		<footer>
+			<div class="container">
+				<ul class="inline-list">
+					<li><a href="#" class="fa fa-twitter"></a></li>
+					<li><a href="#" class="fa fa-facebook"></a></li>
+					<li><a href="#" class="fa fa-google-plus"></a></li>
+				</ul>
+
+				<hr>
+
+				<h5 class="copyright">
+					<span>Gustavo. Bread Bakery ©</span>
+					<span id="copyright-year"></span>
+					<a href="index-6.html">Privacy Policy</a>.
+					Terms of use
+					<!-- {%FOOTER_LINK} -->
+				</h5>
+			</div>
+		</footer>
+	</div>
+
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="scripts/bootstrap.min.js"></script>
+	<script src="scripts/tm-scripts.js"></script>
+	<!-- </script> -->
+	<!-- begin olark code -->
+	<script data-cfasync="false" type='text/javascript'>
+		/*<![CDATA[*/
+		window.olark || (function (c) {
+			var f = window,
+				d = document,
+				l = f.location.protocol == "https:" ? "https:" : "http:",
+				z = c.name,
+				r = "load";
+			var nt = function () {
+				f[z] = function () {
+					(a.s = a.s || []).push(arguments)
+				};
+				var a = f[z]._ = {},
+					q = c.methods.length;
+				while (q--) {
+					(function (n) {
+						f[z][n] = function () {
+							f[z]("call", n, arguments)
+						}
+					})(c.methods[q])
+				}
+				a.l = c.loader;
+				a.i = nt;
+				a.p = {
+					0: +new Date
+				};
+				a.P = function (u) {
+					a.p[u] = new Date - a.p[0]
+				};
+
+				function s() {
+					a.P(r);
+					f[z](r)
+				}
+				f.addEventListener ? f.addEventListener(r, s, false) : f.attachEvent("on" + r, s);
+				var ld = function () {
+					function p(hd) {
+						hd = "head";
+						return ["<", hd, "></", hd, "><", i, ' onl' + 'oad="var d=', g, ";d.getElementsByTagName('head')[0].", j, "(d.", h, "('script')).", k, "='", l, "//", a.l, "'", '"', "></", i, ">"].join("")
+					}
+					var i = "body",
+						m = d[i];
+					if (!m) {
+						return setTimeout(ld, 100)
+					}
+					a.P(1);
+					var j = "appendChild",
+						h = "createElement",
+						k = "src",
+						n = d[h]("div"),
+						v = n[j](d[h](z)),
+						b = d[h]("iframe"),
+						g = "document",
+						e = "domain",
+						o;
+					n.style.display = "none";
+					m.insertBefore(n, m.firstChild).id = z;
+					b.frameBorder = "0";
+					b.id = z + "-loader";
+					if (/MSIE[ ]+6/.test(navigator.userAgent)) {
+						b.src = "javascript:false"
+					}
+					b.allowTransparency = "true";
+					v[j](b);
+					try {
+						b.contentWindow[g].open()
+					} catch (w) {
+						c[e] = d[e];
+						o = "javascript:var d=" + g + ".open();d.domain='" + d.domain + "';";
+						b[k] = o + "void(0);"
+					}
+					try {
+						var t = b.contentWindow[g];
+						t.write(p());
+						t.close()
+					} catch (x) {
+						b[k] = o + 'd.write("' + p().replace(/"/g, String.fromCharCode(92) + '"') + '");d.close();'
+					}
+					a.P(2)
+				};
+				ld()
+			};
+			nt()
+		})({
+			loader: "static.olark.com/jsclient/loader0.js",
+			name: "olark",
+			methods: ["configure", "extend", "declare", "identify"]
+		});
+		/* custom configuration goes here (www.olark.com/documentation) */
+		olark.identify('7830-582-10-3714'); /*]]>*/
+	</script>
+	<noscript><a href="https://www.olark.com/site/7830-582-10-3714/contact" title="Contact us" target="_blank">Questions? Feedback?</a> powered by <a href="http://www.olark.com?welcome" title="Olark live chat software">Olark live chat software</a></noscript>
+	<!-- end olark code -->
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-7078796-5']);
+		_gaq.push(['_trackPageview']);
+		(function () {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();</script>
+</body><!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-P9FT69" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-P9FT69');</script><!-- End Google Tag Manager -->
+</html>
