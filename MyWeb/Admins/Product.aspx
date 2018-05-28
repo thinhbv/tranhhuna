@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/AdminMaster.Master" AutoEventWireup="True"
 CodeBehind="Product.aspx.cs" Inherits="MyWeb.Admins.Product" %>
-
+<%@ Import Namespace="MyWeb.Common" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -51,6 +51,14 @@ Hình ảnh 1
 </HeaderTemplate>
 <ItemTemplate>
 <script type="text/javascript">playfile('<%#Eval("Image1").ToString() %>', "95", "80", "false", "", "", "")</script>
+</ItemTemplate>
+</asp:TemplateColumn>
+<asp:TemplateColumn ItemStyle-CssClass="Number">
+<HeaderTemplate>
+Giá
+</HeaderTemplate>
+<ItemTemplate>
+<asp:TextBox ID="txtPrice" Width="60" runat="server" Text='<%#StringClass.ConvertPrice(Eval("Price").ToString()) %>'></asp:TextBox>
 </ItemTemplate>
 </asp:TemplateColumn>
 <asp:TemplateColumn ItemStyle-CssClass="CheckBox">
@@ -230,6 +238,14 @@ value="Browse Server" />&nbsp;
 </th>
 <td>
 <FCKeditorV2:FCKeditor ID="fckDetail" runat="server" />
+</td>
+</tr>
+<tr>
+<th>
+<asp:Label ID="lblPrice" runat="server" Text="Giá:"></asp:Label>
+</th>
+<td>
+<asp:TextBox id="txtPricePro" runat="server"></asp:TextBox>
 </td>
 </tr>
 <tr>

@@ -3,7 +3,7 @@
 <div id="camera" class="camera_wrap">
 	<asp:Repeater ID="rptBanner" runat="server">
 		<ItemTemplate>
-			<div data-src="<%# Eval("Link") %>">
+			<div data-src="<%# Eval("Image") %>">
 				<div class="camera_caption fadeIn">
 					<h2><%# Eval("Name") %></h2>
 				</div>

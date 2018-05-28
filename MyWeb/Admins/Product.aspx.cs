@@ -138,6 +138,7 @@ namespace MyWeb.Admins
                     imgImage5.ImageUrl = listE[0].Image5.Length > 0 ? listE[0].Image5 : "";
                     txtContent.Text = listE[0].Content;
                     fckDetail.Value = listE[0].Detail;
+					txtPricePro.Text = StringClass.ConvertPrice(listE[0].Price);
                     chkPopular.Checked = listE[0].IsPopular == "1" || listE[0].IsPopular == "True";
                     chkHot.Checked = listE[0].IsHot == "1" || listE[0].IsHot == "True";
                     chkNew.Checked = listE[0].IsNew == "1" || listE[0].IsNew == "True";
@@ -229,6 +230,8 @@ namespace MyWeb.Admins
 				obj.Content = txtContent.Text;
                 obj.Detail = fckDetail.Value;
                 obj.GroupId = ddlGroupProduct.SelectedValue;
+				obj.Price = txtPricePro.Text;
+				obj.GroupName = ddlGroupProduct.SelectedItem.Text;
                 obj.IsPopular = chkPopular.Checked ? "1" : "0";
                 obj.IsHot = chkHot.Checked ? "1" : "0";
                 obj.IsNew = chkNew.Checked ? "1" : "0";

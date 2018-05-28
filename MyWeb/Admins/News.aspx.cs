@@ -223,6 +223,7 @@ namespace MyWeb.Admins
                 obj.Active = chkActive.Checked ? "1" : "0";
                 obj.Priority = chkPriority.Checked ? "1" : "0";
                 obj.GroupNewsId = ddlGroupNews.SelectedValue;
+				obj.GroupName = ddlGroupNews.SelectedItem.Text;
                 obj.Description = "";
                 obj.Keyword = "";
                 obj.Views = "0";
