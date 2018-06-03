@@ -8,41 +8,13 @@ namespace MyWeb.Data
     public class ProductDAL : SqlDataProvider
     {
         #region[Product_GetById]
-        public List<Product> Product_GetById(string Id)
+        public DataTable Product_GetById(string Id)
         {
-            List<Data.Product> list = new List<Data.Product>();
-            Data.Product obj = new Data.Product();
-            SqlDataReader dr = null;
-            try
-            {
-                using (SqlCommand dbCmd = new SqlCommand("sp_Product_GetById", GetConnection()))
-                {
-                    dbCmd.CommandType = CommandType.StoredProcedure;
-                    dbCmd.Parameters.Add(new SqlParameter("@Id", Id));
-                    dr = dbCmd.ExecuteReader();
-                    if (dr.HasRows)
-                    {
-                        while (dr.Read())
-                        {
-                            list.Add(obj.ProductIDataReader(dr));
-                        }
-                        //conn.Close();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-				throw ex;
-            }
-            finally
-            {
-                if (dr != null)
-                {
-                    dr.Close();
-                }
-                obj = null;
-            }
-            return list;
+			SqlCommand dbCmd;
+			dbCmd = new SqlCommand("sp_Product_GetById");
+			dbCmd.CommandType = CommandType.StoredProcedure;
+			dbCmd.Parameters.Add(new SqlParameter("@Id", Id));
+			return GetData(dbCmd);
         }
         #endregion
         #region[Product_GetCount]
@@ -165,8 +137,10 @@ namespace MyWeb.Data
                 dbCmd.Parameters.Add(new SqlParameter("@Image4", data.Image4));
                 dbCmd.Parameters.Add(new SqlParameter("@Image5", data.Image5));
                 dbCmd.Parameters.Add(new SqlParameter("@Content", data.Content));
-                dbCmd.Parameters.Add(new SqlParameter("@Detail", data.Detail));
-                dbCmd.Parameters.Add(new SqlParameter("@GroupId", data.GroupId));
+				dbCmd.Parameters.Add(new SqlParameter("@Detail", data.Detail));
+				dbCmd.Parameters.Add(new SqlParameter("@Price", data.Price));
+				dbCmd.Parameters.Add(new SqlParameter("@GroupId", data.GroupId));
+				dbCmd.Parameters.Add(new SqlParameter("@GroupName", data.GroupName));
                 dbCmd.Parameters.Add(new SqlParameter("@IsHot", data.IsHot));
                 dbCmd.Parameters.Add(new SqlParameter("@IsPopular", data.IsPopular));
                 dbCmd.Parameters.Add(new SqlParameter("@IsSpecial", data.IsSpecial));
@@ -194,8 +168,10 @@ namespace MyWeb.Data
                 dbCmd.Parameters.Add(new SqlParameter("@Image4", data.Image4));
                 dbCmd.Parameters.Add(new SqlParameter("@Image5", data.Image5));
                 dbCmd.Parameters.Add(new SqlParameter("@Content", data.Content));
-                dbCmd.Parameters.Add(new SqlParameter("@Detail", data.Detail));
-                dbCmd.Parameters.Add(new SqlParameter("@GroupId", data.GroupId));
+				dbCmd.Parameters.Add(new SqlParameter("@Detail", data.Detail));
+				dbCmd.Parameters.Add(new SqlParameter("@Price", data.Price));
+				dbCmd.Parameters.Add(new SqlParameter("@GroupId", data.GroupId));
+				dbCmd.Parameters.Add(new SqlParameter("@GroupName", data.GroupName));
                 dbCmd.Parameters.Add(new SqlParameter("@IsHot", data.IsHot));
                 dbCmd.Parameters.Add(new SqlParameter("@IsPopular", data.IsPopular));
                 dbCmd.Parameters.Add(new SqlParameter("@IsSpecial", data.IsSpecial));

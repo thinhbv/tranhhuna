@@ -26,7 +26,7 @@ namespace MyWeb.Modules.Page
 				string UId = txtUsername.Text;
 				string PId = txtPassword.Text;
 				DataTable dt = new DataTable();
-				dt = UserService.User_GetByTop("", "UserName='" + UId + "' and Password='" + PId + "'", "");
+				dt = UserService.User_GetByTop("", "UserName='" + StringClass.SqlInjection(UId) + "' and Password='" + StringClass.SqlInjection(PId) + "'", "");
 				if (dt.Rows.Count > 0)
 				{
 					FormsAuthentication.SetAuthCookie(UId, false);

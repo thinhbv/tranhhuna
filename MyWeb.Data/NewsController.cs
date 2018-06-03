@@ -25,7 +25,8 @@ using System;using System.Data;using System.Data.SqlClient;using System.Colle
             dbCmd.Parameters.Add(new SqlParameter("@Priority", data.Priority));
             dbCmd.Parameters.Add(new SqlParameter("@Index", data.Index));
             dbCmd.Parameters.Add(new SqlParameter("@Views", data.Views));
-            dbCmd.Parameters.Add(new SqlParameter("@GroupNewsId", data.GroupNewsId));
+			dbCmd.Parameters.Add(new SqlParameter("@GroupNewsId", data.GroupNewsId));
+			dbCmd.Parameters.Add(new SqlParameter("@GroupName", data.GroupName));
             dbCmd.Parameters.Add(new SqlParameter("@LinkDemo", data.LinkDemo));
             dbCmd.Parameters.Add(new SqlParameter("@Description", data.Description));
             dbCmd.Parameters.Add(new SqlParameter("@Keyword", data.Keyword));
@@ -50,7 +51,8 @@ using System;using System.Data;using System.Data.SqlClient;using System.Colle
             dbCmd.Parameters.Add(new SqlParameter("@Priority", data.Priority));
             dbCmd.Parameters.Add(new SqlParameter("@Index", data.Index));
             dbCmd.Parameters.Add(new SqlParameter("@Views", data.Views));
-            dbCmd.Parameters.Add(new SqlParameter("@GroupNewsId", data.GroupNewsId));
+			dbCmd.Parameters.Add(new SqlParameter("@GroupNewsId", data.GroupNewsId));
+			dbCmd.Parameters.Add(new SqlParameter("@GroupName", data.GroupName));
             dbCmd.Parameters.Add(new SqlParameter("@LinkDemo", data.LinkDemo));
             dbCmd.Parameters.Add(new SqlParameter("@Description", data.Description));
             dbCmd.Parameters.Add(new SqlParameter("@Keyword", data.Keyword));

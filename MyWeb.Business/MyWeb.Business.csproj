@@ -51,6 +51,8 @@
     <Compile Include="GroupProductService.cs" />
     <Compile Include="ImagesService.cs" />
     <Compile Include="NewsService.cs" />
+    <Compile Include="OrderDetailService.cs" />
+    <Compile Include="OrdersService.cs" />
     <Compile Include="PageService.cs" />
     <Compile Include="ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

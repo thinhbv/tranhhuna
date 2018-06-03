@@ -13,15 +13,6 @@ namespace MyWeb.Modules.Product {
     public partial class ProductDetail {
         
         /// <summary>
-        /// ltrImages control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrImages;
-        
-        /// <summary>
         /// ltrDetail control.
         /// </summary>
         /// <remarks>
@@ -31,12 +22,12 @@ namespace MyWeb.Modules.Product {
         protected global::System.Web.UI.WebControls.Literal ltrDetail;
         
         /// <summary>
-        /// ltrRelated control.
+        /// rptProducts control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrRelated;
+        protected global::System.Web.UI.WebControls.Repeater rptProducts;
     }
 }

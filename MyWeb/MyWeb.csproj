@@ -208,6 +208,7 @@
     <Content Include="css\bootstrap.css" />
     <Content Include="css\camera.css" />
     <Content Include="css\search.css" />
+    <Content Include="css\shoppingcart.css" />
     <Content Include="css\theme.css" />
     <Content Include="css\tm_docs.css" />
     <Content Include="css\tm_panel.css" />
@@ -224,8 +225,10 @@
     <Content Include="Modules\Page\Contact.aspx" />
     <Content Include="Modules\Page\Logon.aspx" />
     <Content Include="Modules\Page\PageDetail.aspx" />
+    <Content Include="Modules\Product\CheckOut.aspx" />
     <Content Include="Modules\Product\ProductDetail.aspx" />
     <Content Include="Modules\Product\ViewProduct.aspx" />
+    <Content Include="Processor.aspx" />
     <Content Include="scripts\7830-582-10-3714.js" />
     <Content Include="scripts\analytics.js" />
     <Content Include="scripts\app.js" />
@@ -657,6 +660,8 @@
     <Content Include="scripts\jquery.rd-mailform.min.js" />
     <Content Include="scripts\jquery.rd-navbar.js" />
     <Content Include="scripts\jquery.rd-parallax.js" />
+    <Content Include="scripts\jquery.scrollTo.js" />
+    <Content Include="scripts\jquery.serialScroll.js" />
     <Content Include="scripts\jquery.touch-touch.js" />
     <Content Include="scripts\jquery.ui.totop.js" />
     <Content Include="scripts\jqzoom\jquery.jqzoom.css" />
@@ -779,6 +784,125 @@
     <Content Include="scripts\wow.js" />
     <Content Include="uploads\advertise\anhdemo.jpg" />
     <Content Include="uploads\_thumbs\Advertise\anhdemo.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-001.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-002.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-003.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-004.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-005.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-006.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-007.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-008.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-009.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-010.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-011.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-012.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-013.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-014.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-015.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-016.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-017.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-018.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-019.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-020.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-021.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-022.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-023.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-024.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-025.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-026.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-027.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-028.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-029.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-030.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-030_1.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-031.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-032.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-033.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-034.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-035.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-036.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-037.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-038.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-039.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-040.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-041.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-042.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-043.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-044.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-045.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-046.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-047.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-048.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-048_1.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-049.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-050.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-051.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-052.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-053.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-054.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-055.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-056.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-057.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-058.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-059.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-060.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-061.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-062.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-063.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-064.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-065.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-066.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-067.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-068.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-072.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-073.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-074.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-080.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-081.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-082.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-083.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-084.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-085.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-086.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-087.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-088.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-089.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-090.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-093.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-095.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-100.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-106.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-114.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-115.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-126.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-129.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-130.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-132.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-133.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-133_1.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-135.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-136.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-136_1.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-137.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-138.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-139.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-140.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-141.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-142.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-143.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-144.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-145.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-146.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-147.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-148.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-150.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-151.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-152.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-153.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-154.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-155.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-156.jpg" />
+    <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-157.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -1051,6 +1175,13 @@
     <Compile Include="Modules\Page\PageDetail.aspx.designer.cs">
       <DependentUpon>PageDetail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Product\CheckOut.aspx.cs">
+      <DependentUpon>CheckOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Product\CheckOut.aspx.designer.cs">
+      <DependentUpon>CheckOut.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Product\ProductDetail.aspx.cs">
       <DependentUpon>ProductDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1065,6 +1196,13 @@
     <Compile Include="Modules\Product\ViewProduct.aspx.designer.cs">
       <DependentUpon>ViewProduct.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Processor.aspx.cs">
+      <DependentUpon>Processor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Processor.aspx.designer.cs">
+      <DependentUpon>Processor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1072,7 +1210,6 @@
     <Folder Include="img\" />
     <Folder Include="scripts\mailform\" />
     <Folder Include="uploads\images\" />
-    <Folder Include="uploads\_thumbs\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\fl-bigmug-line.woff" />

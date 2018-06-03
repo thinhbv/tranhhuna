@@ -16,8 +16,10 @@ namespace MyWeb.Data
         private string _Image4;
         private string _Image5;
         private string _Content;
-        private string _Detail;
-        private string _GroupId;
+		private string _Detail;
+		private string _Price;
+		private string _GroupId;
+		private string _GroupName;
         private string _IsHot;
         private string _IsPopular;
         private string _IsSpecial;
@@ -34,8 +36,10 @@ namespace MyWeb.Data
         public string Image4 { get { return _Image4; } set { _Image4 = value; } }
         public string Image5 { get { return _Image5; } set { _Image5 = value; } }
         public string Content { get { return _Content; } set { _Content = value; } }
-        public string Detail { get { return _Detail; } set { _Detail = value; } }
-        public string GroupId { get { return _GroupId; } set { _GroupId = value; } }
+		public string Detail { get { return _Detail; } set { _Detail = value; } }
+		public string Price { get { return _Price; } set { _Price = value; } }
+		public string GroupId { get { return _GroupId; } set { _GroupId = value; } }
+		public string GroupName { get { return _GroupName; } set { _GroupName = value; } }
         public string IsHot { get { return _IsHot; } set { _IsHot = value; } }
         public string IsPopular { get { return _IsPopular; } set { _IsPopular = value; } }
         public string IsSpecial { get { return _IsSpecial; } set { _IsSpecial = value; } }
@@ -55,8 +59,10 @@ namespace MyWeb.Data
             obj.Image4 = (dr["Image4"] is DBNull) ? string.Empty : dr["Image4"].ToString();
             obj.Image5 = (dr["Image5"] is DBNull) ? string.Empty : dr["Image5"].ToString();
             obj.Content = (dr["Content"] is DBNull) ? string.Empty : dr["Content"].ToString();
-            obj.Detail = (dr["Detail"] is DBNull) ? string.Empty : dr["Detail"].ToString();
-            obj.GroupId = (dr["GroupId"] is DBNull) ? string.Empty : dr["GroupId"].ToString();
+			obj.Detail = (dr["Detail"] is DBNull) ? string.Empty : dr["Detail"].ToString();
+			obj.Price = (dr["Price"] is DBNull) ? string.Empty : dr["Price"].ToString();
+			obj.GroupId = (dr["GroupId"] is DBNull) ? string.Empty : dr["GroupId"].ToString();
+			obj.GroupName = (dr["GroupName"] is DBNull) ? string.Empty : dr["GroupName"].ToString();
             obj.IsHot = (dr["IsHot"] is DBNull) ? string.Empty : dr["IsHot"].ToString();
             obj.IsPopular = (dr["IsPopular"] is DBNull) ? string.Empty : dr["IsPopular"].ToString();
             obj.IsSpecial = (dr["IsSpecial"] is DBNull) ? string.Empty : dr["IsSpecial"].ToString();

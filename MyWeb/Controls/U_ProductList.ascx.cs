@@ -13,14 +13,26 @@ namespace MyWeb.Controls
 {
 	public partial class U_ProductList : System.Web.UI.UserControl
 	{
+		private string level = string.Empty;
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			if (!IsPostBack)
 			{
-				DataTable dtPro = ProductService.Product_GetByTop("12", "Active=1 AND IsNew=1", "Ord");
-				rptProducts.DataSource = StringClass.ModifyDataProduct(dtPro);
-				rptProducts.DataBind();
+				if (string.IsNullOrEmpty(level))
+				{
+					DataTable dtPro = ProductService.Product_GetByTop("6", "Active=1 AND IsNew=1", "Ord");
+					rptProducts.DataSource = StringClass.ModifyDataProduct(dtPro);
+					rptProducts.DataBind();
+				}
+				else
+				{
+					DataTable dtPro = ProductService.Product_GetByTop("", "Active=1 AND GroupId IN (Select Id from GroupProduct Where Active=1 AND Left(Level,Len('" + level + "'))='" + level + "')", "Ord");
+					rptProducts.DataSource = StringClass.ModifyDataProduct(dtPro);
+					rptProducts.DataBind();
+				}
 			}
 		}
+
+		public string Level { get { return level; } set { level = value; } }
 	}
 }

@@ -18,7 +18,7 @@ namespace MyWeb.Controls
 			string groupName = string.Empty;
 			if (!IsPostBack)
 			{
-				DataTable dtNews = NewsService.News_GetByTop("3", "Priority=2 AND Active=1", "Date DESC");
+				DataTable dtNews = NewsService.News_GetByTop("3", "Priority=1 AND Active=1", "Date DESC");
 				for (int i = 0; i < dtNews.Rows.Count; i++)
 				{
 					DataTable dtGroup = GroupNewsService.GroupNews_GetById(dtNews.Rows[i]["GroupNewsId"].ToString());

@@ -3,8 +3,6 @@
 <%@ Register Src="Controls/U_Top.ascx" TagName="U_Top" TagPrefix="uc1" %>
 <%@ Register Src="Controls/U_Menu.ascx" TagName="U_Menu" TagPrefix="uc2" %>
 <%@ Register Src="Controls/U_Banner.ascx" TagName="U_Banner" TagPrefix="uc3" %>
-<%@ Register Src="Controls/U_Slider.ascx" TagName="U_Slider" TagPrefix="uc4" %>
-<%@ Register Src="Controls/U_Contact.ascx" TagName="U_Contact" TagPrefix="uc5" %>
 <%@ Register Src="Controls/Footer.ascx" TagName="Footer" TagPrefix="uc6" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

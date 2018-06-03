@@ -9,11 +9,11 @@ function isIE() {
 
 /* cookie.JS
  ========================================================*/
-include('scripts/jquery.cookie.js');
+include('/scripts/jquery.cookie.js');
 
 /* Easing library
  ========================================================*/
-include('scripts/jquery.easing.1.3.js');
+include('/scripts/jquery.easing.1.3.js');
 
 
 /* Stick up menus
@@ -22,7 +22,7 @@ include('scripts/jquery.easing.1.3.js');
 (function ($) {
     var o = $('html');
     if (o.hasClass('desktop')) {
-        include('scripts/tmstickup.js');
+        include('/scripts/tmstickup.js');
 
         $(document).ready(function () {
             $('#stuck_container').TMStickUp({})
@@ -36,7 +36,7 @@ include('scripts/jquery.easing.1.3.js');
 (function ($) {
     var o = $('html');
     if (o.hasClass('desktop')) {
-        include('scripts/jquery.ui.totop.js');
+        include('/scripts/jquery.ui.totop.js');
 
         $(document).ready(function () {
             $().UItoTop({
@@ -53,7 +53,7 @@ include('scripts/jquery.easing.1.3.js');
 (function ($) {
     var o = $('[data-equal-group]');
     if (o.length > 0) {
-        include('scripts/jquery.equalheights.js');
+        include('/scripts/jquery.equalheights.js');
     }
 })(jQuery);
 
@@ -72,7 +72,7 @@ include('scripts/jquery.easing.1.3.js');
 ;
 (function ($) {
     function include(url) {
-        document.write('<script src="scripts/' + url + '"></script>');
+        document.write('<script src="/scripts/' + url + '"></script>');
         return false;
     }
 
@@ -88,7 +88,7 @@ include('scripts/jquery.easing.1.3.js');
 (function ($) {
     var o = $('.resp-tabs');
     if (o.length > 0) {
-        include('scripts/jquery.responsive.tabs.js');
+        include('/scripts/jquery.responsive.tabs.js');
 
         $(document).ready(function () {
             o.easyResponsiveTabs();
@@ -101,7 +101,7 @@ include('scripts/jquery.easing.1.3.js');
  ========================================================*/
 ;
 (function ($) {
-    include('scripts/jquery.rd-navbar.js');
+    include('/scripts/jquery.rd-navbar.js');
 })(jQuery);
 
 
@@ -111,7 +111,7 @@ include('scripts/jquery.easing.1.3.js');
 (function ($) {
     var o = $('.accordion');
     if (o.length > 0) {
-        include('scripts/jquery.ui.accordion.min.js');
+        include('/scripts/jquery.ui.accordion.min.js');
 
         $(document).ready(function () {
             o.accordion({
@@ -132,7 +132,7 @@ include('scripts/jquery.easing.1.3.js');
     var o = document.getElementById("google-map");
     if (o) {
         include('//maps.google.com/maps/api/js?sensor=false');
-        include('scripts/jquery.rd-google-map.js');
+        include('/scripts/jquery.rd-google-map.js');
 
         $(document).ready(function () {
             var o = $('#google-map');
@@ -208,7 +208,7 @@ include('scripts/jquery.easing.1.3.js');
 (function ($) {
     var o = $('.owl-carousel');
     if (o.length > 0) {
-        include('scripts/owl.carousel.min.js');
+        include('/scripts/owl.carousel.min.js');
         $(document).ready(function () {
             o.owlCarousel({
                 margin: 30,
@@ -237,7 +237,7 @@ include('scripts/jquery.easing.1.3.js');
 
     if ((navigator.userAgent.toLowerCase().indexOf('msie') == -1 ) || (isIE() && isIE() > 9)) {
         if (o.hasClass('desktop')) {
-            include('scripts/wow.js');
+            include('/scripts/wow.js');
 
             $(document).ready(function () {
                 new WOW().init();
@@ -302,10 +302,10 @@ document.write('<meta name="viewport" content="width=device-width,initial-scale=
     var o = $('#camera');
     if (o.length > 0) {
         if (!(isIE() && (isIE() > 9))) {
-            include('scripts/jquery.mobile.customized.min.js');
+            include('/scripts/jquery.mobile.customized.min.js');
         }
 
-        include('scripts/camera.js');
+        include('/scripts/camera.js');
 
         $(document).ready(function () {
             o.camera({
@@ -332,7 +332,7 @@ document.write('<meta name="viewport" content="width=device-width,initial-scale=
 (function ($) {
     var o = $('.search-form');
     if (o.length > 0) {
-        include('scripts/TMSearch.js');
+        include('/scripts/TMSearch.js');
     }
 })(jQuery);
 
@@ -341,16 +341,16 @@ document.write('<meta name="viewport" content="width=device-width,initial-scale=
  =============================================*/
 ;
 (function ($) {
-    include('scripts/mailform/jquery.form.min.js');
-    include('scripts/mailform/jquery.rd-mailform.min.js');
+    include('/scripts/mailform/jquery.form.min.js');
+    include('/scripts/mailform/jquery.rd-mailform.min.js');
 })(jQuery);
 
 
 /* panel */
-include('scripts/jquery.cookie.js');
+include('/scripts/jquery.cookie.js');
 
 $(document).ready(function () {
-    $('head').append('<link rel="stylesheet" href="/css/tm_docs.css" type="text/css" media="screen"><link href="css/tm_panel.css" rel="stylesheet">');
+    $('head').append('<link rel="stylesheet" href="/css/tm_docs.css" type="text/css" media="screen"><link href="/css/tm_panel.css" rel="stylesheet">');
     $('body').prepend('<div id="panel"><div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner" id="advanced"><span class="trigger"><strong></strong><em></em></span><div class="container"><div class="navbar-header"><button class="navbar-toggle tm_offs1" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div><nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation"><ul class="nav navbar-nav"><li class="home"><a href="index.html" class="glyphicon glyphicon-home"></a></li><li class="divider-vertical"></li><li><a href="assets/getting-started.html">Getting started</a></li><li><a href="assets/css.html">CSS</a></li><li><a href="assets/components.html">Components</a></li><li><a href="assets/javascript.html">JavaScript</a></li><li class="divider-vertical"></li><li class="dropdown -tm-dropdown"><a data-toggle="dropdown" href="#">TM add-ons<span class="caret"></span></a><ul class="dropdown-menu" role="menu"><li role="presentation"><a role="menuitem" tabindex="-1" href="404.html">Pages</a><ul class="pages"><li><a href="404.html" role="menuitem" tabindex="-1">404 page</a></li><li><a href="assets/under-construction.html" role="menuitem" tabindex="-1">Under Construction</a></li></ul></li><li role="presentation"><a role="menuitem" tabindex="-1" href="assets/portfolio.html">Porfolio</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="assets/slider.html">Slider</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="assets/social_media.html">Social and media</a></li></ul></li></ul></nav></div></div></div>');
 });
 $(window).scroll(
@@ -481,7 +481,7 @@ $(function () {
 (function ($) {
     var o = $('.thumb');
     if (o.length > 0) {
-        include('scripts/jquery.touch-touch.js');
+        include('/scripts/jquery.touch-touch.js');
         $(document).ready(function () {
             o.touchTouch();
         });
@@ -492,7 +492,7 @@ $(function () {
  =============================================*/
 ;
 (function ($) {
-    include('scripts/jquery.rd-parallax.js');
+    include('/scripts/jquery.rd-parallax.js');
 })(jQuery); 
 
 

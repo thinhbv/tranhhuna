@@ -11,6 +11,7 @@ namespace MyWeb.Common
 		public const string CON_PARAM_URL_SORT = "sort";
 		public enum SortNum {asc, desc};
 		public const int MAX_IMAGE_THUMBNAIL = 270;
+		public const string GUID_SHOPPING_CART = "GUIDSC";
 
 	}
 }

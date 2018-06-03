@@ -10,7 +10,7 @@ namespace MyWeb.Business
     {
         private static ProductDAL db = new ProductDAL();
         #region[Product_GetById]
-        public static List<Data.Product> Product_GetById(string Id)
+        public static DataTable Product_GetById(string Id)
         {
             return db.Product_GetById(Id);
         }

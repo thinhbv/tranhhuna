@@ -9,8 +9,8 @@
 			win = window.open(url, name, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
 			var pollTimer = window.setInterval(function () {
 				if (win.closed !== false) { // !== is required for compatibility with Opera
+					window.location.reload(true);
 					window.clearInterval(pollTimer);
-					window.location.reload();
 				}
 			}, 200);
 		}
@@ -20,6 +20,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 	<div class="PageName">
 		Upload ảnh
+
 	</div>
 
 	<asp:Panel ID="pnUpdate" runat="server">
@@ -30,13 +31,15 @@
 						<li>
 							<asp:LinkButton CssClass="uupdate" ID="lbtUploadT" runat="server" OnClick="lbtUpload_Click">Upload</asp:LinkButton></li>
 						<li>
-							<a href="javascript:void(0);" class="vadd" onclick="OpenCenter('/scripts/ckfinder/ckfinder.html','CreateFolder','600', '600');" >Tạo thư mục</a></li>
+							<a href="javascript:void(0);" class="vadd" onclick="OpenCenter('/scripts/ckfinder/ckfinder.html','CreateFolder','600', '600');">Tạo/Xóa thư mục</a></li>
+						<li>
+							<asp:LinkButton CssClass="vrefresh" ID="lbtRefreshT" runat="server" OnClientClick="javascript:window.loacation.reload(true);">Làm mới</asp:LinkButton></li>
 						<li>
 							<asp:LinkButton CssClass="uback" ID="lbtClearT" runat="server"
 								CausesValidation="False">Clear</asp:LinkButton></li>
 					</ul>
 				</td>
-			</tr>	
+			</tr>
 			<tr>
 				<th>
 					<asp:Label ID="Label1" runat="server" Text="Thư mục Upload:"></asp:Label>
@@ -65,7 +68,7 @@
 					<asp:Label ID="lblMsg" runat="server" Text="Kết quả Upload:"></asp:Label>
 				</th>
 				<td>
-					<asp:Label ID="Span1" runat="server"></asp:Label>
+					<asp:Label ID="Span1" runat="server" Text=""></asp:Label>
 				</td>
 			</tr>
 			<tr>
@@ -74,7 +77,9 @@
 						<li>
 							<asp:LinkButton CssClass="uupdate" ID="lbtUploadB" runat="server" OnClick="lbtUpload_Click">Upload</asp:LinkButton></li>
 						<li>
-							<a href="javascript:void(0);" class="vadd" onclick='window.open("/scripts/ckfinder/ckfinder.html","CreateFolder","width=500,height=700");' >Tạo thư mục</a></li>
+							<a href="javascript:void(0);" class="vadd" onclick='window.open("/scripts/ckfinder/ckfinder.html","CreateFolder","width=500,height=700");'>Tạo/Xóa thư mục</a></li>
+						<li>
+							<asp:LinkButton CssClass="vrefresh" ID="lbtRefreshB" runat="server" OnClientClick="javascript:window.loacation.reload(true);">Làm mới</asp:LinkButton></li>
 						<li>
 							<asp:LinkButton CssClass="uback" ID="lbtClearB" runat="server"
 								CausesValidation="False">Clear</asp:LinkButton></li>

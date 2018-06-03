@@ -14,7 +14,6 @@ namespace MyWeb.Data
         /// SQL server connection string
 		/// </summary>
 #if DEBUG
-		//static string strConStr = @"Data Source=.;Initial Catalog=DaMyNghe;User ID=sa;Password=Thinh!@#123;Pooling=true;Max Pool Size=256;Min Pool Size=16;";
 		static string strConStr = @"Data Source=THINHBV-PC\MSSQLSERVER_2008;Initial Catalog=tranhhuna;User ID=sa;Password=Thinh!@#123;Pooling=true;Max Pool Size=256;Min Pool Size=16;";
 #else
 		static string strConStr = @"Data Source=.;Initial Catalog=damyngh1_ht;User ID=damyngh1_ht;Password=oEir595~;Pooling=true;Max Pool Size=256;Min Pool Size=16;";
@@ -67,6 +66,29 @@ namespace MyWeb.Data
                 }
             }
         }
+		public DataTable GetData(SqlCommand cmd, bool isClose)
+		{
+			try
+			{
+				if (cmd.Connection == null) { cmd.Connection = GetConnection(); }
+				using (DataSet ds = new DataSet())
+				{
+					using (SqlDataAdapter da = new SqlDataAdapter())
+					{
+						da.SelectCommand = cmd;
+						da.Fill(ds);
+						return ds.Tables[0];
+					}
+				}
+			}
+			finally
+			{
+				if (cmd.Connection != null && isClose)
+				{
+					cmd.Connection.Close();
+				}
+			}
+		}
 
         public void ExecuteNonQuery(string sql) 
         {
@@ -91,7 +113,8 @@ namespace MyWeb.Data
 				if (mTran != null)
 				{
 					mTran.Rollback();
-				}			
+				}
+				throw ex;
 			}
             finally
             {
@@ -106,7 +129,6 @@ namespace MyWeb.Data
         {
             return ExecuteScalar(GetCommand(sql));
         }
-
         public object ExecuteScalar(SqlCommand cmd)
         {
             try
@@ -116,7 +138,10 @@ namespace MyWeb.Data
             }
             finally
             {
-                
+				if (cmd.Connection != null)
+				{
+					cmd.Connection.Close();
+				}
             }
         }
 

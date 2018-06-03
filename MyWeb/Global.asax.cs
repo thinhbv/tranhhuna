@@ -30,7 +30,8 @@ namespace MyWeb
             RouteTable.Routes.MapPageRoute("PageDetail", "trang-tin/{title}-{pageId}", "~/Modules/Page/PageDetail.aspx");
             RouteTable.Routes.MapPageRoute("Contact", "lien-he", "~/Modules/Page/Contact.aspx");
             RouteTable.Routes.MapPageRoute("Logon", "Logon", "~/Modules/Page/Logon.aspx");
-            RouteTable.Routes.MapPageRoute("Admin", "admin", "~/Admins/Default.aspx");
+			RouteTable.Routes.MapPageRoute("Admin", "admin", "~/Admins/Default.aspx");
+			RouteTable.Routes.MapPageRoute("Cart", "gio-hang", "~/Modules/Product/CheckOut.aspx");
         }
 
         protected void Application_Start(object sender, EventArgs e)

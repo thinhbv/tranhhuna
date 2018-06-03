@@ -1,99 +1,97 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PageMaster.Master.cs" Inherits="MyWeb.PageMaster" %>
 
+<%@ Register Src="/Controls/U_Top.ascx" TagName="U_Top" TagPrefix="uc1" %>
 <%@ Register Src="/Controls/U_Menu.ascx" TagName="U_Menu" TagPrefix="uc2" %>
+<%@ Register Src="/Controls/U_Banner.ascx" TagName="U_Banner" TagPrefix="uc3" %>
 <%@ Register Src="/Controls/Footer.ascx" TagName="Footer" TagPrefix="uc6" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<title>Đá Mỹ Nghệ HT</title>
-<meta name="description" content="Looking for licensed software for your computer or network?" />
-<meta name="generator" content="PrestaShop" />
-<meta name="robots" content="index,follow" />
-<meta name="viewport" content="width=device-width, minimum-scale=0.25, maximum-scale=1.0, initial-scale=1.0" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico?1468996685" />
-<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?1468996685" />
-<link rel="stylesheet" href="../css/global.css" media="all">
-<link rel="stylesheet" href="../css/uniform.default.css" media="all">
-<link rel="stylesheet" href="../css/product_list.css" media="all">
-<link rel="stylesheet" href="../css/category.css" media="all">
-<link rel="stylesheet" href="../css/blocklayered.css" media="all">
-<link rel="stylesheet" href="../css/tmmegamenu.css" media="all">
-<link rel="stylesheet" href="../css/hooks.css" media="all">
-<link href="../css/tmmegalayout.css" rel="stylesheet" />
-<link href="../css/smartblogstyle.css" rel="stylesheet" />
-<script type="text/javascript">
-    var jqZoomEnabled = true;
-    var productColumns = '1';
-    var nbItemsPerLine = 3;
-    var nbItemsPerLineMobile = 2;
-    var nbItemsPerLineTablet = 2;
-    var page_name = 'category';
+	<title>Tranh nghệ thuật Huna</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
-</script>
+	<!-- Bootstrap -->
+	<link href="/css/bootstrap.css" rel="stylesheet">
 
-<script type="text/javascript" src="../../../scripts/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="../../../scripts/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="../../../scripts/tools.js"></script>
-<script type="text/javascript" src="../../../scripts/global.js"></script>
-<script type="text/javascript" src="../../../scripts/10-bootstrap.min.js"></script>
-<script type="text/javascript" src="../../../scripts/14-device.min.js"></script>
-<script type="text/javascript" src="../../../scripts/15-jquery.total-storage.min.js"></script>
-<script type="text/javascript" src="../../../scripts/16-jquery.scrollmagic.min.js"></script>
-<script type="text/javascript" src="../../../scripts/19-TweenMax.min.js"></script>
-<script type="text/javascript" src="../../../scripts/20-modernizr_v2_7_2.min.js"></script>
-<script type="text/javascript" src="../../../scripts/blocklayered.js"></script>
-<script type="text/javascript" src="../../../scripts/jquery.scrollTo.js"></script>
-<script type="text/javascript" src="../../../scripts/blocknewsletter.js"></script>
-<script type="text/javascript" src="../../../scripts/superfish.js"></script>
-<script type="text/javascript" src="../../../scripts/tmmegamenu.js"></script>
-<script type="text/javascript" src="../../../scripts/jquery.serialScroll.js"></script>
-<script type="text/javascript" src="../../../scripts/jquery.bxslider.js"></script>
+	<!-- Links -->
+	<link href="/css/search.css" rel="stylesheet">
+	<link href="/css/camera.css" rel="stylesheet">
 
-<asp:ContentPlaceHolder ID="HeadContent" runat="server" />
+
+	<!--JS-->
+	<script src="/scripts/jquery.js"></script>
+	<script src="/scripts/jquery-migrate-1.2.1.min.js"></script>
+
+	<!--[if lt IE 9]>
+	<div style=' clear: both; text-align:center; position: relative;'>
+		<a href="http://windows.microsoft.com/en-US/internet-explorer/..">
+			<img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820"
+				 alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."/>
+		</a>
+	</div>
+	<script src="/scripts/html5shiv.js"></script>
+	<![endif]-->
+	<script src='/scripts/device.min.js'></script>
+	<asp:ContentPlaceHolder ID="HeadContent" runat="server">
+	</asp:ContentPlaceHolder>
 </head>
 <body id="index" class="index hide-left-column hide-right-column lang_en  one-column">
-<div id="page">
-<div id="preloader">
-<div class="cssload-dots"></div>
-</div>
-<!-- #preloader -->
-<div class="header-container">
-<header id="header">
-               <div class="nav">
-					<div class="container">
-						<div class="row">
-							<div id="header_logo">
-								<a href="/" title="Đá Mỹ Nghệ Hoàng Thành">
-									<img class="logo" src="../../../images/logo.png" alt="Crazysoft" width="1170" height="250" />
-								</a>
-							</div><!--header_logo-->
-						</div><!--row-->
-					</div><!--container-->
-				</div><!--nav-->
-               <div class="top">
-                   <div class="container">
-                       <div class="row">
-                           <uc2:U_Menu ID="U_Menu" runat="server" />
-                       </div><!--row-->
-                   </div><!--container-->
-               </div><!--top-->
-           </header>
-<!--header-->
-</div>
-<!--header-container-->
-<div class="columns-container">
-<asp:ContentPlaceHolder ID="MainContent" runat="server" />
-</div>
-<!--columns-container-->
-<div class="footer-container">
-<div id="footer">
-<uc6:Footer ID="U_Footer" runat="server" />
-</div>
-<!--footer-->
-</div>
-<!--footer-container-->
-</div>
-<!-- #page -->
+	<form id="form1" runat="server">
+	<div class="page">
+		<!--========================================================
+								  HEADER
+		=========================================================-->
+		<header>
+			<div class="header_container">
+				<uc1:U_Top ID="idU_Top" runat="server" />
+			</div><!--header_container-->
+			<div id="stuck_container" class="stuck_container">
+				<div class="container">
+					<uc2:U_Menu ID="idU_Menu" runat="server" />
+				</div><!--container-->
+			</div><!--stuck_container-->
+
+		</header>
+
+		<!--========================================================
+								  CONTENT
+		=========================================================-->
+
+		<asp:ContentPlaceHolder ID="MainContent" runat="server">
+		</asp:ContentPlaceHolder>
+
+		<!--========================================================
+								  FOOTER
+		=========================================================-->
+		<footer>
+			<div class="container">
+				<ul class="inline-list">
+					<li><a href="#" class="fa fa-twitter"></a></li>
+					<li><a href="#" class="fa fa-facebook"></a></li>
+					<li><a href="#" class="fa fa-google-plus"></a></li>
+				</ul>
+
+				<hr>
+
+				<h5 class="copyright">
+					<span>Gustavo. Bread Bakery ©</span>
+					<span id="copyright-year"></span>
+					<a href="index-6.html">Privacy Policy</a>.
+					Terms of use
+					<!-- {%FOOTER_LINK} -->
+				</h5>
+			</div>
+		</footer>
+	</div>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="/scripts/bootstrap.min.js"></script>
+	<script src="/scripts/tm-scripts.js"></script>
+	</form>
 </body>
 </html>

@@ -2013,6 +2013,18 @@ header .info-box .fa-map-marker:before {
 header .info-box .fa-phone + .fa-map-marker {
   border-left: 1px solid #886e36;
 }
+
+header .info-box .cart-info {
+  border-left:1px solid #886e36; 
+  float:right;
+  margin-left:10px;
+}
+header .info-box .cart-info b{
+  color: #fff;
+  position: relative;
+  left: -17px;
+  top: -14px;
+}
 @media (min-width: 480px) and (max-width: 767px) {
   header .info-box .fa-phone {
     padding: 18px 3px 0 27px;
@@ -2047,12 +2059,30 @@ header .info-box .fa-phone + .fa-map-marker {
 main {
   background: url("../img/bg_cnt.png") repeat #efe0c6;
 }
-.badge {
+.badge, .add-cart {
   background: #e7931a;
-  padding: 3px 6px 4px 3px;
+  padding:5px;
   font-weight: 900;
   color: #fff;
   display: inline-block;
+  width:51%;
+}
+.add-cart{
+float:right;
+width:48%;
+font-size:12px;
+padding:6px 0;
+text-align:center;
+margin:0;
+cursor:pointer;
+}
+.added-cart{
+float:right;
+width:48%;
+font-size:12px;
+padding:6px 0;
+text-align:center;
+margin:0;
 }
 .mg_add {
   margin-top: 54px;
@@ -6071,13 +6101,6 @@ a.label:focus {
 .label-danger[href]:hover,
 .label-danger[href]:focus {
   background-color: #ea1b0d;
-}
-.badge {
-  background: #e7931a;
-  padding: 3px 6px 4px 3px;
-  font-weight: 900;
-  color: #fff;
-  display: inline-block;
 }
 .jumbotron {
   color: #ffffff;

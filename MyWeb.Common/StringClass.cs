@@ -261,5 +261,56 @@ namespace MyWeb.Common
 			}
 			return strReturn;
 		}
+
+		public static DataTable ModifyDataNews(DataTable dt)
+		{
+			dt.Columns.Add("No", typeof(Int32));
+			dt.Columns.Add("Link", typeof(string));
+			for (int i = 0; i < dt.Rows.Count; i++)
+			{
+				DataRow dr = dt.Rows[i];
+				dr["No"] = (i + 1);
+				dr["Link"] = PageHelper.GeneralDetailUrl(Consts.CON_TIN_TUC, dr["GroupTagNews"].ToString(), dr["Id"].ToString(), dr["Name"].ToString());
+			}
+			return dt;
+		}
+		public static DataTable ModifyDataProduct(DataTable dt)
+		{
+			dt.Columns.Add("No", typeof(Int32));
+			dt.Columns.Add("Link", typeof(string));
+			for (int i = 0; i < dt.Rows.Count; i++)
+			{
+				DataRow dr = dt.Rows[i];
+				dr["No"] = (i + 1);
+				dr["Link"] = PageHelper.GeneralDetailUrl(Consts.CON_SAN_PHAM, dr["GroupName"].ToString(), dr["Id"].ToString(), dr["Name"].ToString());
+			}
+			return dt;
+		}
+
+		public static DataTable ModifyDataGroupProduct(DataTable dt)
+		{
+			dt.Columns.Add("No", typeof(Int32));
+			dt.Columns.Add("Link", typeof(string));
+			for (int i = 0; i < dt.Rows.Count; i++)
+			{
+				DataRow dr = dt.Rows[i];
+				dr["No"] = (i + 1);
+				dr["Link"] = PageHelper.GeneralGroupUrl(Consts.CON_SAN_PHAM, dr["Id"].ToString(), dr["Name"].ToString());
+			}
+			return dt;
+		}
+
+		public static DataTable ModifyDataGroupNews(DataTable dt)
+		{
+			dt.Columns.Add("No", typeof(Int32));
+			dt.Columns.Add("Link", typeof(string));
+			for (int i = 0; i < dt.Rows.Count; i++)
+			{
+				DataRow dr = dt.Rows[i];
+				dr["No"] = (i + 1);
+				dr["Link"] = PageHelper.GeneralGroupUrl(Consts.CON_TIN_TUC, dr["Id"].ToString(), dr["Name"].ToString());
+			}
+			return dt;
+		}
     }
 }

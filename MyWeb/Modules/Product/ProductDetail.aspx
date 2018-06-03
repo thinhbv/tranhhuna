@@ -1,10 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Modules/PageMaster.Master" AutoEventWireup="true" CodeBehind="ProductDetail.aspx.cs" Inherits="MyWeb.Modules.Product.ProductDetail" %>
-
+<%@ Import Namespace="MyWeb.Common" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadContent" runat="server">
+<script type="text/javascript">
+    var jqZoomEnabled = true;
+    var productColumns = '1';
+    var nbItemsPerLine = 3;
+    var nbItemsPerLineMobile = 2;
+    var nbItemsPerLineTablet = 2;
+    var page_name = 'category';
+
+</script>
 <link href="../../../css/product.css" rel="stylesheet" />
-<link href="../../../scripts/jqzoom/jquery.jqzoom.css" rel="stylesheet" />
+	<script src="../../../scripts/jquery.serialScroll.js"></script>
+	<script src="../../../scripts/jquery.scrollTo.js"></script>
 <script type="text/javascript" src="../../../scripts/product.js"></script>
-<script type="text/javascript" src="../../../scripts/jqzoom/jquery.jqzoom.js"></script>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 <div id="columns" class="container">
@@ -28,33 +37,19 @@
 <div>
 <div class="primary_block row">
 <!-- left infos-->
-<div class="pb-left-column col-sm-6 col-md-6 col-lg-8">
+<div class="pb-left-column col-sm-6 col-md-6 col-lg-6">
 <!-- product img-->
 <div id="image-block" class="clearfix is_caroucel">
 <span class="sale-box no-print">
-<span class="sale-label">Mới!</span>
 </span>
 <span id="view_full_size">
 <a class="jqzoom" title="<%= name %>" rel="gal1" href="<%=sImage_01 %>">
-<img itemprop="image" src="<%= sImage_01%>" title="<%= name %>" alt="<%= name %>" />
+<img itemprop="image" src="<%= sImage_01%>" title="<%= name %>" alt="<%= name %>" width="200" />
 </a>
 <!--jqzoom-->
 </span>
 </div>
 <!-- end image-block -->
-<!-- thumbnails -->
-<div id="views_block" class="clearfix">
-<a id="view_scroll_left" class="" title="Other views" href="javascript:{}">Previous</a>
-<!-- thumbs_list -->
-<div id="thumbs_list">
-<ul id="thumbs_list_frame">
-<asp:Literal ID="ltrImages" runat="server"></asp:Literal>
-</ul>
-</div>
-<!-- end thumbs_list -->
-<a id="view_scroll_right" title="Other views" href="javascript:{}">Next</a>
-</div>
-<!-- end thumbnails -->
 </div>
 <!-- center infos -->
 <div class="pb-right-column col-sm-6 col-md-6 col-lg-4">
@@ -79,7 +74,7 @@
 <!-- end primary_block -->
 <div class="clearfix product-information">
 <ul class="product-info-tabs nav nav-stacked col-sm-3 col-md-3 col-lg-3">
-<li class="product-description-tab active"><a data-toggle="tab" href="<%=Request.RawUrl %>#product-description-tab-content">More info</a></li>
+<li class="product-description-tab active"><a data-toggle="tab" href="<%=Request.RawUrl %>#product-description-tab-content">Thông tin chi tiết</a></li>
 <%--<li class="product-features-tab"><a data-toggle="tab" href="<%=Request.RawUrl %>#product-features-tab-content">Comments</a></li>--%>
 </ul>
 <div class="tab-content col-sm-9 col-md-9 col-lg-9">
@@ -101,11 +96,20 @@
 <!--Accessories -->
 <section class="page-product-box">
 <h3 class="page-product-heading">Sản phẩm liên quan</h3>
-<div class="block products_block accessories-block clearfix">
-<div class="block_content">
-<asp:Literal ID="ltrRelated" runat="server"></asp:Literal>
-</div><!--block_content-->
-</div><!--products_block-->
+<div class="container">
+	<div class="row">
+		<asp:Repeater ID="rptProducts" runat="server">
+			<ItemTemplate>
+				<div class="col-md-2 col-sm-4 col-xs-6 wow fadeInUp">
+					<a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><img src="<%# StringClass.ThumbImage(Eval("Image1").ToString()) %>" alt="<%# Eval("Name") %>" title="<%# Eval("Name") %>"></a>
+					<h4 class="badge"><%# StringClass.ConvertPrice(Eval("Price").ToString()) %> Đ</h4>
+					<h6><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# Eval("Name") %></a></h6>
+					<p class="l-height"><%# StringClass.FormatContentNews(Eval("Content").ToString(),100) %></p>
+				</div>
+			</ItemTemplate>
+		</asp:Repeater>
+	</div>
+</div>
 </section>
 <!--end Accessories -->
 </div>

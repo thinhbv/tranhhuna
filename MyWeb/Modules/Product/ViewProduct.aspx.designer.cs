@@ -13,39 +13,12 @@ namespace MyWeb.Modules.Product {
     public partial class ViewProduct {
         
         /// <summary>
-        /// ltrCrumb control.
+        /// idU_ProductList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrCrumb;
-        
-        /// <summary>
-        /// ltrProducts control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrProducts;
-        
-        /// <summary>
-        /// ltrPaging control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrPaging;
-        
-        /// <summary>
-        /// U_MenuLeft control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::MyWeb.Controls.U_MenuLeft U_MenuLeft;
+        protected global::MyWeb.Controls.U_ProductList idU_ProductList;
     }
 }

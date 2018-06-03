@@ -157,6 +157,29 @@ namespace MyWeb.Common
 			LoadDropDownList(ddl, myArr, true);
 		}
 
+		public static void LoadDropDownListStatusCart(DropDownList ddl)
+		{
+			string[] myArr = new string[] { "0,Thêm vào giỏ hàng", "1,Đã đặt hàng", "2,Đã thanh toán", "3,Hủy đặt hàng" };
+			LoadDropDownList(ddl, myArr, true);
+		}
+
+		public static string ShowAdvertiseStatusCart(string status)
+		{
+			string strString = "";
+			string[] myArr = new string[] { "0,Thêm vào giỏ hàng", "1,Đã đặt hàng", "2,Đã thanh toán", "3,Hủy đặt hàng" };
+			char[] splitter = { ',', ';' };
+			for (int i = 0; i < myArr.Length; i++)
+			{
+				string[] arr = myArr[i].Split(splitter);
+				if (arr[0].Equals(status))
+				{
+					strString = arr[1];
+					break;
+				}
+			}
+			return strString;
+		}
+
 		public static string ShowAdvertisePosition(string Position)
 		{
 			string strString = "";

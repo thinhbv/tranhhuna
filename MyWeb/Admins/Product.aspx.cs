@@ -6,6 +6,7 @@ using System.Web.UI.WebControls;
 using MyWeb.Data;
 using MyWeb.Business;
 using MyWeb.Common;
+using System.Data;
 
 namespace MyWeb.Admins
 {
@@ -117,34 +118,34 @@ namespace MyWeb.Admins
             string strCA = e.CommandArgument.ToString();
             SqlDataProvider sql = new SqlDataProvider();
             string strPri = "";
-            List<Data.Product> listE = ProductService.Product_GetById(strCA);
+            DataTable dtPro = ProductService.Product_GetById(strCA);
             switch (e.CommandName)
             {
                 case "Edit":
                     Insert = false;
                     Id = strCA;
                     LoadDropDownListGroupImage();
-                    ddlGroupProduct.SelectedValue = listE[0].GroupId;
-                    txtName.Text = listE[0].Name;
-                    txtImage1.Text = listE[0].Image1;
-                    imgImage1.ImageUrl = listE[0].Image1.Length > 0 ? listE[0].Image1 : "";
-                    txtImage2.Text = listE[0].Image2;
-                    imgImage2.ImageUrl = listE[0].Image2.Length > 0 ? listE[0].Image2 : "";
-                    txtImage3.Text = listE[0].Image3;
-                    imgImage3.ImageUrl = listE[0].Image3.Length > 0 ? listE[0].Image3 : "";
-                    txtImage4.Text = listE[0].Image4;
-                    imgImage4.ImageUrl = listE[0].Image4.Length > 0 ? listE[0].Image4 : "";
-                    txtImage5.Text = listE[0].Image5;
-                    imgImage5.ImageUrl = listE[0].Image5.Length > 0 ? listE[0].Image5 : "";
-                    txtContent.Text = listE[0].Content;
-                    fckDetail.Value = listE[0].Detail;
-					txtPricePro.Text = StringClass.ConvertPrice(listE[0].Price);
-                    chkPopular.Checked = listE[0].IsPopular == "1" || listE[0].IsPopular == "True";
-                    chkHot.Checked = listE[0].IsHot == "1" || listE[0].IsHot == "True";
-                    chkNew.Checked = listE[0].IsNew == "1" || listE[0].IsNew == "True";
-                    chkSpecial.Checked = listE[0].IsSpecial == "1" || listE[0].IsSpecial == "True";
-                    txtOrd.Text = listE[0].Ord;
-                    chkActive.Checked = listE[0].Active == "1" || listE[0].Active == "True";
+                    ddlGroupProduct.SelectedValue = dtPro.Rows[0]["GroupId"].ToString();
+                    txtName.Text = dtPro.Rows[0]["Name"].ToString();
+                    txtImage1.Text = dtPro.Rows[0]["Image1"].ToString();
+                    imgImage1.ImageUrl = dtPro.Rows[0]["Image1"].ToString().Length > 0 ? dtPro.Rows[0]["Image1"].ToString() : "";
+                    txtImage2.Text = dtPro.Rows[0]["Image2"].ToString();
+                    imgImage2.ImageUrl = dtPro.Rows[0]["Image2"].ToString().Length > 0 ? dtPro.Rows[0]["Image2"].ToString() : "";
+                    txtImage3.Text = dtPro.Rows[0]["Image3"].ToString();
+                    imgImage3.ImageUrl = dtPro.Rows[0]["Image3"].ToString().Length > 0 ? dtPro.Rows[0]["Image3"].ToString() : "";
+                    txtImage4.Text = dtPro.Rows[0]["Image4"].ToString();
+                    imgImage4.ImageUrl = dtPro.Rows[0]["Image4"].ToString().Length > 0 ? dtPro.Rows[0]["Image4"].ToString() : "";
+                    txtImage5.Text = dtPro.Rows[0]["Image5"].ToString();
+                    imgImage5.ImageUrl = dtPro.Rows[0]["Image5"].ToString().Length > 0 ? dtPro.Rows[0]["Image5"].ToString() : "";
+                    txtContent.Text = dtPro.Rows[0]["Content"].ToString();
+                    fckDetail.Value = dtPro.Rows[0]["Detail"].ToString();
+					txtPricePro.Text = StringClass.ConvertPrice(dtPro.Rows[0]["Price"].ToString());
+                    chkPopular.Checked = dtPro.Rows[0]["IsPopular"].ToString() == "1" || dtPro.Rows[0]["IsPopular"].ToString() == "True";
+                    chkHot.Checked = dtPro.Rows[0]["IsHot"].ToString() == "1" || dtPro.Rows[0]["IsHot"].ToString() == "True";
+                    chkNew.Checked = dtPro.Rows[0]["IsNew"].ToString() == "1" || dtPro.Rows[0]["IsNew"].ToString() == "True";
+                    chkSpecial.Checked = dtPro.Rows[0]["IsSpecial"].ToString() == "1" || dtPro.Rows[0]["IsSpecial"].ToString() == "True";
+                    txtOrd.Text = dtPro.Rows[0]["Ord"].ToString();
+                    chkActive.Checked = dtPro.Rows[0]["Active"].ToString() == "1" || dtPro.Rows[0]["Active"].ToString() == "True";
                     pnView.Visible = false;
                     pnUpdate.Visible = true;
                     break;
@@ -160,22 +161,22 @@ namespace MyWeb.Admins
                     BindGrid();
                     break;
                 case "IsPopular":
-                    strPri = listE[0].IsPopular == "1" ? "0" : "1";
+                    strPri = dtPro.Rows[0]["IsPopular"].ToString() == "1" ? "0" : "1";
                     sql.ExecuteNonQuery("Update [Product] set [IsPopular]=" + strPri + "  Where Id='" + strCA + "'");
                     BindGrid();
                     break;
                 case "IsHot":
-                    strPri = listE[0].IsHot == "1" ? "0" : "1";
+                    strPri = dtPro.Rows[0]["IsHot"].ToString() == "1" ? "0" : "1";
                     sql.ExecuteNonQuery("Update [Product] set [IsHot]=" + strPri + "  Where Id='" + strCA + "'");
                     BindGrid();
                     break;
                 case "IsNew":
-                    strPri = listE[0].IsNew == "1" ? "0" : "1";
+                    strPri = dtPro.Rows[0]["IsNew"].ToString() == "1" ? "0" : "1";
                     sql.ExecuteNonQuery("Update [Product] set [IsNew]=" + strPri + "  Where Id='" + strCA + "'");
                     BindGrid();
                     break;
                 case "IsSpecial":
-                    strPri = listE[0].IsSpecial == "1" ? "0" : "1";
+					strPri = dtPro.Rows[0]["IsSpecial"].ToString() == "1" ? "0" : "1";
                     sql.ExecuteNonQuery("Update [Product] set [IsSpecial]=" + strPri + "  Where Id='" + strCA + "'");
                     BindGrid();
                     break;
