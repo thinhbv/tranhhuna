@@ -393,33 +393,33 @@ $(function () {
         $('#stuck_container').trigger('rePosition', 0); //for sticky menu
     }
 
-    $("#advanced .trigger").click(
-        function () {
-            if (!isOpen) {
-                $(this).find('strong').animate({
-                    opacity: 0
-                }).parent().parent('#advanced').removeClass('closed').animate({
-                    marginTop: '0px'
-                }, 500);
-                $.cookie('panel1', 'opened');
-                strCookies1 = $.cookie('panel1');
+    //$("#advanced .trigger").click(
+    //    function () {
+    //        if (!isOpen) {
+    //            $(this).find('strong').animate({
+    //                opacity: 0
+    //            }).parent().parent('#advanced').removeClass('closed').animate({
+    //                marginTop: '0px'
+    //            }, 500);
+    //            $.cookie('panel1', 'opened');
+    //            strCookies1 = $.cookie('panel1');
 
-                isOpen = true;
-                $('#stuck_container').trigger('rePosition', 50);
-            } else {
-                $(this).find('strong').animate({
-                    opacity: 1
-                }).parent().parent('#advanced').addClass('closed').animate({
-                    marginTop: '-50px'
-                }, 700)
-                $.cookie('panel1', 'closed');
-                strCookies1 = $.cookie('panel1');
+    //            isOpen = true;
+    //            $('#stuck_container').trigger('rePosition', 50);
+    //        } else {
+    //            $(this).find('strong').animate({
+    //                opacity: 1
+    //            }).parent().parent('#advanced').addClass('closed').animate({
+    //                marginTop: '-50px'
+    //            }, 700)
+    //            $.cookie('panel1', 'closed');
+    //            strCookies1 = $.cookie('panel1');
 
-                isOpen = false;
-                $('#stuck_container').trigger('rePosition', 0); //for sticky menu
-            }
-        }
-    )
+    //            isOpen = false;
+    //            $('#stuck_container').trigger('rePosition', 0); //for sticky menu
+    //        }
+    //    }
+    //)
 });
 /*--------- end panel *------------*/
 

@@ -5,7 +5,7 @@
 		<div class="navbar-brand-wrap">
 			<img src="/images/logo.png" alt="" class="navbar-brand-img">
 			<asp:Literal ID="ltrLogo" runat="server"></asp:Literal>
-			<div class="brand_cnt">
+			<%--<div class="brand_cnt">
 				<p class="navbar-slogan">
 					Phương châm sống
 				</p>
@@ -13,7 +13,7 @@
 				<h1 class="navbar-brand">
 					<a href="./">TranhHuna</a>
 				</h1>
-			</div>
+			</div>--%>
 		</div>
 	</div>
 	<div class="info-box">

@@ -22,15 +22,6 @@ namespace MyWeb {
         protected global::MyWeb.Controls.U_ProductList idU_ProductList;
         
         /// <summary>
-        /// idU_NewsList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::MyWeb.Controls.U_NewsList idU_NewsList;
-        
-        /// <summary>
         /// idU_Delivery control.
         /// </summary>
         /// <remarks>
@@ -38,6 +29,15 @@ namespace MyWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::MyWeb.Controls.U_Delivery idU_Delivery;
+        
+        /// <summary>
+        /// idU_NewsList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::MyWeb.Controls.U_NewsList idU_NewsList;
         
         /// <summary>
         /// idU_ImageList control.

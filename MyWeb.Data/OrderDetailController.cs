@@ -38,6 +38,7 @@ namespace MyWeb.Data
 			dbCmd.Parameters.Add(new SqlParameter("@ProductName", data.ProductName));
 			dbCmd.Parameters.Add(new SqlParameter("@ProductImage", data.ProductImage));
 			dbCmd.Parameters.Add(new SqlParameter("@Price", data.Price));
+			dbCmd.Parameters.Add(new SqlParameter("@Quantity", data.Quantity));
 			ExecuteNonQuery(dbCmd);
 			//Clear cache
 			System.Web.HttpContext.Current.Cache.Remove("OrderDetail");
@@ -55,6 +56,7 @@ namespace MyWeb.Data
 			dbCmd.Parameters.Add(new SqlParameter("@ProductName", data.ProductName));
 			dbCmd.Parameters.Add(new SqlParameter("@ProductImage", data.ProductImage));
 			dbCmd.Parameters.Add(new SqlParameter("@Price", data.Price));
+			dbCmd.Parameters.Add(new SqlParameter("@Quantity", data.Quantity));
 			ExecuteNonQuery(dbCmd);
 			//Clear cache
 			System.Web.HttpContext.Current.Cache.Remove("OrderDetail");
@@ -66,6 +68,20 @@ namespace MyWeb.Data
 		{
 			dbCmd = new SqlCommand("sp_OrderDetail_Delete");
 			dbCmd.CommandType = CommandType.StoredProcedure;
+			dbCmd.Parameters.Add(new SqlParameter("@Id", Id));
+			ExecuteNonQuery(dbCmd);
+			//Clear cache
+			System.Web.HttpContext.Current.Cache.Remove("OrderDetail");
+			return true;
+		}
+		#endregion
+
+		#region[OrderDetail_UpdateQuantity]
+		public bool OrderDetail_UpdateQuantity(string Id, string quantity)
+		{
+			dbCmd = new SqlCommand("Update Order_Detail Set Quantity=@Quantity Where Id=@Id");
+			dbCmd.CommandType = CommandType.StoredProcedure;
+			dbCmd.Parameters.Add(new SqlParameter("@Quantity", quantity));
 			dbCmd.Parameters.Add(new SqlParameter("@Id", Id));
 			ExecuteNonQuery(dbCmd);
 			//Clear cache

@@ -12,6 +12,7 @@ namespace MyWeb.Common
 		public enum SortNum {asc, desc};
 		public const int MAX_IMAGE_THUMBNAIL = 270;
 		public const string GUID_SHOPPING_CART = "GUIDSC";
+		public const string CONST_SHOPPING_CART = "Shopping_Cart";
 
 	}
 }

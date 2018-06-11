@@ -14,6 +14,7 @@ namespace MyWeb.Data
 		private string _ProductName;
 		private string _ProductImage;
 		private string _Price;
+		private string _Quantity;
 		#endregion
 		#region[Public Properties]
 		public string Id { get { return _Id; } set { _Id = value; } }
@@ -22,6 +23,7 @@ namespace MyWeb.Data
 		public string ProductName { get { return _ProductName; } set { _ProductName = value; } }
 		public string ProductImage { get { return _ProductImage; } set { _ProductImage = value; } }
 		public string Price { get { return _Price; } set { _Price = value; } }
+		public string Quantity { get { return _Quantity; } set { _Quantity = value; } }
 		#endregion
 		#region[Advertise IDataReader]
 		public OrderDetail OrdersIDataReader(IDataReader dr)
@@ -33,6 +35,7 @@ namespace MyWeb.Data
 			obj.ProductName = (dr["ProductName"] is DBNull) ? string.Empty : dr["ProductName"].ToString();
 			obj.ProductImage = (dr["ProductImage"] is DBNull) ? string.Empty : dr["ProductImage"].ToString();
 			obj.Price = (dr["Price"] is DBNull) ? string.Empty : dr["Price"].ToString();
+			obj.Quantity = (dr["Quantity"] is DBNull) ? string.Empty : dr["Quantity"].ToString();
 			return obj;
 		}
 		#endregion

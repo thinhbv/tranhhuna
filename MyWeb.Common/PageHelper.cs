@@ -231,6 +231,29 @@ namespace MyWeb.Common
 			LoadDropDownList(ddl, myArr, true);
 		}
 
+		public static string ShowNewsPriority(string Priority)
+		{
+			string strString = "";
+			string[] myArr = new string[] { "1,Bình thường", "2,Xuất hiện trang chủ", "3,Giao hàng" };
+			char[] splitter = { ',', ';' };
+			for (int i = 0; i < myArr.Length; i++)
+			{
+				string[] arr = myArr[i].Split(splitter);
+				if (arr[0].Equals(Priority))
+				{
+					strString = arr[1];
+					break;
+				}
+			}
+			return strString;
+		}
+
+		public static void LoadDropNewsPriority(DropDownList ddl)
+		{
+			string[] myArr = new string[] { "1,Bình thường", "2,Xuất hiện trang chủ", "3,Giao hàng" };
+			LoadDropDownList(ddl, myArr, true);
+		}
+
 		public static void LoadDropDownListFilterActive(DropDownList ddl)
 		{
 			string[] myArr = new string[] { ", -- Tất cả -- ", "1,Hiển thị", "0,Ẩn" };

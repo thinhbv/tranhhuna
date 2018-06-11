@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Modules/PageMaster.Master" AutoEventWireup="true" CodeBehind="ViewNews.aspx.cs" Inherits="MyWeb.Modules.News.ViewNews" %>
-
+<%@ Import Namespace="MyWeb.Common" %>
 <%@ Register Src="/Controls/U_MenuLeftNews.ascx" TagName="U_MenuLeftNews" TagPrefix="uc1" %>
+<asp:Content ID="Content2" ContentPlaceHolderID="HeadContent" runat="server">
+<link href="../../css/news-detail.css" rel="stylesheet" />
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 <div id="columns" class="container">
 <!-- Breadcrumb -->
@@ -21,24 +24,24 @@
 <div class="large-left col-sm-12">
 <div class="row">
 <div id="center_column" class="center_column col-xs-12 col-sm-9">
-<h1 class="page-heading"><%=groupName %></h1>
+<%--<h6 class="page-heading"><%=groupName %></h6>--%>
 <div id="smartblogcat" class="block">
-<asp:Literal ID="ltrNews" runat="server"></asp:Literal>
+<%--<asp:Literal ID="ltrNews" runat="server"></asp:Literal>--%>
 <asp:Repeater ID="rptNews" runat="server">
 <ItemTemplate>
 <div itemtype="#" itemscope="" class="sdsarticleCat clearfix">
 <div id="smartblogpost-<%# Container.ItemIndex + 1 %>">
-<h2 class='title_block_exclusive'><a title="<%# Eval("Name").ToString() %>" href='<%# MyWeb.Common.PageHelper.GeneralDetailUrl(MyWeb.Common.Consts.CON_TIN_TUC, groupName, Eval("Id").ToString(), Eval("Name").ToString()) %>'><%# Eval("Name").ToString() %></a></h2>
+<h5 class='title_block_exclusive'><a title="<%# Eval("Name").ToString() %>" href='<%# MyWeb.Common.PageHelper.GeneralDetailUrl(MyWeb.Common.Consts.CON_TIN_TUC, groupName, Eval("Id").ToString(), Eval("Name").ToString()) %>'><%# Eval("Name").ToString() %></a></h5>
 <div class="articleContent">
 <a href="<%# MyWeb.Common.PageHelper.GeneralDetailUrl(MyWeb.Common.Consts.CON_TIN_TUC, groupName, Eval("Id").ToString(), Eval("Name").ToString()) %>" itemprop="url" title="<%#Eval("Name").ToString() %>" class="imageFeaturedLink post-image">
-<img itemprop="image" alt="<%# Eval("Name").ToString() %>" src="<%# Eval("Image").ToString() %>" class="imageFeatured img-responsive">
+<img itemprop="image" alt="<%# Eval("Name").ToString() %>" width="150" src="<%# StringClass.ThumbImage(Eval("Image").ToString()) %>" class="imageFeatured img-responsive">
 </a>
 <div class="sdsarticle-des" itemprop="description">
-<%# MyWeb.Common.StringClass.FormatContentNews(Eval("Content").ToString(), 200) %>
+<%# MyWeb.Common.StringClass.FormatContentNews(Eval("Content").ToString(), 300) %>
 <a class="read-more" title="<%# Eval("Name").ToString() %>" href="<%# MyWeb.Common.PageHelper.GeneralDetailUrl(MyWeb.Common.Consts.CON_TIN_TUC, groupName, Eval("Id").ToString(), Eval("Name").ToString()) %>"><strong>Chi tiết...</strong></a>
 </div>
 <div class="articleHeader">
-<div class="postInfo">
+<%--<div class="postInfo">
 Posted by														
 <span itemprop="author">
 <i class="fa fa-user"></i>
@@ -55,7 +58,7 @@ Admin Administrator
 <span class="views">
 <i class="fa fa-eye"></i>views (505)
 </span>
-</div>
+</div>--%>
 </div>
 </div>
 </div>

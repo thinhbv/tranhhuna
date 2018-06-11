@@ -10,6 +10,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 	<main>
 			<section class="well center767">
+				<div class="container" style="padding-top:20px;">
+					<div class="col-lg-8 col-md-7 col-sm-12 col-xs-12 wow fadeInLeft">
+					<h6>Sản phẩm nổi bật</h6>
+					</div>
+				</div>
 				<uc1:U_ProductList ID="idU_ProductList" runat="server" />
 			</section>
 			<section class="well1 bg-white center479">
@@ -32,14 +37,14 @@
 					</div>
 				</div>
 			</section>
-			<section class="well center991">
-				<div class="container">				
-					<uc2:U_NewsList runat="server" id="idU_NewsList" />
-				</div>
-			</section>
 			<section class="parallax well well__ins" data-url="images/parallax1.jpg" data-mobile="true">
 				<div class="container">			
 					<uc3:U_Delivery runat="server" id="idU_Delivery" />
+				</div>
+			</section>
+			<section class="well center991">
+				<div class="container">				
+					<uc2:U_NewsList runat="server" id="idU_NewsList" />
 				</div>
 			</section>
 			<section class="parallax well3 text-center" data-url="images/parallax2.jpg" data-mobile="true">

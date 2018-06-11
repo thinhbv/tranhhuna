@@ -4,15 +4,18 @@
 	$(document).ready(function () {
 		$(".add-cart").click(function () {
 			var proid = $(this)[0].id;
-			$(this).removeAttr("class");
-			$(this).attr("class", "added-cart");
+			var item = $(this);
 			$.ajax({
 				method: "POST",
 				url: "/Processor.aspx",
-				data: { id: proid }
+				data: { mode:"add", id: proid }
 			})
 			  .done(function (result) {
-			  	if (result.startsWith("1")) {
+			  	if (result === "1") {
+			  		item.removeAttr("class");
+			  		item.attr("class", "added-cart");
+			  		item.attr("disabled", "disabled");
+			  		item.removeAttr("id");
 			  		$("#item-count")[0].innerText = (parseInt($("#item-count")[0].innerText) + 1).toString();
 			  	}
 			  });
@@ -27,7 +30,7 @@
 					<a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>">
 						<img src="<%# StringClass.ThumbImage(Eval("Image1").ToString()) %>" alt="<%# Eval("Name") %>" title="<%# Eval("Name") %>"></a>
 					<h6 class="badge"><%# StringClass.ConvertPrice(Eval("Price").ToString()) %> Đ</h6>
-					<h6 id="<%#Eval("Id").ToString() %>" class="add-cart" title="Thêm vào giỏ hàng">+ giỏ hàng</h6>
+					<h6 id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></h6>
 					<h6><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# Eval("Name") %></a></h6>
 					<p class="l-height"><%# StringClass.FormatContentNews(Eval("Content").ToString(),100) %></p>
 				</div>

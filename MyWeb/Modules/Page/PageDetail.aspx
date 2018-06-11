@@ -2,6 +2,7 @@
 
 <%@ Register Src="~/Controls/U_MenuLeft.ascx" TagPrefix="uc1" TagName="U_MenuLeft" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+	<link href="../../../css/news-detail.css" rel="stylesheet" />
 <script type="text/javascript">
     $(document).ready(function () {
         $("#ul_layered_id_attribute_group_1 input[type=checkbox]").each(function (index) {
@@ -40,7 +41,7 @@
 <div class="row">
 <div id="center_column" class="center_column col-xs-12 col-sm-9">
 <div itemtype="#" itemscope="" id="sdsblogArticle" class="blog-post">
-<h1 class="title_block_exclusive"><%=title %></h1>
+<h5 class="title_block_exclusive"><%=title %></h5>
 <div class="post-image">
 <%=content %>
 </div>
@@ -63,7 +64,7 @@
 </div>
 <!-- #center_column -->
 <div id="left_column" class="column col-xs-12 col-sm-3">
-<uc1:U_MenuLeft ID="U_MenuLeft" runat="server" />
+<%--<uc1:U_MenuLeft ID="U_MenuLeft" runat="server" />--%>
 </div>
 </div>
 <!--.row-->

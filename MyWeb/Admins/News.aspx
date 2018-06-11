@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/AdminMaster.Master" AutoEventWireup="true"
     CodeBehind="News.aspx.cs" Inherits="MyWeb.Admins.News" %>
-
+<%@ Import Namespace="MyWeb.Common" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -68,9 +68,9 @@
                         </asp:TemplateColumn>
                         <asp:TemplateColumn ItemStyle-CssClass="CheckBox">
                             <HeaderTemplate>
-                                Ưu tiên trang chủ</HeaderTemplate>
+                                Vị trí hiển thị</HeaderTemplate>
                             <ItemTemplate>
-                                <asp:ImageButton ID="Image2" runat="server" CommandName="Priority" CommandArgument='<%#Eval("Id") %>' ImageUrl='<%#MyWeb.Common.PageHelper.ShowCheckImage(DataBinder.Eval(Container.DataItem, "Priority").ToString())%>' /></ItemTemplate>
+                                <%#PageHelper.ShowNewsPriority(Eval("Priority").ToString()) %></ItemTemplate>
                         </asp:TemplateColumn>
                         <asp:TemplateColumn ItemStyle-CssClass="Center">
                             <HeaderTemplate>
@@ -204,10 +204,10 @@
                     </tr>
                     <tr>
                         <th>
-                            <asp:Label ID="lblPriority" runat="server" Text="Ưu tiên trang chủ:"></asp:Label>
+                            <asp:Label ID="lblPriority" runat="server" Text="Vị trí hiển thị:"></asp:Label>
                         </th>
                         <td>
-                            <asp:CheckBox ID="chkPriority" runat="server" />
+                            <asp:DropDownList ID="ddlPriority" runat="server"></asp:DropDownList>
                         </td>
                     </tr>
                     <%--<tr>

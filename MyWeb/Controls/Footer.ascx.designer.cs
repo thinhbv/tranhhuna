@@ -13,30 +13,12 @@ namespace MyWeb.Controls {
     public partial class Footer {
         
         /// <summary>
-        /// ltrInfo control.
+        /// ltrCopyRight control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrInfo;
-        
-        /// <summary>
-        /// ltrMenu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrMenu;
-        
-        /// <summary>
-        /// ltrImages control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrImages;
+        protected global::System.Web.UI.WebControls.Literal ltrCopyRight;
     }
 }

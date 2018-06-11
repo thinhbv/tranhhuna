@@ -16,20 +16,22 @@ namespace MyWeb.Controls
 		private string level = string.Empty;
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			DataTable dtPro;
 			if (!IsPostBack)
 			{
 				if (string.IsNullOrEmpty(level))
 				{
-					DataTable dtPro = ProductService.Product_GetByTop("6", "Active=1 AND IsNew=1", "Ord");
-					rptProducts.DataSource = StringClass.ModifyDataProduct(dtPro);
-					rptProducts.DataBind();
+					dtPro = ProductService.Product_GetByTop("6", "Active=1 AND IsNew=1", "Ord");
 				}
 				else
 				{
-					DataTable dtPro = ProductService.Product_GetByTop("", "Active=1 AND GroupId IN (Select Id from GroupProduct Where Active=1 AND Left(Level,Len('" + level + "'))='" + level + "')", "Ord");
-					rptProducts.DataSource = StringClass.ModifyDataProduct(dtPro);
-					rptProducts.DataBind();
+					dtPro = ProductService.Product_GetByTop("", "Active=1 AND GroupId IN (Select Id from GroupProduct Where Active=1 AND Left(Level,Len('" + level + "'))='" + level + "')", "Ord");
+					
 				}
+
+				HttpCookie cookie = Request.Cookies[Consts.GUID_SHOPPING_CART];
+				rptProducts.DataSource = StringClass.ModifyDataProduct(dtPro, cookie);
+				rptProducts.DataBind();
 			}
 		}
 

@@ -139,7 +139,8 @@ namespace MyWeb.Admins
                     chkActive.Checked = dt.Rows[0]["Active"].ToString() == "1" || dt.Rows[0]["Active"].ToString() == "True";
                     LoadGroupNewsDropDownList();
                     ddlGroupNews.Text = dt.Rows[0]["GroupNewsId"].ToString();
-                    chkPriority.Checked = dt.Rows[0]["Priority"].ToString() == "1";
+					PageHelper.LoadDropNewsPriority(ddlPriority);
+					ddlPriority.SelectedValue = dt.Rows[0]["Priority"].ToString();
                     chkIndex.Checked = dt.Rows[0]["Index"].ToString() == "1";
                     pnView.Visible = false;
                     pnUpdate.Visible = true;
@@ -175,7 +176,8 @@ namespace MyWeb.Admins
         {
             pnUpdate.Visible = true;
             ControlClass.ResetControlValues(this);
-            LoadGroupNewsDropDownList();
+			LoadGroupNewsDropDownList();
+			PageHelper.LoadDropNewsPriority(ddlPriority);
             txtDate.Text = DateTimeClass.ConvertDateTime(DateTime.Now, "dd/MM/yyyy hh:mm:ss tt");
             pnView.Visible = false;
             Insert = true;
@@ -221,7 +223,7 @@ namespace MyWeb.Admins
                 obj.Index = chkIndex.Checked ? "1" : "0";
                 obj.Ord = txtOrd.Text != "" ? txtOrd.Text : "1";
                 obj.Active = chkActive.Checked ? "1" : "0";
-                obj.Priority = chkPriority.Checked ? "1" : "0";
+				obj.Priority = ddlPriority.SelectedValue;
                 obj.GroupNewsId = ddlGroupNews.SelectedValue;
 				obj.GroupName = ddlGroupNews.SelectedItem.Text;
                 obj.Description = "";

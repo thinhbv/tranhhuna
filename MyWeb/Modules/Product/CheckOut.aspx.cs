@@ -8,15 +8,16 @@ using MyWeb.Data;
 using MyWeb.Business;
 using MyWeb.Common;
 using System.Data;
+using System.Collections;
 
 namespace MyWeb.Modules.Product
 {
 	public partial class CheckOut : System.Web.UI.Page
 	{
-		protected string totalPrice = string.Empty;
-		protected int totalCount = 0;
-		private string orderId = string.Empty;
-		private string Id = string.Empty;
+		protected static string totalPrice = string.Empty;
+		protected static int totalCount = 0;
+		private static string orderId = string.Empty;
+		private static string Id = string.Empty;
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			try
@@ -42,14 +43,16 @@ namespace MyWeb.Modules.Product
 							}
 							else
 							{
+								totalCount = 0;
 								rptCart.Visible = false;
-								lblMsg.Visible = true;
+								lblMsg.Text = "Hiện tại không có sản phẩm nào trong giỏ hàng";
 							}
 						}
 						else
 						{
+							totalCount = 0;
 							rptCart.Visible = false;
-							lblMsg.Visible = true;
+							lblMsg.Text = "Hiện tại không có sản phẩm nào trong giỏ hàng";
 						}
 					}
 				}
@@ -106,7 +109,14 @@ namespace MyWeb.Modules.Product
 					{
 						lblAddress.Visible = false;
 					}
-
+					Hashtable htData = new Hashtable();
+					for (int i = 0; i < rptCart.Items.Count; i++)
+					{
+						RepeaterItem item = rptCart.Items[i];
+						TextBox txtquantity = (TextBox)item.FindControl("txtquantity");
+						HiddenField hfId = (HiddenField)item.FindControl("hfId");
+						htData.Add(hfId.Value.Trim(), txtquantity.Text.Trim());
+					}
 					Orders order = new Orders();
 					order.Id = Id;
 					order.Name = fname.Value.Trim();
@@ -127,7 +137,10 @@ namespace MyWeb.Modules.Product
 					order.Status = "1";
 					order.Detail = content.Value.Trim();
 					order.DeliveryDate = "";
-					OrdersService.Orders_Update(order);
+					OrdersService.PurchaseProduct(order, htData);
+					lblMsg.Text = "Cảm ơn bạn đã mua sản phẩm của chúng tôi. Chúng tôi sẽ giao hàng trong thời gian sớm nhất.";
+					shoppingcart.Visible = false;
+					rptCart.Visible = false;
 				}
 			}
 			catch (Exception ex)

@@ -19,7 +19,7 @@ namespace MyWeb.Controls
 			{
 				if (!IsPostBack)
 				{
-					DataTable dt = NewsService.News_GetByTop("5", "Active = 1", "Date DESC");
+					DataTable dt = NewsService.News_GetByTop("5", "Active = 1 AND Priority <> 3", "Date DESC");
 					if (dt.Rows.Count > 0)
 					{
 						ltrNews.Text = "<h4 class='title_block'>Tin mới nhất</h4>\n";
@@ -39,7 +39,7 @@ namespace MyWeb.Controls
 								ltrNews.Text += "<li class='clearfix'>\n";
 							}
 							ltrNews.Text += "<a class='products-block-image' title='" + dt.Rows[i]["Name"].ToString() + "' href='" + PageHelper.GeneralDetailUrl(Consts.CON_TIN_TUC, dt.Rows[i]["GroupNewsId"].ToString(), dt.Rows[i]["Id"].ToString(), dt.Rows[i]["Name"].ToString()) + "'>\n";
-							ltrNews.Text += "<img alt='" + dt.Rows[i]["Name"].ToString() + "' src='" + dt.Rows[i]["Image"].ToString() + "'></a>\n";
+							ltrNews.Text += "<img width='200' alt='" + dt.Rows[i]["Name"].ToString() + "' src='" + StringClass.ThumbImage(dt.Rows[i]["Image"].ToString()) + "'></a>\n";
 							ltrNews.Text += "<div class='product-content'>\n";
 							ltrNews.Text += "<h5><a class='post-name product-name' title='" + dt.Rows[i]["Name"].ToString() + "' href='" + PageHelper.GeneralDetailUrl(Consts.CON_TIN_TUC, dt.Rows[i]["GroupNewsId"].ToString(), dt.Rows[i]["Id"].ToString(), dt.Rows[i]["Name"].ToString()) + "'>" + dt.Rows[i]["Name"].ToString() + "</a></h5>\n";
 							ltrNews.Text += "<span class='info'>" + dt.Rows[i]["Date"].ToString() + "</span></div>\n";

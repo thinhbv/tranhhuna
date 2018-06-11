@@ -8,6 +8,7 @@ using MyWeb.Business;
 using MyWeb.Data;
 using System.Data;
 using System.Web.Mail;
+using System.Web;
 
 namespace MyWeb.Common 
 {
@@ -274,15 +275,30 @@ namespace MyWeb.Common
 			}
 			return dt;
 		}
-		public static DataTable ModifyDataProduct(DataTable dt)
+		public static DataTable ModifyDataProduct(DataTable dt, HttpCookie cookie)
 		{
+			DataTable dtCart = new DataTable();
 			dt.Columns.Add("No", typeof(Int32));
 			dt.Columns.Add("Link", typeof(string));
+			dt.Columns.Add("Class", typeof(string));
+			if (cookie != null && cookie.Value != null){
+				dtCart = OrderDetailService.OrderDetail_GetByTop("", "OrderId IN (Select Id From Orders Where OrderId='" + SqlInjection(cookie.Value) + "' AND Status=0 )", "");
+			}
+			
 			for (int i = 0; i < dt.Rows.Count; i++)
 			{
 				DataRow dr = dt.Rows[i];
 				dr["No"] = (i + 1);
 				dr["Link"] = PageHelper.GeneralDetailUrl(Consts.CON_SAN_PHAM, dr["GroupName"].ToString(), dr["Id"].ToString(), dr["Name"].ToString());
+				dr["Class"] = "add-cart";
+				if (dtCart.Rows.Count > 0)
+				{
+					DataRow[] rows = dtCart.Select("ProductId=" + dr["Id"].ToString());
+					if (rows != null && rows.Length > 0)
+					{
+						dr["Class"] = "added-cart";
+					}
+				}
 			}
 			return dt;
 		}

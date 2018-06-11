@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data;
 using MyWeb.Data;
+using System.Collections;
 
 namespace MyWeb.Business
 {
@@ -33,12 +34,6 @@ namespace MyWeb.Business
 			return db.Orders_Insert(data);
 		}
 		#endregion
-		#region[Orders_Update]
-		public static bool Orders_Update(Orders data)
-		{
-			return db.Orders_Update(data);
-		}
-		#endregion
 		#region[Orders_Delete]
 		public static bool Orders_Delete(string Id)
 		{
@@ -46,9 +41,9 @@ namespace MyWeb.Business
 		}
 		#endregion
 		#region[Orders_Add]
-		public static string Orders_Add(string id, string orderid)
+		public static string Orders_Add(string id, string orderid, string quantity)
 		{
-			return db.Orders_Add(id, orderid);
+			return db.Orders_Add(id, orderid, quantity);
 		}
 		#endregion
 
@@ -56,6 +51,13 @@ namespace MyWeb.Business
 		public static string DeleteItem(string id)
 		{
 			return db.DeleteItem(id);
+		}
+		#endregion
+
+		#region[PurchaseProduct]
+		public static bool PurchaseProduct(Orders order, Hashtable htData)
+		{
+			return db.PurchaseProduct(order, htData);
 		}
 		#endregion
 	}

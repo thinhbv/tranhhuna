@@ -2,6 +2,7 @@
 
 <%@ Register Src="/Controls/U_MenuLeftNews.ascx" TagName="U_MenuLeftNews" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+<link href="../../../css/news-detail.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <div id="columns" class="container">
@@ -24,7 +25,7 @@
 <div class="row">
 <div id="center_column" class="center_column col-xs-12 col-sm-9">
 <div itemtype="#" itemscope="" id="sdsblogArticle" class="blog-post">
-<h1 class="title_block_exclusive"><%=titleNews %></h1>
+<h5 class="title_block_exclusive"><%=titleNews %></h5>
 <div class="post-image">
 <%=contents %>
 </div>

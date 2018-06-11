@@ -14,6 +14,7 @@ namespace MyWeb.Modules.Product
     public partial class ViewProduct : System.Web.UI.Page
 	{
 		string id = string.Empty;
+		protected string groupName = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
 			if (Page.RouteData.Values["GroupId"] != null)
@@ -27,6 +28,7 @@ namespace MyWeb.Modules.Product
 					List<Data.GroupProduct> listGroup = GroupProductService.GroupProduct_GetById(id);
 					if (listGroup.Count > 0)
 					{
+						groupName = listGroup[0].Name;
 						idU_ProductList.Level = listGroup[0].Level;
 					}
 				}	

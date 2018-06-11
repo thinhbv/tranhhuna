@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Collections;
 using System.Collections.Generic;
 namespace MyWeb.Data
 {
@@ -85,9 +86,9 @@ namespace MyWeb.Data
 		}
 		#endregion
 		#region[Orders_Update]
-		public bool Orders_Update(Orders data)
+		public bool Orders_Update(Orders data, SqlConnection con, SqlTransaction tran)
 		{
-			dbCmd = new SqlCommand("sp_Orders_Update");
+			dbCmd = new SqlCommand("sp_Orders_Update", con, tran);
 			dbCmd.CommandType = CommandType.StoredProcedure;
 			dbCmd.Parameters.Add(new SqlParameter("@Id", data.Id));
 			dbCmd.Parameters.Add(new SqlParameter("@OrderId", data.OrderId));
@@ -101,7 +102,7 @@ namespace MyWeb.Data
 			dbCmd.Parameters.Add(new SqlParameter("@OrderDate", data.OrderDate));
 			dbCmd.Parameters.Add(new SqlParameter("@Detail", data.Detail));
 			dbCmd.Parameters.Add(new SqlParameter("@DeliveryDate", data.DeliveryDate));
-			ExecuteNonQuery(dbCmd);
+			dbCmd.ExecuteNonQuery();
 			//Clear cache
 			System.Web.HttpContext.Current.Cache.Remove("Orders");
 			return true;
@@ -120,7 +121,7 @@ namespace MyWeb.Data
 		}
 		#endregion
 		#region[Orders_Add]
-		public string Orders_Add(string id, string orderid)
+		public string Orders_Add(string id, string orderid, string quantity)
 		{
 			string count = "0";
 			SqlTransaction mTran;
@@ -145,6 +146,7 @@ namespace MyWeb.Data
 				{
 					string name = dt.Rows[0]["Name"].ToString();
 					string price = dt.Rows[0]["Price"].ToString().Replace(" Đ", string.Empty).Replace(".", string.Empty);
+					price = (int.Parse(price) * int.Parse(quantity)).ToString();
 					string img = dt.Rows[0]["Image1"].ToString();
 					//Get Order
 					sSQL = "Select * from Orders where OrderId=@OrderId And Status=0";
@@ -212,6 +214,7 @@ namespace MyWeb.Data
 						dbCmd.Parameters.Add(new SqlParameter("@ProductName", name));
 						dbCmd.Parameters.Add(new SqlParameter("@ProductImage", img));
 						dbCmd.Parameters.Add(new SqlParameter("@Price", price));
+						dbCmd.Parameters.Add(new SqlParameter("@Quantity", quantity));
 						if (dbCmd.ExecuteNonQuery() == 1)
 						{
 							count = "1";
@@ -312,6 +315,66 @@ namespace MyWeb.Data
 				}
 			}
 			return count;
+		}
+		#endregion
+
+		#region[PurchaseProduct]
+		public bool PurchaseProduct(Orders order, Hashtable htData)
+		{
+			SqlTransaction mTran;
+			SqlConnection mCon;
+			SqlCommand cmdSelect;
+			SqlCommand cmdUpdate;
+			string sSQL;
+			int totalprice = 0;
+			mCon = GetConnection();
+			mTran = mCon.BeginTransaction();
+			try
+			{
+				foreach( string key in htData.Keys )
+				{
+					int quantity = 0;
+					int price = 0;
+					sSQL = "Select * From Order_Detail Where Id=@Id";
+					cmdSelect = new SqlCommand(sSQL, mCon, mTran);
+					cmdSelect.Parameters.Add("@Id", SqlDbType.Int).Value = key;
+					DataTable dtItem = GetData(cmdSelect, false);
+					if (dtItem.Rows.Count > 0)
+					{
+						quantity = int.Parse(dtItem.Rows[0]["Quantity"].ToString());
+						price = int.Parse(dtItem.Rows[0]["Price"].ToString());
+						price = price / quantity;
+						price = int.Parse(htData[key].ToString()) * price;
+						totalprice = totalprice + price;
+					}
+
+					sSQL = "Update Order_Detail Set Quantity=@Quantity, Price=@Price Where Id=@Id";
+					cmdUpdate = new SqlCommand(sSQL, mCon, mTran);
+					cmdUpdate.Parameters.Add("@Quantity", SqlDbType.Int).Value = htData[key].ToString();
+					cmdUpdate.Parameters.Add("@Price", SqlDbType.VarChar).Value = price;
+					cmdUpdate.Parameters.Add("@Id", SqlDbType.Int).Value = key;
+					cmdUpdate.ExecuteNonQuery();
+				}
+				order.Price = totalprice.ToString();
+				Orders_Update(order, mCon, mTran);
+				mTran.Commit();
+				return true;
+			}
+			catch (Exception ex)
+			{
+				if (mTran != null)
+				{
+					mTran.Rollback();
+				}
+				throw ex;
+			}
+			finally
+			{
+				if (mCon != null)
+				{
+					mCon.Close();
+				}
+			}
 		}
 		#endregion
 	}
