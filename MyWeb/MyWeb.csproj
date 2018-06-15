@@ -122,6 +122,7 @@
     <Content Include="Admins\GroupProduct.aspx" />
     <Content Include="Admins\Images.aspx" />
     <Content Include="Admins\News.aspx" />
+    <Content Include="Admins\Orders.aspx" />
     <Content Include="Admins\Page.aspx" />
     <Content Include="Admins\Product.aspx" />
     <Content Include="Admins\Support.aspx" />
@@ -1088,6 +1089,13 @@
     </Compile>
     <Compile Include="Admins\News.aspx.designer.cs">
       <DependentUpon>News.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\Orders.aspx.cs">
+      <DependentUpon>Orders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\Orders.aspx.designer.cs">
+      <DependentUpon>Orders.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admins\Page.aspx.cs">
       <DependentUpon>Page.aspx</DependentUpon>
