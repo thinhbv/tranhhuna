@@ -24,10 +24,10 @@
                             lại</a> </li>
 					</ul>
 				</div>
-				<asp:DataGrid ID="grdGroupNews" runat="server" Width="100%" CssClass="TableView"
+				<asp:DataGrid ID="grdOrders" runat="server" Width="100%" CssClass="TableView"
 					AutoGenerateColumns="False" AllowPaging="True" PageSize="40" PagerStyle-Mode="NumericPages"
-					PagerStyle-HorizontalAlign="Center" OnItemDataBound="grdGroupNews_ItemDataBound"
-					OnItemCommand="grdGroupNews_ItemCommand" OnPageIndexChanged="grdGroupNews_PageIndexChanged">
+					PagerStyle-HorizontalAlign="Center" OnItemDataBound="grdOrders_ItemDataBound"
+					OnItemCommand="grdOrders_ItemCommand" OnPageIndexChanged="grdOrders_PageIndexChanged">
 					<HeaderStyle CssClass="trHeader"></HeaderStyle>
 					<ItemStyle CssClass="trOdd"></ItemStyle>
 					<AlternatingItemStyle CssClass="trEven"></AlternatingItemStyle>
@@ -42,11 +42,24 @@
 							<ItemStyle CssClass="tdCenter"></ItemStyle>
 						</asp:TemplateColumn>
 						<asp:BoundColumn DataField="Id" HeaderText="Id" Visible="False" />
-						<asp:BoundColumn DataField="Active" HeaderText="Active" Visible="False" />
 						<asp:BoundColumn DataField="Name" HeaderText="Tên khách hàng" />
 						<asp:BoundColumn DataField="Tel" HeaderText="Điện thoại" />
-						<asp:BoundColumn DataField="Price" HeaderText="Tổng tiền" />
-						<asp:BoundColumn DataField="PaymentMethod" HeaderText="Phương thức thanh toán" />
+						<asp:TemplateColumn ItemStyle-CssClass="Center">
+							<HeaderTemplate>
+								Tổng tiền
+							</HeaderTemplate>
+							<ItemTemplate>
+								<asp:Label ID="lblPrice" runat="server" Text='<%# MyWeb.Common.StringClass.ConvertPrice(Eval("Price").ToString()) + " Đ"%>'></asp:Label>
+							</ItemTemplate>
+						</asp:TemplateColumn>
+						<asp:TemplateColumn ItemStyle-CssClass="Center">
+							<HeaderTemplate>
+								Phương thức thanh toán
+							</HeaderTemplate>
+							<ItemTemplate>
+								<asp:Label ID="lblMethod" runat="server" Text='<%# MyWeb.Common.PageHelper.ShowMethodPayment(Eval("PaymentMethod").ToString()) %>'></asp:Label>
+							</ItemTemplate>
+						</asp:TemplateColumn>
 						<asp:TemplateColumn ItemStyle-CssClass="Center">
 							<HeaderTemplate>
 								Trạng thái
@@ -91,6 +104,51 @@
 									<asp:LinkButton CssClass="uback" ID="lbtBackT" runat="server" OnClick="Back_Click"
 										CausesValidation="False">Trở về</asp:LinkButton></li>
 							</ul>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<asp:DataGrid ID="grdProducts" runat="server" Width="100%" CssClass="TableView" AutoGenerateColumns="False">
+								<HeaderStyle CssClass="trHeader"></HeaderStyle>
+								<ItemStyle CssClass="trOdd"></ItemStyle>
+								<AlternatingItemStyle CssClass="trEven"></AlternatingItemStyle>
+								<Columns>
+									<asp:BoundColumn DataField="Id" HeaderText="Id" Visible="False" />
+									<asp:TemplateColumn ItemStyle-CssClass="Center">
+										<HeaderTemplate>
+											Tên sản phẩm
+										</HeaderTemplate>
+										<ItemTemplate>
+											<asp:Label ID="lblMethod" runat="server" Text='<%# ShowNameProduct(Eval("ProductId").ToString()) %>'></asp:Label>
+										</ItemTemplate>
+									</asp:TemplateColumn>
+									<asp:TemplateColumn ItemStyle-CssClass="Image">
+										<HeaderTemplate>
+											Hình ảnh
+										</HeaderTemplate>
+										<ItemTemplate>
+											<img src='<%#StringClass.ThumbImage(Eval("ProductImage").ToString()) %>' width="50" />
+										</ItemTemplate>
+									</asp:TemplateColumn>
+									<asp:BoundColumn DataField="Quantity" HeaderText="Số lượng" ItemStyle-CssClass="Center" />
+									<asp:TemplateColumn ItemStyle-CssClass="Center">
+										<HeaderTemplate>
+											Kích thước
+										</HeaderTemplate>
+										<ItemTemplate>
+											<%#Eval("Size").ToString() %>&nbsp;cm
+										</ItemTemplate>
+									</asp:TemplateColumn>
+									<asp:TemplateColumn ItemStyle-CssClass="Center">
+										<HeaderTemplate>
+											Tổng tiền
+										</HeaderTemplate>
+										<ItemTemplate>
+											<asp:Label ID="lblPrice" runat="server" Text='<%# MyWeb.Common.StringClass.ConvertPrice(Eval("Price").ToString()) + " Đ"%>'></asp:Label>
+										</ItemTemplate>
+									</asp:TemplateColumn>
+								</Columns>
+							</asp:DataGrid>
 						</td>
 					</tr>
 					<tr>

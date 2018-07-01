@@ -13,13 +13,40 @@ namespace MyWeb {
     public partial class Default {
         
         /// <summary>
-        /// idU_ProductList control.
+        /// rptPopular control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::MyWeb.Controls.U_ProductList idU_ProductList;
+        protected global::System.Web.UI.WebControls.Repeater rptPopular;
+        
+        /// <summary>
+        /// rptNew control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptNew;
+        
+        /// <summary>
+        /// rptHot control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptHot;
+        
+        /// <summary>
+        /// rptSpecial control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptSpecial;
         
         /// <summary>
         /// idU_Delivery control.

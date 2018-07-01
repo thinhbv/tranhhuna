@@ -57,5 +57,11 @@ namespace MyWeb.Business
             return db.Product_Pagination(currPage, perpage, level);
         }
         #endregion
-    }
+		#region[Product_SetupPrice]
+		public static bool Product_SetupPrice(string Id, string size, string price)
+		{
+			return db.Product_SetupPrice(Id, size, price);
+		}
+		#endregion
+	}
 }

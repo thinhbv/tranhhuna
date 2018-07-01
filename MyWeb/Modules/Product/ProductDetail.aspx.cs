@@ -39,10 +39,37 @@ namespace MyWeb.Modules.Product
 						if (pro.Rows.Count > 0)
 						{
 							name = pro.Rows[0]["Name"].ToString();
+							Page.Title = name;
 							content = pro.Rows[0]["Content"].ToString();
 							ltrDetail.Text = pro.Rows[0]["Detail"].ToString();
 							sImage_01 = pro.Rows[0]["Image1"].ToString();
 							sPrice = pro.Rows[0]["Price"].ToString();
+							hdPrice.Value = sPrice;
+							if (sPrice.IndexOf(",") > -1)
+							{
+								sPrice = sPrice.Split(Char.Parse(","))[0];
+							}
+							string strSize = pro.Rows[0]["Image5"].ToString();
+							string[] lSize;
+							if (strSize.IndexOf(",") > -1)
+							{
+								lSize = strSize.Split(Char.Parse(","));
+							}
+							else
+							{
+								lSize = new string[] { strSize };
+							}
+
+							for (int i = 0; i < lSize.Length; i++)
+							{
+								if (lSize[i] == string.Empty)
+								{
+									continue;
+								}
+								ddlSize.Items.Add(new ListItem(lSize[i], lSize[i]));
+							}
+							ddlSize.DataBind();
+							ddlSize.SelectedIndex = 0;
 
 							//Hiển thị sản phẩm tương tự
 							DataTable dtRelated = ProductService.Product_GetByTop("6", "Active = 1 AND GroupId='" + pro.Rows[0]["GroupId"].ToString() + "' AND Id <> '" + id + "'", "Ord");
@@ -62,31 +89,31 @@ namespace MyWeb.Modules.Product
 			}
 		}
 
-		protected void btnBuyNow_Click(object sender, EventArgs e)
-		{
-			try
-			{
-				HttpCookie cookie = Request.Cookies[Consts.GUID_SHOPPING_CART];
-				string BillId = string.Empty;
-				if (cookie == null || cookie.Value == null)
-				{
-					cookie = new HttpCookie(Consts.GUID_SHOPPING_CART);
-					cookie.Value = Guid.NewGuid().ToString();
-					cookie.Expires = DateTime.Now.AddDays(6);
-					HttpContext.Current.Response.SetCookie(cookie);
-				}
-				string quantity = "1";
-				if (!string.IsNullOrEmpty(txtQuantity.Text.Trim()))
-				{
-					quantity = txtQuantity.Text.Trim();
-				}
-				OrdersService.Orders_Add(StringClass.SqlInjection(id), StringClass.SqlInjection(cookie.Value), quantity);
-				Response.Redirect("/gio-hang", false);
-			}
-			catch (Exception ex)
-			{
-				MailSender.SendMail("", "", "Error System", ex.Message);
-			}
-		}
+		//protected void btnBuyNow_Click(object sender, EventArgs e)
+		//{
+		//	try
+		//	{
+		//		HttpCookie cookie = Request.Cookies[Consts.GUID_SHOPPING_CART];
+		//		string BillId = string.Empty;
+		//		if (cookie == null || cookie.Value == null)
+		//		{
+		//			cookie = new HttpCookie(Consts.GUID_SHOPPING_CART);
+		//			cookie.Value = Guid.NewGuid().ToString();
+		//			cookie.Expires = DateTime.Now.AddDays(6);
+		//			HttpContext.Current.Response.SetCookie(cookie);
+		//		}
+		//		string quantity = "1";
+		//		if (!string.IsNullOrEmpty(txtQuantity.Text.Trim()))
+		//		{
+		//			quantity = txtQuantity.Text.Trim();
+		//		}
+		//		OrdersService.Orders_Add(StringClass.SqlInjection(id), StringClass.SqlInjection(cookie.Value), quantity);
+		//		Response.Redirect("/gio-hang", false);
+		//	}
+		//	catch (Exception ex)
+		//	{
+		//		MailSender.SendMail("", "", "Error System", ex.Message);
+		//	}
+		//}
 	}
 }

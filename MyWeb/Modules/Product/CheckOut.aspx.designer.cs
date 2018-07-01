@@ -40,15 +40,6 @@ namespace MyWeb.Modules.Product {
         protected global::System.Web.UI.WebControls.Label lblMsg;
         
         /// <summary>
-        /// fname control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText fname;
-        
-        /// <summary>
         /// lblName control.
         /// </summary>
         /// <remarks>
@@ -58,13 +49,13 @@ namespace MyWeb.Modules.Product {
         protected global::System.Web.UI.WebControls.Label lblName;
         
         /// <summary>
-        /// email control.
+        /// fname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText email;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText fname;
         
         /// <summary>
         /// lblEmail control.
@@ -76,13 +67,13 @@ namespace MyWeb.Modules.Product {
         protected global::System.Web.UI.WebControls.Label lblEmail;
         
         /// <summary>
-        /// adr control.
+        /// email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText adr;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText email;
         
         /// <summary>
         /// lblTel control.
@@ -94,13 +85,13 @@ namespace MyWeb.Modules.Product {
         protected global::System.Web.UI.WebControls.Label lblTel;
         
         /// <summary>
-        /// city control.
+        /// adr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText city;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText adr;
         
         /// <summary>
         /// lblAddress control.
@@ -110,6 +101,15 @@ namespace MyWeb.Modules.Product {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAddress;
+        
+        /// <summary>
+        /// city control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText city;
         
         /// <summary>
         /// content control.

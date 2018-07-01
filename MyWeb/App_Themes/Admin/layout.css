@@ -87,6 +87,7 @@ button 					{ padding: 1px 6px; }
 .TableView .tdCenter	{ text-align:center; width:30px; }
 .TableView .tdLeft		{ text-align:left; }
 .TableView .Function 	{ text-align:center; width:120px; height:20px; }
+.TableView .Function .AddPrice 	{ top:4px; position:relative; left:-7px}
 .TableView .Function input{ border:0; margin:0; padding:3px 0 0 0;  }
 .TableView .Paging		{ line-height:20px; }
 .TableView .Text		{ padding:0 4px; min-width:140px; }

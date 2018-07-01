@@ -22,15 +22,6 @@ namespace MyWeb.Admins {
         protected global::System.Web.UI.UpdatePanel updatePage;
         
         /// <summary>
-        /// lblThongbao control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblThongbao;
-        
-        /// <summary>
         /// pnView control.
         /// </summary>
         /// <remarks>

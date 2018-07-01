@@ -263,10 +263,9 @@ namespace MyWeb.Admins
                     string strId = item.Cells[1].Text;
                     sql.ExecuteNonQuery("Update News set Ord='" + txt.Text + "' where Id='" + strId + "'");
                 }
-                lblThongbao.Text = "";
                 BindGrid(where);
             }
-            catch { lblThongbao.Text = "Bạn phải nhập số!"; }
+			catch { WebMsgBox.Show("Bạn phải nhập số!"); }
         }
 
         protected void drlChuyenmuc_SelectedIndexChanged(object sender, EventArgs e)

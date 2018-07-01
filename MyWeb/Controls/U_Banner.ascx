@@ -5,7 +5,7 @@
 		<ItemTemplate>
 			<div data-src="<%# Eval("Image") %>">
 				<div class="camera_caption fadeIn">
-					<h2><%# Eval("Name") %></h2>
+					<%--<h2><%# Eval("Name") %></h2>--%>
 				</div>
 			</div>
 		</ItemTemplate>

@@ -115,6 +115,29 @@
 <table class="table" cellspacing="0" cellpadding="0">
     <tr>
         <td class="left">
+            <img src="/App_Themes/admin/images/blank.gif" />
+        </td>
+        <td>
+            Đơn hàng
+        </td>
+        <td class="image">
+            <img id="imgdiv2" src="/App_Themes/admin/images/closed.gif" onclick="toggleXPMenu('div11');" />
+        </td>
+        <td class="right">
+            <img src="/App_Themes/admin/images/blank.gif" />
+        </td>
+    </tr>
+</table>
+<asp:Panel ID="div2" CssClass="content" ClientIDMode="Static" runat="server">
+    <ul>
+        <li>
+            <img src="/App_Themes/admin/images/icon_pro.jpg" /><asp:LinkButton ID="lbtOrders" CausesValidation="false"
+                runat="server" OnClick="LinkButton_Click">Danh sách đơn hàng</asp:LinkButton></li>
+    </ul>
+</asp:Panel>
+<table class="table" cellspacing="0" cellpadding="0">
+    <tr>
+        <td class="left">
             <img alt="" src="/App_Themes/admin/images/blank.gif" />
         </td>
         <td>
@@ -144,14 +167,14 @@
             Chức năng khác
         </td>
         <td class="image">
-            <img alt="" id="imgdiv8" src="/App_Themes/admin/images/closed.gif" onclick="toggleXPMenu('div8');" />
+            <img alt="" id="imgdiv3" src="/App_Themes/admin/images/closed.gif" onclick="toggleXPMenu('div8');" />
         </td>
         <td class="right">
             <img alt="" src="/App_Themes/admin/images/blank.gif" />
         </td>
     </tr>
 </table>
-<asp:Panel ID="Panel1" CssClass="content" ClientIDMode="Static" runat="server">
+<asp:Panel ID="div3" CssClass="content" ClientIDMode="Static" runat="server">
     <ul>
         <li>
             <img alt="" src="/App_Themes/admin/images/icon_pro.jpg" /><asp:LinkButton ID="lbtUploadImages"

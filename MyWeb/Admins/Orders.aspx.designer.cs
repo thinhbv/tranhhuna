@@ -49,13 +49,13 @@ namespace MyWeb.Admins {
         protected global::System.Web.UI.WebControls.LinkButton lbtRefreshT;
         
         /// <summary>
-        /// grdGroupNews control.
+        /// grdOrders control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataGrid grdGroupNews;
+        protected global::System.Web.UI.WebControls.DataGrid grdOrders;
         
         /// <summary>
         /// lbtRefreshB control.
@@ -92,6 +92,15 @@ namespace MyWeb.Admins {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbtBackT;
+        
+        /// <summary>
+        /// grdProducts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataGrid grdProducts;
         
         /// <summary>
         /// lblName control.

@@ -19,10 +19,7 @@
 	<div class="info-box">
 		<div class="fa-phone">
 			<p>Phone:</p>
-
-			<a href="callto:#">
-				<asp:Label ID="lblPhone" runat="server"></asp:Label>
-			</a>
+			<asp:Label ID="lblPhone" runat="server"></asp:Label>
 		</div>
 		<div class="fa-map-marker">
 			<p>Địa chỉ:</p>
@@ -32,11 +29,10 @@
 				Khu chung cư Mễ Trì
 			</address>
 		</div>
-		<div class="cart-info">
-			<a href="/gio-hang" title="Giỏ hàng của bạn">
-				<i class="fa-shopping-cart" style="font-size: 42px;"></i>
+		<a href="/gio-hang" title="Giỏ hàng của bạn">
+			<div class="fa-shopping-cart">
 				<b id="item-count"><%=totalCount %></b>
-			</a>
-		</div>
+			</div>
+		</a>
 	</div>
 </div>

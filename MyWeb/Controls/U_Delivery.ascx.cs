@@ -15,11 +15,18 @@ namespace MyWeb.Controls
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			if (!IsPostBack)
+			try
 			{
-				DataTable dt = NewsService.News_GetByTop("3", "Priority=3 AND Active=1", "Ord DESC");
-				rptDelivery.DataSource = dt;
-				rptDelivery.DataBind();
+				if (!IsPostBack)
+				{
+					DataTable dt = NewsService.News_GetByTop("3", "Priority=3 AND Active=1", "Ord DESC");
+					rptDelivery.DataSource = dt;
+					rptDelivery.DataBind();
+				}
+			}
+			catch (Exception ex)
+			{
+				MailSender.SendMail("", "", "Error System", ex.Message);
 			}
 		}
 	}

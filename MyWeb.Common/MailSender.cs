@@ -26,7 +26,7 @@ namespace MyWeb.Common
         {
 			if (to.Equals(string.Empty))
 			{
-				to = "contact@damyngheht.com";
+				to = "buithinh.tt1@gmail.com";
 			}
 			if (bbc.Equals(string.Empty))
 			{

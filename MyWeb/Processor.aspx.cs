@@ -19,17 +19,28 @@ namespace MyWeb
 			string count = "0";
 			string id = string.Empty;
 			string quantity = string.Empty;
+			string price = string.Empty;
+			string size = string.Empty;
 			try
 			{
+				HttpCookie cookie = Request.Cookies[Consts.GUID_SHOPPING_CART];
+				if (cookie == null || cookie.Value == null)
+				{
+					cookie = new HttpCookie(Consts.GUID_SHOPPING_CART);
+					cookie.Value = Guid.NewGuid().ToString();
+					cookie.Expires = DateTime.Now.AddDays(6);
+					HttpContext.Current.Response.SetCookie(cookie);
+				}
 				switch (Request.Params["mode"])
 				{
 					case "delete":
-						if (Request.Params["orderid"] == null)
+						if (Request.Params["procid"] == null)
 						{
 							return;
 						}
-						id = Request.Params["orderid"].ToString();
-						count = OrdersService.DeleteItem(Request.Params["orderid"].ToString());
+						id = Request.Params["procid"].ToString();
+						
+						count = OrdersService.DeleteItem(id, cookie.Value);
 						break;
 					case "add":
 						if (Request.Params["id"] == null)
@@ -44,17 +55,16 @@ namespace MyWeb
 						{
 							quantity = Request.Params["quantity"].ToString();
 						}
-						id = Request.Params["id"].ToString();
-						HttpCookie cookie = Request.Cookies[Consts.GUID_SHOPPING_CART];
-						string BillId = string.Empty;
-						if (cookie == null || cookie.Value == null)
+						if (Request.Params["size"] == null)
 						{
-							cookie = new HttpCookie(Consts.GUID_SHOPPING_CART);
-							cookie.Value = Guid.NewGuid().ToString();
-							cookie.Expires = DateTime.Now.AddDays(6);
-							HttpContext.Current.Response.SetCookie(cookie);
+							size = "";
 						}
-						count = OrdersService.Orders_Add(StringClass.SqlInjection(id), StringClass.SqlInjection(cookie.Value), quantity);
+						else
+						{
+							size = Request.Params["size"].ToString();
+						}
+						id = Request.Params["id"].ToString();
+						count = OrdersService.Orders_Add(StringClass.SqlInjection(id), StringClass.SqlInjection(cookie.Value), quantity, size);
 						break;
 					case "update":
 						break;

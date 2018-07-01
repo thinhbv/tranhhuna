@@ -8,8 +8,6 @@
         QUẢN LÝ TIN TỨC</div>
     <asp:UpdatePanel ID="updatePage" runat="server">
         <ContentTemplate>
-            <asp:Label ID="lblThongbao" runat="server" Font-Bold="True" Font-Italic="True" Font-Names="Arial"
-                Font-Size="12px" ForeColor="Red"></asp:Label>
             <asp:Panel ID="pnView" runat="server">
                 <div style="margin-bottom: 5px">
                     <asp:DropDownList ID="drlnhom" runat="server" AutoPostBack="True" OnSelectedIndexChanged="drlChuyenmuc_SelectedIndexChanged">

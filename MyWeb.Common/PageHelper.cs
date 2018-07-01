@@ -159,7 +159,7 @@ namespace MyWeb.Common
 
 		public static void LoadDropDownListStatusCart(DropDownList ddl)
 		{
-			string[] myArr = new string[] { "0,Thêm vào giỏ hàng", "1,Đã đặt hàng", "2,Đã thanh toán", "3,Hủy đặt hàng" };
+			string[] myArr = new string[] { ",--Chọn trạng thái--,", "0,Thêm vào giỏ hàng", "1,Đã đặt hàng", "2,Đã thanh toán", "3,Hủy đặt hàng" };
 			LoadDropDownList(ddl, myArr, true);
 		}
 
@@ -196,6 +196,24 @@ namespace MyWeb.Common
 			}
 			return strString;
 		}
+
+		public static string ShowMethodPayment(string method)
+		{
+			string strString = "";
+			string[] myArr = new string[] { "1,Chuyển khoản ngân hàng", "2,Thanh toán trực tiếp"};
+			char[] splitter = { ',', ';' };
+			for (int i = 0; i < myArr.Length; i++)
+			{
+				string[] arr = myArr[i].Split(splitter);
+				if (arr[0].Equals(method))
+				{
+					strString = arr[1];
+					break;
+				}
+			}
+			return strString;
+		}
+
 		public static void LoadDropDownListYesNo(DropDownList ddl)
 		{
 			string[] myArr = new string[] { "1,Yes", "0,No" };

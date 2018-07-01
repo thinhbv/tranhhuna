@@ -38,6 +38,7 @@ namespace MyWeb.Data
 			dbCmd.Parameters.Add(new SqlParameter("@ProductName", data.ProductName));
 			dbCmd.Parameters.Add(new SqlParameter("@ProductImage", data.ProductImage));
 			dbCmd.Parameters.Add(new SqlParameter("@Price", data.Price));
+			dbCmd.Parameters.Add(new SqlParameter("@Size", data.Size));
 			dbCmd.Parameters.Add(new SqlParameter("@Quantity", data.Quantity));
 			ExecuteNonQuery(dbCmd);
 			//Clear cache
@@ -56,6 +57,7 @@ namespace MyWeb.Data
 			dbCmd.Parameters.Add(new SqlParameter("@ProductName", data.ProductName));
 			dbCmd.Parameters.Add(new SqlParameter("@ProductImage", data.ProductImage));
 			dbCmd.Parameters.Add(new SqlParameter("@Price", data.Price));
+			dbCmd.Parameters.Add(new SqlParameter("@Size", data.Size));
 			dbCmd.Parameters.Add(new SqlParameter("@Quantity", data.Quantity));
 			ExecuteNonQuery(dbCmd);
 			//Clear cache

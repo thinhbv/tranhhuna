@@ -15,11 +15,18 @@ namespace MyWeb.Controls
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			if (!IsPostBack)
+			try
 			{
-				List<Images> listImg = ImagesService.Images_GetByTop("", "Priority=2 AND Active=1", "Ord");
-				rptImages.DataSource = listImg;
-				rptImages.DataBind();
+				if (!IsPostBack)
+				{
+					List<Images> listImg = ImagesService.Images_GetByTop("", "Priority=2 AND Active=1", "Ord");
+					rptImages.DataSource = listImg;
+					rptImages.DataBind();
+				}
+			}
+			catch (Exception ex)
+			{
+				MailSender.SendMail("", "", "Error System", ex.Message);
 			}
 		}
 	}

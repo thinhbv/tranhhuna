@@ -17,6 +17,7 @@ namespace MyWeb.Data
 		static string strConStr = @"Data Source=THINHBV-PC\MSSQLSERVER_2008;Initial Catalog=tranhhuna;User ID=sa;Password=Thinh!@#123;Pooling=true;Max Pool Size=256;Min Pool Size=16;";
 #else
 		static string strConStr = @"Data Source=.;Initial Catalog=shareco1_tranhhuna;User ID=shareco1_tranhhuna;Password=cYyg20#2;Pooling=true;Max Pool Size=256;Min Pool Size=16;";
+		//static string strConStr = @"Data Source=.;Initial Catalog=shareco1_tranhhuna01;User ID=shareco1_tranhhuna;Password=tpTe2?15;Pooling=true;Max Pool Size=256;Min Pool Size=16;";
 #endif
 		/// <summary>
         /// Global SQL server connection
@@ -47,7 +48,7 @@ namespace MyWeb.Data
         {
             try
             {
-                if (cmd.Connection == null) { cmd.Connection = GetConnection(); }
+				if (cmd.Connection == null) { cmd.Connection = new SqlConnection(strConStr); }
                 using (DataSet ds = new DataSet())
                 {
                     using (SqlDataAdapter da = new SqlDataAdapter())
@@ -70,7 +71,7 @@ namespace MyWeb.Data
 		{
 			try
 			{
-				if (cmd.Connection == null) { cmd.Connection = GetConnection(); }
+				if (cmd.Connection == null) { cmd.Connection = new SqlConnection(strConStr); }
 				using (DataSet ds = new DataSet())
 				{
 					using (SqlDataAdapter da = new SqlDataAdapter())
@@ -157,6 +158,15 @@ namespace MyWeb.Data
             strReturn = ExecuteScalar("SELECT max(" + ColId + ") as maxid FROM " + Table).ToString();
             return strReturn;
         }
+		public bool UpdateStatusCart(string status, string id)
+		{
+			string strReturn = "Update Orders Set Status=@Status Where Id=@Id";
+			SqlCommand cmd = GetCommand(strReturn);
+			cmd.Parameters.Add("@Status", SqlDbType.TinyInt).Value = status;
+			cmd.Parameters.Add("@Id", SqlDbType.Int).Value = id;
+			cmd.ExecuteNonQuery();
+			return true;
+		}
         public int DBSize()
         {
             using (SqlCommand cmd = new SqlCommand("select sum(size) * 8 * 1024 from sysfiles"))

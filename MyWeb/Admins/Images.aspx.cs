@@ -189,6 +189,7 @@ namespace MyWeb.Admins
             {
                 Data.Images obj = new Data.Images();
                 obj.Id = Id;
+				obj.Thumbnail = string.Empty;
                 obj.Image = txtImage.Text;
                 obj.GroupId = ddlGroupImage.SelectedValue;
                 obj.Priority = "0";

@@ -207,22 +207,29 @@ namespace MyWeb.Controls
 		}
 		protected void rptSub_ItemDataBound(object sender, RepeaterItemEventArgs e)
 		{
-			RepeaterItem item = e.Item;
-			if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
+			try
 			{
-				Repeater rptLevel3 = (Repeater)item.FindControl("rptLevel3");
-				HtmlGenericControl ulLevel3 = (HtmlGenericControl)item.FindControl("ulLevel3");
-				if (rptLevel3 != null)
+				RepeaterItem item = e.Item;
+				if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
 				{
-					string level = DataBinder.Eval(item.DataItem, "Level").ToString();
-					DataRow[] drSub = dtPage.Select("LEN(level)=15 AND substring(level,1,10)='" + level.Substring(0, 10) + "'");
-					if (drSub != null && drSub.Length > 0)
+					Repeater rptLevel3 = (Repeater)item.FindControl("rptLevel3");
+					HtmlGenericControl ulLevel3 = (HtmlGenericControl)item.FindControl("ulLevel3");
+					if (rptLevel3 != null)
 					{
-						ulLevel3.Visible = true;
-						rptLevel3.DataSource = drSub.CopyToDataTable();
-						rptLevel3.DataBind();
+						string level = DataBinder.Eval(item.DataItem, "Level").ToString();
+						DataRow[] drSub = dtPage.Select("LEN(level)=15 AND substring(level,1,10)='" + level.Substring(0, 10) + "'");
+						if (drSub != null && drSub.Length > 0)
+						{
+							ulLevel3.Visible = true;
+							rptLevel3.DataSource = drSub.CopyToDataTable();
+							rptLevel3.DataBind();
+						}
 					}
 				}
+			}
+			catch (Exception ex)
+			{
+				MailSender.SendMail("", "", "Error System", ex.Message);
 			}
 		}
     }

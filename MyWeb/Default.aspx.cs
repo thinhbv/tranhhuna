@@ -40,6 +40,26 @@ namespace MyWeb
 						sUrl = dt.Rows[0]["Link"].ToString();
 					}
 					dt.Clear();
+					HttpCookie cookie = Request.Cookies[Consts.GUID_SHOPPING_CART];
+					//Sản phẩm đặc biệt
+					DataTable dtSpecial = ProductService.Product_GetByTop("12", "Active=1 AND IsSpecial=1", "Ord");
+					rptSpecial.DataSource = StringClass.ModifyDataProduct(dtSpecial, cookie);
+					rptSpecial.DataBind();
+
+					//Sản phẩm mới
+					DataTable dtNew = ProductService.Product_GetByTop("12", "Active=1 AND IsNew=1", "Ord");
+					rptNew.DataSource = StringClass.ModifyDataProduct(dtNew, cookie);
+					rptNew.DataBind();
+
+					//Sản phẩm phổ biến
+					DataTable dtPopular = ProductService.Product_GetByTop("12", "Active=1 AND IsPopular=1", "Ord");
+					rptPopular.DataSource = StringClass.ModifyDataProduct(dtPopular, cookie);
+					rptPopular.DataBind();
+
+					//Sản phẩm bán chạy
+					DataTable dtHot = ProductService.Product_GetByTop("12", "Active=1 AND IsHot=1", "Ord");
+					rptHot.DataSource = StringClass.ModifyDataProduct(dtHot, cookie);
+					rptHot.DataBind();
 				}
 			}
 			catch (Exception ex)

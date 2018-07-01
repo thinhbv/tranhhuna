@@ -26,73 +26,23 @@
 				<li id="liparent" runat="server">
 					<a href="<%# Eval("Link").ToString() %>"><%#Eval("Name").ToString() %></a>
 					<ul id="ulSub" runat="server" class="dropdown-menu" visible="false">
-					<asp:Repeater ID="rptSub" runat="server" OnItemDataBound="rptSub_ItemDataBound">
-						<ItemTemplate>
-							<li><a href="<%#Eval("Link").ToString() %>"><%#Eval("Name").ToString() %></a>
-								<ul id="ulLevel3" runat="server" class="dropdown-menu" visible="false">
-								<asp:Repeater ID="rptLevel3" runat="server">
-									<ItemTemplate>
-										<li><a href="<%#Eval("Link").ToString() %>"><%#Eval("Name").ToString() %></a></li>
-									</ItemTemplate>
-								</asp:Repeater>
-								</ul>
-							</li>
-						</ItemTemplate>
-					</asp:Repeater>
-					</ul>	
+						<asp:Repeater ID="rptSub" runat="server" OnItemDataBound="rptSub_ItemDataBound">
+							<ItemTemplate>
+								<li><a href="<%#Eval("Link").ToString() %>"><%#Eval("Name").ToString() %></a>
+									<ul id="ulLevel3" runat="server" class="dropdown-menu" visible="false">
+										<asp:Repeater ID="rptLevel3" runat="server">
+											<ItemTemplate>
+												<li><a href="<%#Eval("Link").ToString() %>"><%#Eval("Name").ToString() %></a></li>
+											</ItemTemplate>
+										</asp:Repeater>
+									</ul>
+								</li>
+							</ItemTemplate>
+						</asp:Repeater>
+					</ul>
 				</li>
 			</ItemTemplate>
 		</asp:Repeater>
-		<%--<li class="active">
-			<a href="./">Home</a>
-		</li>
-		<li>
-			<a href="index-1.html">About us</a>
-		</li>
-		<li>
-			<a href="index-2.html">Products</a>
-		</li>
-		<li class="dropdown">
-			<a href="index-3.html">Recipe Corner</a>
-
-			<ul class="dropdown-menu">
-				<li>
-					<a href="#">Levain Walnut Baguette</a>
-				</li>
-				<li>
-					<a href="#">Pizza Round</a>
-				</li>
-				<li>
-					<a href="#">Sourdough Bragel</a>
-
-					<ul class="dropdown-menu">
-						<li>
-							<a href="#">Description</a>
-						</li>
-						<li>
-							<a href="#">Ingredients</a>
-						</li>
-						<li>
-							<a href="#">Details</a>
-						</li>
-					</ul>
-				</li>
-				<li>
-					<a href="#">Cranberry Orange Scone</a>
-				</li>
-				<li>
-					<a href="#">Cinnamon Rolls</a>
-				</li>
-			</ul>
-		</li>
-
-		<li>
-			<a href="index-4.html">News & Events</a>
-		</li>
-
-		<li>
-			<a href="index-5.html">Contact Us</a>
-		</li>--%>
 	</ul>
 </nav>
 <!--navbar-default-->
@@ -102,13 +52,11 @@
 <!--sform-->
 
 <div class="search-form">
-	<form id="search" action="search.php" method="GET" accept-charset="utf-8">
-		<label class="search-form_label" for="in">
-			<input id="in" class="search-form_input" type="text" name="s"
-				placeholder="Type your search term here..." />
-			<span class="search-form_liveout"></span>
-		</label>
-		<button type="submit" class="search-form_submit fa-search"></button>
-	</form>
+	<label class="search-form_label" for="in">
+		<input id="in" class="search-form_input" type="text" name="s"
+			placeholder="Nhập keyword của bạn ở đây..." />
+		<span class="search-form_liveout"></span>
+	</label>
+	<button type="button" id="tm_submit_search" class="search-form_submit fa-search"></button>
 </div>
 <!--search-form-->

@@ -161,6 +161,7 @@
     <Content Include="App_Themes\Admin\images\icon_ocontact.jpg" />
     <Content Include="App_Themes\Admin\images\icon_page.jpg" />
     <Content Include="App_Themes\Admin\images\icon_plan.jpg" />
+    <Content Include="App_Themes\Admin\images\icon_price.png" />
     <Content Include="App_Themes\Admin\images\icon_pro.jpg" />
     <Content Include="App_Themes\Admin\images\icon_report.jpg" />
     <Content Include="App_Themes\Admin\images\icon_system.jpg" />
@@ -235,6 +236,7 @@
     <Content Include="img\tm\plus-minus.png" />
     <Content Include="img\tm\pro_button.png" />
     <Content Include="InnerError.html" />
+    <Content Include="LoginFB.aspx" />
     <Content Include="Modules\Images\ImageList.aspx" />
     <Content Include="Modules\News\NewsDetail.aspx" />
     <Content Include="Modules\News\ViewNews.aspx" />
@@ -1246,6 +1248,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="LoginFB.aspx.cs">
+      <DependentUpon>LoginFB.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginFB.aspx.designer.cs">
+      <DependentUpon>LoginFB.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modules\Images\ImageList.aspx.cs">
       <DependentUpon>ImageList.aspx</DependentUpon>

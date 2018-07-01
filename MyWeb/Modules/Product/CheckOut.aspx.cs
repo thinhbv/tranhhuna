@@ -114,8 +114,9 @@ namespace MyWeb.Modules.Product
 					{
 						RepeaterItem item = rptCart.Items[i];
 						TextBox txtquantity = (TextBox)item.FindControl("txtquantity");
+						DropDownList ddlSize = (DropDownList)item.FindControl("ddlSize");
 						HiddenField hfId = (HiddenField)item.FindControl("hfId");
-						htData.Add(hfId.Value.Trim(), txtquantity.Text.Trim());
+						htData.Add(hfId.Value.Trim(), txtquantity.Text.Trim() + "," + ddlSize.SelectedValue);
 					}
 					Orders order = new Orders();
 					order.Id = Id;
@@ -146,6 +147,48 @@ namespace MyWeb.Modules.Product
 			catch (Exception ex)
 			{
 				MailSender.SendMail("", "", "Error System", ex.Message);
+			}
+		}
+
+		protected void rptCart_ItemDataBound(object sender, RepeaterItemEventArgs e)
+		{
+			RepeaterItem item = e.Item;
+			if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem) 
+			{
+				DropDownList ddlSize = (DropDownList)item.FindControl("ddlSize");
+				if (ddlSize != null)
+				{
+					HiddenField hdProductId = (HiddenField)item.FindControl("hdProductId");
+					HiddenField hdSize = (HiddenField)item.FindControl("hdSize");
+					if (hdProductId != null)
+					{
+						string proId = hdProductId.Value;
+						DataTable dtPro = ProductService.Product_GetById(proId);
+						if (dtPro.Rows.Count > 0)
+						{
+							string[] lSize;
+							if (dtPro.Rows[0]["Image5"].ToString().IndexOf(",") > -1)
+							{
+								HiddenField hdPrice = (HiddenField)item.FindControl("hdPrice");
+								lSize = dtPro.Rows[0]["Image5"].ToString().Split(Char.Parse(","));
+								hdPrice.Value = dtPro.Rows[0]["Price"].ToString();
+							}
+							else
+							{
+								lSize = new string[] { dtPro.Rows[0]["Image5"].ToString() };
+							}
+							for (int i = 0; i < lSize.Length; i++)
+							{
+								ddlSize.Items.Add(new ListItem(lSize[i], lSize[i]));
+							}
+							ddlSize.DataBind();
+							if (hdSize != null)
+							{
+								ddlSize.SelectedValue = hdSize.Value;
+							}
+						}
+					}
+				}
 			}
 		}
 	}

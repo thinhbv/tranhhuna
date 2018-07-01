@@ -41,16 +41,16 @@ namespace MyWeb.Business
 		}
 		#endregion
 		#region[Orders_Add]
-		public static string Orders_Add(string id, string orderid, string quantity)
+		public static string Orders_Add(string id, string orderid, string quantity, string size)
 		{
-			return db.Orders_Add(id, orderid, quantity);
+			return db.Orders_Add(id, orderid, quantity, size);
 		}
 		#endregion
 
 		#region[Delete_Item]
-		public static string DeleteItem(string id)
+		public static string DeleteItem(string id, string orderid)
 		{
-			return db.DeleteItem(id);
+			return db.DeleteItem(id, orderid);
 		}
 		#endregion
 

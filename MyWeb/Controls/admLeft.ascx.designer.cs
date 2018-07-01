@@ -148,6 +148,24 @@ namespace MyWeb.Controls {
         protected global::System.Web.UI.WebControls.LinkButton lbtProduct;
         
         /// <summary>
+        /// div2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel div2;
+        
+        /// <summary>
+        /// lbtOrders control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtOrders;
+        
+        /// <summary>
         /// div8 control.
         /// </summary>
         /// <remarks>
@@ -166,13 +184,13 @@ namespace MyWeb.Controls {
         protected global::System.Web.UI.WebControls.LinkButton lbtSupport;
         
         /// <summary>
-        /// Panel1 control.
+        /// div3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.Panel div3;
         
         /// <summary>
         /// lbtUploadImages control.
