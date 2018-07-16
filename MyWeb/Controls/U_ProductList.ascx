@@ -17,7 +17,7 @@
 			$.ajax({
 				method: "POST",
 				url: "/Processor.aspx",
-				data: { mode:"add", id: proid }
+				data: { mode: "add", id: proid }
 			})
 			  .done(function (result) {
 			  	if (result === "1") {
@@ -49,15 +49,15 @@
 	})
 </script>
 <div class="container">
-	<div class="row">
+	<div id="list-product" class="row">
 		<asp:Repeater ID="rptProducts" runat="server">
 			<ItemTemplate>
 				<div class="col-md-2 col-sm-4 col-xs-6 wow fadeInUp">
 					<a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>">
 						<img src="<%# StringClass.ThumbImage(Eval("Image1").ToString()) %>" alt="<%# Eval("Name") %>" title="<%# Eval("Name") %>"></a>
-					<h6 class="badge"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> Đ</h6>
-					<h6 id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></h6>
-					<h6><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# Eval("Name") %></a></h6>
+					<h6 class="badge col-md-9 col-sm-9 col-xs-9"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> Đ</h6>
+					<h6 id="<%#Eval("Id").ToString() %>" class="col-md-2 col-sm-2 col-xs-2 <%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></h6>
+					<h6 style="clear:left;"><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 45) %></a></h6>
 					<p class="l-height"><%# StringClass.FormatContentNews(Eval("Content").ToString(),100) %></p>
 				</div>
 			</ItemTemplate>

@@ -13,49 +13,13 @@ namespace MyWeb {
     public partial class Default {
         
         /// <summary>
-        /// rptPopular control.
+        /// rptGroup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptPopular;
-        
-        /// <summary>
-        /// rptNew control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptNew;
-        
-        /// <summary>
-        /// rptHot control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptHot;
-        
-        /// <summary>
-        /// rptSpecial control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptSpecial;
-        
-        /// <summary>
-        /// idU_Delivery control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::MyWeb.Controls.U_Delivery idU_Delivery;
+        protected global::System.Web.UI.WebControls.Repeater rptGroup;
         
         /// <summary>
         /// idU_NewsList control.

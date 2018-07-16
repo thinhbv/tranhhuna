@@ -2089,8 +2089,8 @@ header .info-box .fa-shopping-cart b{
     left: 0;
     top: -2px;
   }
-  header .info-box .fa-phone + .fa-map-marker {
-    border-left: none;
+  header .info-box .fa-phone + .fa-map-marker, .fa-shopping-cart {
+    border-left: none !important;
     margin-top: 20px;
   }
 }
@@ -2105,20 +2105,22 @@ header .info-box .fa-shopping-cart b{
 main {
   background: url("../img/bg_cnt.png") repeat #efe0c6;
 }
-.badge, .add-cart {
+.badge{
   background: #f15823;
-  padding:5px;
+  padding:5px !important;
   font-weight: 400;
   color: #fff;
   display: inline-block;
-  width:80%;
+  margin-bottom: 10px;
+  font-size:13px;
 }
 .add-cart{
-float:right;
+background: #f15823;
+color: #fff;
+float:right !important;
 width:20%;
 font-size:12px;
 padding:13px 0;
-text-align:center;
 margin:0;
 cursor:pointer;
 background:url(../images/CartIn.png) no-repeat right center;
@@ -2133,6 +2135,11 @@ margin:0;
 background:url(../images/CartOut.png) no-repeat right center;
 cursor:pointer;
 }
+
+#list-product .wow{
+height:280px;
+}
+
 .mg_add {
   margin-top: 54px;
 }
@@ -3145,7 +3152,7 @@ pre code {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
-  padding-right: 15px;
+  padding-right: 5px;
 }
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
   float: left;
@@ -5415,39 +5422,24 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   overflow: hidden;
   background-color: #e5e5e5;
 }
-.nav > li > a > img {
+.nav > .homefeatured > a > img {
   max-width: none;
 }
 .nav-tabs {
   border-bottom: 1px solid #dddddd;
 }
-.nav-tabs > li {
-  float: left;
-  background:#f15823;
-  margin-right:5px;
-  color:white;
+.nav-tabs > .homefeatured {
+  clear: left;
   border:1px solid #f15823;
+  padding:10px;
 }
-.nav-tabs > li:hover {
-  background:#be1e2d;
-}
-.nav-tabs > li > a {
-  margin-right: 2px;
-  line-height: 1.42857143;
-  border-radius: 0 0 0 0;
+.nav-tabs > .homefeatured > h5 {
   font-weight:bold;
+  color:#f15823 !important;
 }
-.nav-tabs > li > a:hover {
-  color:white;
-  background:#be1e2d;
-  border-color: #bababa #bababa #dddddd;
-}
-.nav-tabs > li.active,
-.nav-tabs > li.active > a,
-.nav-tabs > li.active > a:hover{
-  color: #f15823;
-  background-color: #f0e5d4;
-  cursor: default;
+.nav-tabs > .homefeatured > h5 > a:hover {
+  color:#f15823 !important;
+  text-decoration:underline;
 }
 .nav-tabs.nav-justified {
   width: 100%;
@@ -7816,3 +7808,5 @@ button.close {
 	top:50%;
 	left:50%;
 }
+
+.sdsarticleBottom{margin-top:30px;}
