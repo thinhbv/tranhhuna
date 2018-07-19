@@ -53,13 +53,13 @@ namespace MyWeb.Admins
 					ddlLink.Items.Add(new ListItem(StringClass.ShowNameLevel(listG[i].Name, listG[i].Level + "00000"), "/Thu-vien-anh/" + listG[i].Id + "/" + StringClass.NameToTag(listG[i].Name)));
                 }
             }
-            List<Data.GroupProduct> listGProduct = GroupProductService.GroupProduct_GetByTop("", "Active=1", "Level, Ord");
+            DataTable listGProduct = GroupProductService.GroupProduct_GetByTop("", "Active=1", "Level, Ord");
 			ddlLink.Items.Add(new ListItem("Sản phẩm", "#"));
-            if (listGProduct.Count > 0)
+            if (listGProduct.Rows.Count > 0)
             {
-                for (int i = 0; i < listGProduct.Count; i++)
+                for (int i = 0; i < listGProduct.Rows.Count; i++)
                 {
-					ddlLink.Items.Add(new ListItem(StringClass.ShowNameLevel(listGProduct[i].Name, listGProduct[i].Level + "00000"), PageHelper.GeneralGroupUrl(Consts.CON_SAN_PHAM, listGProduct[i].Id, listGProduct[i].Name)));
+					ddlLink.Items.Add(new ListItem(StringClass.ShowNameLevel(listGProduct.Rows[i]["Name"].ToString(), listGProduct.Rows[i]["Level"].ToString() + "00000"), PageHelper.GeneralGroupUrl(Consts.CON_SAN_PHAM, listGProduct.Rows[i]["Id"].ToString(), listGProduct.Rows[i]["Name"].ToString())));
                 }
             }
             ddlLink.Items.Add(new ListItem("Liên hệ", "/lien-he"));

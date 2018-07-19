@@ -72,13 +72,13 @@
 				</asp:TemplateColumn>
 				<asp:TemplateColumn ItemStyle-CssClass="Number">
 					<HeaderTemplate>
-						Phổ biến
+						Hiển thị trang chủ
 					</HeaderTemplate>
 					<ItemTemplate>
 						<asp:ImageButton ID="Image2" runat="server" CommandName="IsPopular" CommandArgument='<%#Eval("Id") %>' ImageUrl='<%#MyWeb.Common.PageHelper.ShowCheckImage(DataBinder.Eval(Container.DataItem, "IsPopular"))%>' />
 					</ItemTemplate>
 				</asp:TemplateColumn>
-				<asp:TemplateColumn ItemStyle-CssClass="Number">
+				<%--<asp:TemplateColumn ItemStyle-CssClass="Number">
 					<HeaderTemplate>
 						Bán chạy
 					</HeaderTemplate>
@@ -101,7 +101,7 @@
 					<ItemTemplate>
 						<asp:ImageButton ID="Image5" runat="server" CommandName="IsSpecial" CommandArgument='<%#Eval("Id") %>' ImageUrl='<%#MyWeb.Common.PageHelper.ShowCheckImage(DataBinder.Eval(Container.DataItem, "IsSpecial"))%>' />
 					</ItemTemplate>
-				</asp:TemplateColumn>
+				</asp:TemplateColumn>--%>
 				<asp:TemplateColumn ItemStyle-CssClass="Number">
 					<HeaderTemplate>
 						Thứ tự<asp:ImageButton ID="imgUpdateOrd" runat="server" ToolTip="Cập nhật thứ tự"
@@ -244,7 +244,7 @@
 			</tr>
 			<tr>
 				<th>
-					<asp:Label ID="lblContent" runat="server" Text="Mô tả:"></asp:Label>
+					<asp:Label ID="lblContent" runat="server" Text="Mã hàng:"></asp:Label>
 				</th>
 				<td>
 					<asp:TextBox ID="txtContent" runat="server" TextMode="MultiLine" CssClass="text multiline"></asp:TextBox>
@@ -276,13 +276,13 @@
 			</tr>
 			<tr>
 				<th>
-					<asp:Label ID="lblPopular" runat="server" Text="Sản phẩm phổ biến:"></asp:Label>
+					<asp:Label ID="lblPopular" runat="server" Text="Hiển thị trang chủ:"></asp:Label>
 				</th>
 				<td>
 					<asp:CheckBox ID="chkPopular" runat="server" />
 				</td>
 			</tr>
-			<tr>
+			<%--<tr>
 				<th>
 					<asp:Label ID="lblHot" runat="server" Text="Sản phẩm bán chạy:"></asp:Label>
 				</th>
@@ -305,7 +305,7 @@
 				<td>
 					<asp:CheckBox ID="chkSpecial" runat="server" />
 				</td>
-			</tr>
+			</tr>--%>
 			<tr>
 				<th>
 					<asp:Label ID="lblOrd" runat="server" Text="Thứ tự:"></asp:Label>

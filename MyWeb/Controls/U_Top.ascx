@@ -3,21 +3,11 @@
 
 	<div class="navbar-header">
 		<div class="navbar-brand-wrap">
-			<img src="/images/logo.png" alt="" class="navbar-brand-img">
-			<asp:Literal ID="ltrLogo" runat="server"></asp:Literal>
-			<%--<div class="brand_cnt">
-				<p class="navbar-slogan">
-					Phương châm sống
-				</p>
-
-				<h1 class="navbar-brand">
-					<a href="./">TranhHuna</a>
-				</h1>
-			</div>--%>
+			<a href="/" title="Tranh Huna"><img src="/images/logo.png" alt="" class="navbar-brand-img"></a>
 		</div>
 	</div>
 	<div class="info-box">
-		<div class="fa-phone">
+		<%--<div class="fa-phone">
 			<p>Phone:</p>
 			<asp:Label ID="lblPhone" runat="server"></asp:Label>
 		</div>
@@ -28,7 +18,7 @@
 				<br />
 				Khu chung cư Mễ Trì
 			</address>
-		</div>
+		</div>--%>
 		<a href="/gio-hang" title="Giỏ hàng của bạn">
 			<div class="fa-shopping-cart">
 				<b id="item-count"><%=totalCount %></b>

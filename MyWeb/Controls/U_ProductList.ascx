@@ -9,7 +9,7 @@
 			})
 		}
 		$(".added-cart").each(function () {
-			$(this).attr("title", "Xóa khỏi giỏ hàng");
+			$(this).attr("title", "Đã thêm vào giỏ hàng");
 		})
 		$(".add-cart").click(function () {
 			var proid = $(this)[0].id;
@@ -22,30 +22,30 @@
 			  .done(function (result) {
 			  	if (result === "1") {
 			  		item.removeAttr("class");
-			  		item.attr("class", "added-cart");
+			  		item.attr("class", "fa-shopping-cart added-cart");
 			  		item.attr("title", "Xóa khỏi giỏ hàng");
 			  		item.removeAttr("id");
 			  		$("#item-count")[0].innerText = (parseInt($("#item-count")[0].innerText) + 1).toString();
 			  	}
 			  });
 		})
-		$(".added-cart").click(function () {
-			var proid = $(this)[0].id;
-			var item = $(this);
-			$.ajax({
-				method: "POST",
-				url: "/Processor.aspx",
-				data: { mode: 'delete', procid: proid }
-			})
-			  .done(function (result) {
-			  	if (result === "1") {
-			  		item.removeAttr("class");
-			  		item.attr("class", "add-cart");
-			  		item.attr("title", "Thêm vào giỏ hàng");
-			  		$("#item-count")[0].innerText = (parseInt($("#item-count")[0].innerText) - 1).toString();
-			  	}
-			  });
-		})
+		//$(".added-cart").click(function () {
+		//	var proid = $(this)[0].id;
+		//	var item = $(this);
+		//	$.ajax({
+		//		method: "POST",
+		//		url: "/Processor.aspx",
+		//		data: { mode: 'delete', procid: proid }
+		//	})
+		//	  .done(function (result) {
+		//	  	if (result === "1") {
+		//	  		item.removeAttr("class");
+		//	  		item.attr("class", "add-cart");
+		//	  		item.attr("title", "Thêm vào giỏ hàng");
+		//	  		$("#item-count")[0].innerText = (parseInt($("#item-count")[0].innerText) - 1).toString();
+		//	  	}
+		//	  });
+		//})
 	})
 </script>
 <div class="container">
@@ -55,9 +55,11 @@
 				<div class="col-md-2 col-sm-4 col-xs-6 wow fadeInUp">
 					<a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>">
 						<img src="<%# StringClass.ThumbImage(Eval("Image1").ToString()) %>" alt="<%# Eval("Name") %>" title="<%# Eval("Name") %>"></a>
-					<h6 class="badge col-md-9 col-sm-9 col-xs-9"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> Đ</h6>
-					<h6 id="<%#Eval("Id").ToString() %>" class="col-md-2 col-sm-2 col-xs-2 <%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></h6>
-					<h6 style="clear:left;"><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 45) %></a></h6>
+					<h6 class="badge col-md-12 col-sm-12 col-xs-12">
+						<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> Đ</span>
+						<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>
+					</h6>
+					<h6 style="clear: left;"><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 45) %></a></h6>
 					<p class="l-height"><%# StringClass.FormatContentNews(Eval("Content").ToString(),100) %></p>
 				</div>
 			</ItemTemplate>

@@ -1038,7 +1038,7 @@
 @media only screen and (min-width: 767px) {
     .product-information .product-info-tabs > li:hover, .product-information .product-info-tabs > li.active {
         background: white;
-        border-left-color: #444;
+        /*border-left-color: #444;*/
     }
 }
 
@@ -1054,7 +1054,7 @@
     position: relative;
     z-index: 1;
     margin: 0;
-    padding-top: 30px;
+    padding-top: 10px;
 	background:#fff;
 }
 

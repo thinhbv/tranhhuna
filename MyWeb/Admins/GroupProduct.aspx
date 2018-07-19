@@ -38,6 +38,7 @@
                 </asp:TemplateColumn>
                 <asp:BoundColumn DataField="Id" HeaderText="Id" Visible="False" />
                 <asp:BoundColumn DataField="Active" HeaderText="Active" Visible="False" />
+                <asp:BoundColumn DataField="Position" HeaderText="Position" Visible="False" />
                 <asp:TemplateColumn ItemStyle-CssClass="Text">
                     <HeaderTemplate>
                         Tên nhóm sản phẩm</HeaderTemplate>
@@ -45,6 +46,14 @@
                         <asp:Label runat="server" Text='<%# MyWeb.Common.StringClass.ShowNameLevel(Eval("Name").ToString(), Eval("Level").ToString()) %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateColumn>
+				<asp:TemplateColumn ItemStyle-CssClass="Number">
+					<HeaderTemplate>
+						Trang chủ
+					</HeaderTemplate>
+					<ItemTemplate>
+						<asp:ImageButton ID="Image2" runat="server" CommandName="cmdPosition" CommandArgument='<%#Eval("Id") %>' ImageUrl='<%#MyWeb.Common.PageHelper.ShowCheckImage(DataBinder.Eval(Container.DataItem, "Position"))%>' />
+					</ItemTemplate>
+				</asp:TemplateColumn>
                 <asp:BoundColumn DataField="Ord" HeaderText="Thứ tự" ItemStyle-CssClass="Number"
                     Visible="true" />
                 <asp:TemplateColumn ItemStyle-CssClass="Active">
@@ -110,6 +119,14 @@
                         SetFocusOnError="True"></asp:RequiredFieldValidator>
                 </td>
             </tr>
+			<tr>
+				<th>
+					<asp:Label ID="lblPosition" runat="server" Text="Hiển thị trang chủ:"></asp:Label>
+				</th>
+				<td>
+					<asp:CheckBox ID="chkPosition" runat="server" />
+				</td>
+			</tr>
             <tr>
                 <th>
                     <asp:Label ID="lblOrd" runat="server" Text="Thứ tự:"></asp:Label>

@@ -24,6 +24,18 @@ namespace MyWeb.Controls
 					{
 						ltrCopyRight.Text = dtConfig.Rows[0]["Copyright"].ToString();
 					}
+					DataTable dt = SupportService.Support_GetByTop("10", "Active=1", "");
+					if (dt.Rows.Count > 0)
+					{
+						lblPhone.Text = dt.Rows[0]["Phone"].ToString();
+						if (dt.Rows.Count > 1)
+						{
+							for (int i = 1; i < dt.Rows.Count; i++)
+							{
+								lblPhone.Text += " - " + dt.Rows[i]["Phone"].ToString();
+							}
+						}
+					}
 				}
 				catch (Exception ex)
 				{

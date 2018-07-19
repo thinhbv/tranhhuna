@@ -317,13 +317,13 @@ namespace MyWeb.Common
 				DataRow dr = dt.Rows[i];
 				dr["No"] = (i + 1);
 				dr["Link"] = PageHelper.GeneralDetailUrl(Consts.CON_SAN_PHAM, dr["GroupName"].ToString(), dr["Id"].ToString(), dr["Name"].ToString());
-				dr["Class"] = "add-cart";
+				dr["Class"] = "fa-shopping-cart add-cart";
 				if (dtCart.Rows.Count > 0)
 				{
 					DataRow[] rows = dtCart.Select("ProductId=" + dr["Id"].ToString());
 					if (rows != null && rows.Length > 0)
 					{
-						dr["Class"] = "added-cart";
+						dr["Class"] = "fa-shopping-cart added-cart";
 					}
 				}
 			}

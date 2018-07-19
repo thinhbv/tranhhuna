@@ -76,6 +76,9 @@ namespace MyWeb.Admins
 		protected void grdGroupProduct_ItemCommand(object source, DataGridCommandEventArgs e)
 		{
 			string strCA = e.CommandArgument.ToString();
+			string strA = "";
+			string str = e.Item.Cells[2].Text;
+			SqlDataProvider sql = new SqlDataProvider();
 			switch (e.CommandName)
 			{
 				case "AddSub":
@@ -88,21 +91,25 @@ namespace MyWeb.Admins
 					List<Data.GroupProduct> listE = GroupProductService.GroupProduct_GetById(Id);
 					Level = listE[0].Level.Substring(0, listE[0].Level.Length - 5);
 					txtName.Text = listE[0].Name;
+					chkPosition.Checked = listE[0].Position == "1" || listE[0].Position == "True";
 					txtOrd.Text = listE[0].Ord;
 					chkActive.Checked = listE[0].Active == "1" || listE[0].Active == "True";
 					pnView.Visible = false;
 					pnUpdate.Visible = true;
 					break;
 				case "Active":
-					string strA = "";
-					string str = e.Item.Cells[2].Text;
 					strA = str == "1" ? "0" : "1";
-					SqlDataProvider sql = new SqlDataProvider();
 					sql.ExecuteNonQuery("Update [GroupProduct] set Active=" + strA + "  Where Id='" + strCA + "'");
 					BindGrid();
 					break;
 				case "Delete":
 					GroupProductService.GroupProduct_Delete(strCA);
+					BindGrid();
+					break;
+				case "cmdPosition":
+					str = e.Item.Cells[3].Text;
+					strA = str == "True" ? "False" : "True";
+					sql.ExecuteNonQuery("Update [GroupProduct] set Position='" + strA + "'  Where Id='" + strCA + "'");
 					BindGrid();
 					break;
 			}
@@ -147,6 +154,7 @@ namespace MyWeb.Admins
 				obj.Id = Id;
 				obj.Name = txtName.Text;
 				obj.Level = Level + "00000";
+				obj.Position = chkPosition.Checked ? "1" : "0";
 				obj.Ord = txtOrd.Text != "" ? txtOrd.Text : "1";
 				obj.Active = chkActive.Checked ? "1" : "0";
 				if (Insert == true){

@@ -15,7 +15,7 @@
 				})
 			}
 			$(".added-cart").each(function () {
-				$(this).attr("title", "Xóa khỏi giỏ hàng");
+				$(this).attr("title", "Đã thêm vào giỏ hàng");
 			})
 			$(".add-cart").click(function () {
 				var proid = $(this)[0].id;
@@ -28,30 +28,30 @@
 				  .done(function (result) {
 				  	if (result === "1") {
 				  		item.removeAttr("class");
-				  		item.attr("class", "added-cart");
+				  		item.attr("class", "fa-shopping-cart added-cart");
 				  		item.attr("title", "Xóa khỏi giỏ hàng");
 				  		item.removeAttr("id");
 				  		$("#item-count")[0].innerText = (parseInt($("#item-count")[0].innerText) + 1).toString();
 				  	}
 				  });
 			})
-			$(".added-cart").click(function () {
-				var proid = $(this)[0].id;
-				var item = $(this);
-				$.ajax({
-					method: "POST",
-					url: "/Processor.aspx",
-					data: { mode: 'delete', procid: proid }
-				})
-				  .done(function (result) {
-				  	if (result === "1") {
-				  		item.removeAttr("class");
-				  		item.attr("class", "add-cart");
-				  		item.attr("title", "Thêm vào giỏ hàng");
-				  		$("#item-count")[0].innerText = (parseInt($("#item-count")[0].innerText) - 1).toString();
-				  	}
-				  });
-			});
+			//$(".added-cart").click(function () {
+			//	var proid = $(this)[0].id;
+			//	var item = $(this);
+			//	$.ajax({
+			//		method: "POST",
+			//		url: "/Processor.aspx",
+			//		data: { mode: 'delete', procid: proid }
+			//	})
+			//	  .done(function (result) {
+			//	  	if (result === "1") {
+			//	  		item.removeAttr("class");
+			//	  		item.attr("class", "fa-shopping-cart add-cart");
+			//	  		item.attr("title", "Thêm vào giỏ hàng");
+			//	  		$("#item-count")[0].innerText = (parseInt($("#item-count")[0].innerText) - 1).toString();
+			//	  	}
+			//	  });
+			//});
 		})
 	</script>
 </asp:Content>
@@ -61,7 +61,7 @@
 				<div class="container" style="padding-top:20px;">
 						<asp:Repeater ID="rptGroup" runat="server" OnItemDataBound="rptGroup_ItemDataBound">
 							<ItemTemplate>
-								<div id="home-page-tabs" class="nav nav-tabs clearfix">
+								<div id="home-page-tabs" class="nav clearfix">
 									<div class="homefeatured">
 										<h5><a href='<%#Eval("Link").ToString() %>' title='<%#Eval("Name").ToString() %>'><%#Eval("Name").ToString() %></a></h5>
 									</div>							
@@ -74,8 +74,11 @@
 														<div class="col-md-2 col-sm-4 col-xs-6 wow fadeInUp">
 															<a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>">
 																<img src="<%# StringClass.ThumbImage(Eval("Image1").ToString()) %>" alt="<%# Eval("Name") %>" title="<%# Eval("Name") %>"></a>
-															<h6 class="badge col-md-9 col-sm-9 col-xs-9"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> Đ</h6>
-															<h6 id="<%#Eval("Id").ToString() %>" class="col-md-2 col-sm-2 col-xs-2 <%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></h6>
+															<h6 class="badge col-md-12 col-sm-12 col-xs-12">
+																<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> Đ</span>
+																<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>
+															</h6>
+															
 															<h6 style="clear:left;"><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 45) %></a></h6>
 														</div>
 													</ItemTemplate>
@@ -89,7 +92,46 @@
 							</ItemTemplate>
 						</asp:Repeater>
 				</div>
-				<%--<uc1:U_ProductList ID="idU_ProductList" runat="server" />--%>
+			</section>
+			<section class="parallax well well__ins" data-url="images/parallax1.jpg" data-mobile="true">
+				<div class="container">			
+					<%--<uc3:U_Delivery runat="server" id="idU_Delivery" />--%>
+				</div>
+			</section>
+			<section class="well center767">
+				<div class="container" style="padding-top:20px;">
+						<asp:Repeater ID="rptGroup01" runat="server" OnItemDataBound="rptGroup_ItemDataBound">
+							<ItemTemplate>
+								<div id="home-page-tabs" class="nav clearfix">
+									<div class="homefeatured">
+										<h5><a href='<%#Eval("Link").ToString() %>' title='<%#Eval("Name").ToString() %>'><%#Eval("Name").ToString() %></a></h5>
+									</div>							
+									<div class="tab-content">
+										<!-- Products list -->
+										<div id="group02" class="container">
+											<div id="list-product" class="row">
+												<asp:Repeater ID="rptPro" runat="server">
+													<ItemTemplate>
+														<div class="col-md-3 col-sm-4 col-xs-6 wow fadeInUp">
+															<a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>">
+																<img src="<%# StringClass.ThumbImage(Eval("Image1").ToString()) %>" alt="<%# Eval("Name") %>" title="<%# Eval("Name") %>"></a>
+															<h6 class="badge col-md-12 col-sm-12 col-xs-12">
+																<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> Đ</span>
+																<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>
+															</h6>
+															<h6 style="clear:left;"><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 45) %></a></h6>
+														</div>
+													</ItemTemplate>
+												</asp:Repeater>
+											</div>
+										</div>
+										<!--homefeatured-->
+									</div>
+								</div>
+								<!--home-page-tabs-->
+							</ItemTemplate>
+						</asp:Repeater>
+				</div>
 			</section>
 			<section class="well1 bg-white center479">
 				<div class="container">
@@ -111,11 +153,6 @@
 					</div>
 				</div>
 			</section>
-			<%--<section class="parallax well well__ins" data-url="images/parallax1.jpg" data-mobile="true">
-				<div class="container">			
-					<uc3:U_Delivery runat="server" id="idU_Delivery" />
-				</div>
-			</section>--%>
 			<section class="well center991">
 				<div class="container">				
 					<uc2:U_NewsList runat="server" id="idU_NewsList" />

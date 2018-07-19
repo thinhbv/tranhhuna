@@ -41,25 +41,22 @@ namespace MyWeb
 					}
 					dt.Clear();
 					HttpCookie cookie = Request.Cookies[Consts.GUID_SHOPPING_CART];
-					//Sản phẩm đặc biệt
-					DataTable dtSpecial = ProductService.Product_GetByTop("12", "Active=1 AND IsSpecial=1", "Ord");
-					rptSpecial.DataSource = StringClass.ModifyDataProduct(dtSpecial, cookie);
-					rptSpecial.DataBind();
 
-					//Sản phẩm mới
-					DataTable dtNew = ProductService.Product_GetByTop("12", "Active=1 AND IsNew=1", "Ord");
-					rptNew.DataSource = StringClass.ModifyDataProduct(dtNew, cookie);
-					rptNew.DataBind();
+					DataTable dtGroup = GroupProductService.GroupProduct_GetByTop("", "Active=1 And Position=1", "Level, Ord");
+					DataTable dtTop = dtGroup.AsEnumerable().Take(2).CopyToDataTable();
 
-					//Sản phẩm phổ biến
-					DataTable dtPopular = ProductService.Product_GetByTop("12", "Active=1 AND IsPopular=1", "Ord");
-					rptPopular.DataSource = StringClass.ModifyDataProduct(dtPopular, cookie);
-					rptPopular.DataBind();
-
-					//Sản phẩm bán chạy
-					DataTable dtHot = ProductService.Product_GetByTop("12", "Active=1 AND IsHot=1", "Ord");
-					rptHot.DataSource = StringClass.ModifyDataProduct(dtHot, cookie);
-					rptHot.DataBind();
+					for (int i = 0; i < dtGroup.Rows.Count; i++)
+					{
+						if (i<2)
+						{
+							dtGroup.Rows[i].Delete();
+						}
+					}
+					dtGroup.AcceptChanges();
+					rptGroup.DataSource = StringClass.ModifyDataGroupProduct(dtTop);
+					rptGroup.DataBind();
+					rptGroup01.DataSource = StringClass.ModifyDataGroupProduct(dtGroup);
+					rptGroup01.DataBind();
 				}
 			}
 			catch (Exception ex)
@@ -67,5 +64,22 @@ namespace MyWeb
 				MailSender.SendMail("", "","Error System", ex.Message);
 			}
         }
+
+		protected void rptGroup_ItemDataBound(object sender, RepeaterItemEventArgs e)
+		{
+			RepeaterItem item = e.Item;
+			if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
+			{
+				string id = DataBinder.Eval(item.DataItem, "Id").ToString();
+				DataTable dtPro = ProductService.Product_GetByTop("", "Active = 1 AND IsPopular=1 AND GroupId=" + id, "Ord");
+				Repeater rptPro = (Repeater)item.FindControl("rptPro");
+				if (rptPro != null)
+				{
+					HttpCookie cookie = Request.Cookies[Consts.GUID_SHOPPING_CART];
+					rptPro.DataSource = StringClass.ModifyDataProduct(dtPro, cookie);
+					rptPro.DataBind();
+				}
+			}
+		}
     }
 }

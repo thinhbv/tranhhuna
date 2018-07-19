@@ -32,12 +32,13 @@ namespace MyWeb.Admins
 			drlnhom.Items.Clear();
 			ddlGroupProduct.Items.Add(new ListItem("--Chọn nhóm sản phẩm--", ""));
 			drlnhom.Items.Add(new ListItem("--Chọn nhóm sản phẩm--", ""));
-			List<Data.GroupProduct> listImg = new List<Data.GroupProduct>();
-			listImg = GroupProductService.GroupProduct_GetByTop("", "Active = 1", "");
-			for (int i = 0; i < listImg.Count; i++)
+			DataTable dtGroup;
+			dtGroup = GroupProductService.GroupProduct_GetByTop("", "Active = 1", "Level, Ord");
+			for (int i = 0; i < dtGroup.Rows.Count; i++)
 			{
-				ddlGroupProduct.Items.Add(new ListItem(Common.StringClass.ShowNameLevel(listImg[i].Name, listImg[i].Level), listImg[i].Id));
-				drlnhom.Items.Add(new ListItem(Common.StringClass.ShowNameLevel(listImg[i].Name, listImg[i].Level), listImg[i].Id));
+				DataRow row = dtGroup.Rows[i];
+				ddlGroupProduct.Items.Add(new ListItem(Common.StringClass.ShowNameLevel(row["Name"].ToString(), row["Level"].ToString()), row["Id"].ToString()));
+				drlnhom.Items.Add(new ListItem(Common.StringClass.ShowNameLevel(row["Name"].ToString(), row["Level"].ToString()), row["Id"].ToString()));
 			}
 			ddlGroupProduct.DataBind();
 			drlnhom.DataBind();
@@ -134,9 +135,9 @@ namespace MyWeb.Admins
 					fckDetail.Value = dtPro.Rows[0]["Detail"].ToString();
 					txtPricePro.Text = StringClass.ConvertPrice(dtPro.Rows[0]["Price"].ToString());
 					chkPopular.Checked = dtPro.Rows[0]["IsPopular"].ToString() == "1" || dtPro.Rows[0]["IsPopular"].ToString() == "True";
-					chkHot.Checked = dtPro.Rows[0]["IsHot"].ToString() == "1" || dtPro.Rows[0]["IsHot"].ToString() == "True";
-					chkNew.Checked = dtPro.Rows[0]["IsNew"].ToString() == "1" || dtPro.Rows[0]["IsNew"].ToString() == "True";
-					chkSpecial.Checked = dtPro.Rows[0]["IsSpecial"].ToString() == "1" || dtPro.Rows[0]["IsSpecial"].ToString() == "True";
+					//chkHot.Checked = dtPro.Rows[0]["IsHot"].ToString() == "1" || dtPro.Rows[0]["IsHot"].ToString() == "True";
+					//chkNew.Checked = dtPro.Rows[0]["IsNew"].ToString() == "1" || dtPro.Rows[0]["IsNew"].ToString() == "True";
+					//chkSpecial.Checked = dtPro.Rows[0]["IsSpecial"].ToString() == "1" || dtPro.Rows[0]["IsSpecial"].ToString() == "True";
 					txtOrd.Text = dtPro.Rows[0]["Ord"].ToString();
 					chkActive.Checked = dtPro.Rows[0]["Active"].ToString() == "1" || dtPro.Rows[0]["Active"].ToString() == "True";
 					pnView.Visible = false;
@@ -236,9 +237,9 @@ namespace MyWeb.Admins
 				obj.Price = txtPricePro.Text.Trim().Replace(".", string.Empty);
 				obj.GroupName = ddlGroupProduct.SelectedItem.Text;
 				obj.IsPopular = chkPopular.Checked ? "1" : "0";
-				obj.IsHot = chkHot.Checked ? "1" : "0";
-				obj.IsNew = chkNew.Checked ? "1" : "0";
-				obj.IsSpecial = chkSpecial.Checked ? "1" : "0";
+				obj.IsHot = "0";
+				obj.IsNew = "0";
+				obj.IsSpecial = "0";
 				obj.Ord = txtOrd.Text != "" ? txtOrd.Text : "1";
 				obj.Active = chkActive.Checked ? "1" : "0";
 				if (Insert == true)

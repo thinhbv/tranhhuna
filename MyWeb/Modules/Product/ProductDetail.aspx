@@ -10,6 +10,9 @@
 		var nbItemsPerLineTablet = 2;
 		var page_name = 'category';
 		$(document).ready(function () {
+			$(".added-cart").each(function () {
+				$(this).attr("title", "Đã thêm vào giỏ hàng");
+			})
 			$(".plus").click(function () {
 				var quantity = $('#<%=txtQuantity.ClientID%>').val();
 				if (quantity.trim() === "") {
@@ -39,7 +42,7 @@
 				  .done(function (result) {
 				  	if (result === "1") {
 				  		item.removeAttr("class");
-				  		item.attr("class", "added-cart");
+				  		item.attr("class", "fa-shopping-cart added-cart");
 				  		item.attr("disabled", "disabled");
 				  		item.removeAttr("id");
 				  		$("#item-count")[0].innerText = (parseInt($("#item-count")[0].innerText) + 1).toString();
@@ -129,7 +132,7 @@
 									<h1 itemprop="name"><%= name %></h1>
 									<div class="product-info-line">
 										<p id="product_condition">
-											<label style="width: 75px">Ý nghĩa: </label>
+											<label style="width: 75px">Mã hàng: </label>
 											<span class="editable"><%=content %></span>
 										</p>
 									</div>
@@ -179,11 +182,11 @@
 							</div>
 							<!-- end primary_block -->
 							<div class="clearfix product-information">
-								<ul class="product-info-tabs nav nav-stacked col-sm-3 col-md-3 col-lg-3">
+								<ul class="product-info-tabs nav nav-stacked col-xs-12 col-sm-12">
 									<li class="product-description-tab active"><a data-toggle="tab" href="<%=Request.RawUrl %>#product-description-tab-content">Thông tin chi tiết</a></li>
 									<%--<li class="product-features-tab"><a data-toggle="tab" href="<%=Request.RawUrl %>#product-features-tab-content">Comments</a></li>--%>
 								</ul>
-								<div class="tab-content col-sm-9 col-md-9 col-lg-9">
+								<div class="tab-content col-xs-12 col-sm-12">
 									<div id="product-description-tab-content" class="product-description-tab-content tab-pane active">
 										<div class="rte">
 											<asp:Literal ID="ltrDetail" runat="server"></asp:Literal>
@@ -209,8 +212,10 @@
 											<div class="col-md-2 col-sm-4 col-xs-6 wow fadeInUp">
 												<a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>">
 													<img src="<%# StringClass.ThumbImage(Eval("Image1").ToString()) %>" alt="<%# Eval("Name") %>" title="<%# Eval("Name") %>"></a>
-												<h6 class="badge"><%# StringClass.ConvertPrice(Eval("Price").ToString()) %> Đ</h6>
-												<h6 id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></h6>
+												<h6 class="badge col-md-12 col-sm-12 col-xs-12">
+													<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> Đ</span>
+													<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>
+												</h6>
 												<h6><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# Eval("Name") %></a></h6>
 												<p class="l-height"><%# StringClass.FormatContentNews(Eval("Content").ToString(),100) %></p>
 											</div>

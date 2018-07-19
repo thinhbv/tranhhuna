@@ -22,6 +22,15 @@ namespace MyWeb {
         protected global::System.Web.UI.WebControls.Repeater rptGroup;
         
         /// <summary>
+        /// rptGroup01 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptGroup01;
+        
+        /// <summary>
         /// idU_NewsList control.
         /// </summary>
         /// <remarks>

@@ -28,7 +28,7 @@ namespace MyWeb
 				{
 					cookie = new HttpCookie(Consts.GUID_SHOPPING_CART);
 					cookie.Value = Guid.NewGuid().ToString();
-					cookie.Expires = DateTime.Now.AddDays(6);
+					cookie.Expires = DateTime.Now.AddDays(30);
 					HttpContext.Current.Response.SetCookie(cookie);
 				}
 				switch (Request.Params["mode"])
