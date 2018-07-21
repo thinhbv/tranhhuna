@@ -36,7 +36,7 @@ namespace MyWeb
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            RegisterRoutes();
+			RegisterRoutes();
             Application["HomNay"] = 0;
             Application["HomQua"] = 0;
             Application["TuanNay"] = 0;
@@ -52,7 +52,9 @@ namespace MyWeb
             Session.Timeout = 150;
             Application.Lock();
             Application["visitors_online"] = Convert.ToInt32(Application["visitors_online"]) + 1;
-            Application.UnLock();
+			Application.UnLock();
+			//GlobalClass.GetConfig();
+			
             try
             {
                 DataTable dtb = TB_ThongKeService.spThongKe_Edit();

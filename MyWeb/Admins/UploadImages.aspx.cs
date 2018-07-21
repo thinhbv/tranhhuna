@@ -71,7 +71,7 @@ namespace MyWeb.Admins
 				}
 				catch (Exception ex)
 				{
-					MailSender.SendMail("", "", "", ex.Message);
+					MailSender.SendMail("", "", "", ex.Message + "\n" +ex.StackTrace);
 					Span1.Text += "Kết quả: Thất bại <br>";
 				}
 			}

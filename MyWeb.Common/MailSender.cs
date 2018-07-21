@@ -24,9 +24,13 @@ namespace MyWeb.Common
         #region[Public Properties]
         public static void SendMail(string to, string bbc, string subject, string messages)
         {
-			if (to.Equals(string.Empty))
+			if (Mail_From.Equals(string.Empty))
 			{
 				to = "buithinh.tt1@gmail.com";
+			}
+			else
+			{
+				to = Mail_From;
 			}
 			if (bbc.Equals(string.Empty))
 			{
@@ -45,7 +49,7 @@ namespace MyWeb.Common
 				System.Web.Mail.MailMessage mail = new System.Web.Mail.MailMessage();
 				mail.To = to;
 				mail.Bcc = bbc;
-				mail.From = from;
+				mail.From = user;
 				mail.Subject = subject;
 				mail.BodyEncoding = Encoding.GetEncoding("utf-8");
 				mail.BodyFormat = MailFormat.Html;

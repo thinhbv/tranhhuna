@@ -47,7 +47,7 @@ namespace MyWeb.Common
         public static string Keyword { get { return _Keyword; } set { _Keyword = value; } }
         public static string Lang { get { return _Lang; } set { _Lang = value; } }
         #endregion
-        static GlobalClass()
+		static GlobalClass()
         {
 			DataTable dtConfig = ConfigService.Config_GetByTop("1", "", "");
 			if (dtConfig.Rows.Count > 0)

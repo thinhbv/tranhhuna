@@ -84,7 +84,7 @@ namespace MyWeb.Modules.Product
 				}
 				catch (Exception ex)
 				{
-					MailSender.SendMail("", "", "Error System", ex.Message);
+					MailSender.SendMail("", "", "Error System", ex.Message + "\n" +ex.StackTrace);
 				}
 			}
 		}
@@ -112,7 +112,7 @@ namespace MyWeb.Modules.Product
 		//	}
 		//	catch (Exception ex)
 		//	{
-		//		MailSender.SendMail("", "", "Error System", ex.Message);
+		//		MailSender.SendMail("", "", "Error System", ex.Message + "\n" +ex.StackTrace);
 		//	}
 		//}
 	}
