@@ -43,7 +43,7 @@
 				if (confirm('Bạn có muốn xóa?')) {
 					var del = $(this);
 					var id = $(this).attr("data");
-					var price = $(this).parent().find("span.price").text().replace(/\./g, "").trim();
+					var price = $(this).parent().next().text().replace(/\./g, "").trim();
 					var totalprice = $("#total-price").text().replace(" Đ", "").replace(/\./g, "").trim();
 					$.ajax({
 						method: "POST",

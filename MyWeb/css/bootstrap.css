@@ -2869,6 +2869,9 @@ address {
   }
 }
 /*==================  Inline List  ======================*/
+.inline-list{
+  overflow:hidden;
+}
 .inline-list li {
   display: inline-block;
 }

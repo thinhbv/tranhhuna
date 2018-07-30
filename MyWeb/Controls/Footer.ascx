@@ -1,11 +1,11 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Footer.ascx.cs" Inherits="MyWeb.Controls.Footer" %>
 <div class="container">
 	<ul class="inline-list">
-		<li class="fa fa-phone">
+		<li class="col-md-3 col-sm-3 col-xs-3 fa fa-phone">
 			<p>Phone:</p>
 			<asp:Label ID="lblPhone" runat="server"></asp:Label>
 		</li>
-		<li class="fa fa-map-marker">
+		<li class="col-md-3 col-sm-3 col-xs-3 fa fa-map-marker">
 			<p>Địa chỉ:</p>
 			<address>
 				Tầng 7 Tòa nhà A
@@ -13,7 +13,7 @@
 				Khu chung cư Mễ Trì
 			</address>
 		</li>
-		<li style="position:relative;top:-30px;"><a href="https://www.facebook.com/tranhhuna/" class="fa fa-facebook" target="_blank"></a></li>
+		<li class="col-md-3 col-sm-3 col-xs-3"><a href="https://www.facebook.com/tranhhuna/" class="fa fa-facebook" target="_blank"></a></li>
 	</ul>
 
 	<hr>
