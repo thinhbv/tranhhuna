@@ -101,6 +101,7 @@ namespace MyWeb.Admins
 					sql.ExecuteNonQuery("Update [GroupImages] set Active=" + strA + "  Where Id='" + strCA + "'");
 					BindGrid();
 					break;
+
 				case "Delete":
 					GroupImagesService.GroupImages_Delete(strCA);
                     SqlDataProvider sql1 = new SqlDataProvider();

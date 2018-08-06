@@ -29,7 +29,7 @@
 				  	if (result === "1") {
 				  		item.removeAttr("class");
 				  		item.attr("class", "fa-shopping-cart added-cart");
-				  		item.attr("title", "Xóa khỏi giỏ hàng");
+				  		item.attr("title", "Đã thêm vào giỏ hàng");
 				  		item.removeAttr("id");
 				  		$("#item-count")[0].innerText = (parseInt($("#item-count")[0].innerText) + 1).toString();
 				  	}
@@ -93,10 +93,8 @@
 						</asp:Repeater>
 				</div>
 			</section>
-			<section class="parallax well well__ins" data-url="images/parallax1.jpg" data-mobile="true">
-				<div class="container">			
-					<%--<uc3:U_Delivery runat="server" id="idU_Delivery" />--%>
-				</div>
+			<section class="parallax well well__ins">
+				<a href="/san-pham/17/tranh-combo" title="Tranh commbo"><img src="uploads/advertise/tranh%20bo.jpg" alt="Tranh commbo" /></a>
 			</section>
 			<section class="well center767">
 				<div class="container" style="padding-top:20px;">
@@ -119,7 +117,7 @@
 																<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> Đ</span>
 																<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>
 															</h6>
-															<h6 style="clear:left;"><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 45) %></a></h6>
+															<h6 style="clear:left;"><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 60) %></a></h6>
 														</div>
 													</ItemTemplate>
 												</asp:Repeater>

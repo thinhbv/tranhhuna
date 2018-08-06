@@ -52,15 +52,15 @@ Hình ảnh
 </asp:TemplateColumn>
 <asp:TemplateColumn HeaderStyle-HorizontalAlign="Center" ItemStyle-CssClass="TextShort">
 <HeaderTemplate>
-Vị trí
+Hiển thị trang chủ
 </HeaderTemplate>
 <ItemTemplate>
-<asp:Label ID="lblPriority" runat="server" Text='<%# MyWeb.Common.PageHelper.ShowProPriority(DataBinder.Eval(Container.DataItem, "Priority").ToString()) %>'></asp:Label>
+<img src='<%# MyWeb.Common.PageHelper.ShowCheckImage(Eval("Priority").ToString()) %>'></img>
 </ItemTemplate>
 </asp:TemplateColumn>
 <asp:BoundColumn DataField="Ord" HeaderText="Thứ tự" ItemStyle-CssClass="Number"
 Visible="true" />
-<asp:TemplateColumn ItemStyle-CssClass="Active">
+<asp:TemplateColumn ItemStyle-CssClass="Number">
 <HeaderTemplate>
 Kích hoạt
 </HeaderTemplate>
@@ -138,15 +138,15 @@ value="Browse Server" />&nbsp;
 <asp:Image ID="imgImage" runat="server" ImageAlign="Middle" Width="100px" />
 </td>
 </tr>
-<%--<tr>
+<tr>
 <th>
-<asp:Label ID="lblPriority" runat="server" Text="Vị trí hiển thị:"></asp:Label>
+<asp:Label ID="lblPriority" runat="server" Text="Hiển thị trang chủ:"></asp:Label>
 </th>
 <td>
-<asp:DropDownList ID="ddlPriority" runat="server">
-</asp:DropDownList>
+<asp:CheckBox ID="chkPriority" runat="server">
+</asp:CheckBox>
 </td>
-</tr>--%>
+</tr>
 <tr>
 <th>
 <asp:Label ID="lblOrd" runat="server" Text="Thứ tự:"></asp:Label>

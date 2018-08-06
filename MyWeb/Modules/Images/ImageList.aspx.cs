@@ -21,14 +21,22 @@ namespace MyWeb.Modules.Images
 				}
 				if (!IsPostBack)
 				{
-					List<GroupImages> listGrp = GroupImagesService.GroupImages_GetById(GroupId);
+					List<GroupImages> listGrp;
+					if (GroupId != null)
+					{
+						listGrp = GroupImagesService.GroupImages_GetByTop("", "Active=1", "Ord");
+					}
+					else
+					{
+						listGrp = GroupImagesService.GroupImages_GetById(GroupId);
+					}
 					if (listGrp.Count > 0)
 					{
 						groupName = listGrp[0].Name;
 						List<Data.Images> listImages = ImagesService.Images_GetByTop("", "Active = 1 AND GroupId = '" + listGrp[0].Id + "'", "Ord");
 						for (int i = 0; i < listImages.Count; i++)
 						{
-							ltrImages.Text += "<a href=http://unitegallery.net>\n";
+							ltrImages.Text += "<a href=#>\n";
 							ltrImages.Text += "<img alt='" + groupName + "'\n";
 							ltrImages.Text += "src='" + StringClass.ThumbImage(listImages[i].Image) + "'\n";
 							ltrImages.Text += "data-image='" + listImages[i].Image + "'\n";

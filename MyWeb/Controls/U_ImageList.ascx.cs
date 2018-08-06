@@ -19,7 +19,7 @@ namespace MyWeb.Controls
 			{
 				if (!IsPostBack)
 				{
-					List<Images> listImg = ImagesService.Images_GetByTop("", "Priority=2 AND Active=1", "Ord");
+					List<Images> listImg = ImagesService.Images_GetByTop("", "Priority=1 AND Active=1", "Ord");
 					rptImages.DataSource = listImg;
 					rptImages.DataBind();
 				}

@@ -72,6 +72,10 @@ namespace MyWeb
 			{
 				string id = DataBinder.Eval(item.DataItem, "Id").ToString();
 				DataTable dtPro = ProductService.Product_GetByTop("", "Active = 1 AND IsPopular=1 AND GroupId=" + id, "Ord");
+				if (dtPro.Rows.Count == 0)
+				{
+					item.Visible = false;
+				}
 				Repeater rptPro = (Repeater)item.FindControl("rptPro");
 				if (rptPro != null)
 				{

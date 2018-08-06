@@ -175,6 +175,24 @@ namespace MyWeb.Admins {
         protected global::System.Web.UI.WebControls.Image imgImage;
         
         /// <summary>
+        /// lblPriority control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPriority;
+        
+        /// <summary>
+        /// chkPriority control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkPriority;
+        
+        /// <summary>
         /// lblOrd control.
         /// </summary>
         /// <remarks>

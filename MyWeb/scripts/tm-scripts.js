@@ -491,9 +491,9 @@ $(function () {
 /* Parallax
  =============================================*/
 ;
-(function ($) {
-    include('/scripts/jquery.rd-parallax.js');
-})(jQuery); 
+//(function ($) {
+//    include('/scripts/jquery.rd-parallax.js');
+//})(jQuery); 
 
 
 

@@ -23,7 +23,7 @@
 			  	if (result === "1") {
 			  		item.removeAttr("class");
 			  		item.attr("class", "fa-shopping-cart added-cart");
-			  		item.attr("title", "Xóa khỏi giỏ hàng");
+			  		item.attr("title", "Đã thêm vào giỏ hàng");
 			  		item.removeAttr("id");
 			  		$("#item-count")[0].innerText = (parseInt($("#item-count")[0].innerText) + 1).toString();
 			  	}
@@ -59,7 +59,7 @@
 						<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> Đ</span>
 						<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>
 					</h6>
-					<h6 style="clear: left;"><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 45) %></a></h6>
+					<h6 style="clear: left;"><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 60) %></a></h6>
 					<p class="l-height"><%# StringClass.FormatContentNews(Eval("Content").ToString(),100) %></p>
 				</div>
 			</ItemTemplate>

@@ -13,7 +13,11 @@
 				Khu chung cư Mễ Trì
 			</address>
 		</li>
-		<li class="col-md-3 col-sm-3 col-xs-3"><a href="https://www.facebook.com/tranhhuna/" class="fa fa-facebook" target="_blank"></a></li>
+		<li class="col-md-3 col-sm-3 col-xs-3"><a href="https://www.facebook.com/tranhhuna/" class="fa fa-facebook" target="_blank"></a>
+			<address>
+				<a href="https://www.facebook.com/tranhhuna/" target="_blank">https://www.facebook.com/tranhhuna/</a>
+			</address>
+		</li>
 	</ul>
 
 	<hr>

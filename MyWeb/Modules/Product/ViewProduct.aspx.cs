@@ -28,8 +28,20 @@ namespace MyWeb.Modules.Product
 					List<Data.GroupProduct> listGroup = GroupProductService.GroupProduct_GetById(id);
 					if (listGroup.Count > 0)
 					{
+						DataTable dt = GroupProductService.GroupProduct_GetByTop("", "Active = 1 AND Left(Level,Len('" + listGroup[0].Level + "'))='" + listGroup[0].Level + "' AND Id <> " + id, "");
+						if (dt.Rows.Count > 0)
+						{
+							idU_ProductList.Visible = false;
+							U_GroupProductList.Visible = true;
+							U_GroupProductList.GroupProduct = dt;
+						}
+						else
+						{
+							idU_ProductList.Visible = true;
+							U_GroupProductList.Visible = false;
+							idU_ProductList.Level = listGroup[0].Level;
+						}
 						groupName = listGroup[0].Name;
-						idU_ProductList.Level = listGroup[0].Level;
 					}
 				}	
 			}

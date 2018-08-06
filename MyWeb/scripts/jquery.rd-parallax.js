@@ -176,7 +176,7 @@
 
         resize: function () {
             var parallax = this,
-                h = Math.max($(window).height(), 500);
+                h = Math.max($(window).height(), 430);
 
             if(h < parallax.$wrap.outerHeight()){
                 h = parallax.$wrap.outerHeight() + $(window).height() * parallax.options.speed;
