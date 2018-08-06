@@ -198,6 +198,7 @@
     <Content Include="Controls\U_Banner.ascx" />
     <Content Include="Controls\U_Contact.ascx" />
     <Content Include="Controls\U_Delivery.ascx" />
+    <Content Include="Controls\U_GroupProductList.ascx" />
     <Content Include="Controls\U_ImageList.ascx" />
     <Content Include="Controls\U_Menu.ascx" />
     <Content Include="Controls\U_MenuLeft.ascx" />
@@ -1175,6 +1176,13 @@
     </Compile>
     <Compile Include="Controls\U_Delivery.ascx.designer.cs">
       <DependentUpon>U_Delivery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\U_GroupProductList.ascx.cs">
+      <DependentUpon>U_GroupProductList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\U_GroupProductList.ascx.designer.cs">
+      <DependentUpon>U_GroupProductList.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls\U_ImageList.ascx.cs">
       <DependentUpon>U_ImageList.ascx</DependentUpon>
