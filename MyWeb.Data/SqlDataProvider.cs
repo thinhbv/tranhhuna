@@ -175,6 +175,23 @@ namespace MyWeb.Data
                 return (int)ExecuteScalar(cmd);
             }
         }
+		public string GetMaxOrd(string Table, string level)
+		{
+			string strReturn = "";
+			if (string.IsNullOrEmpty(level))
+			{
+				strReturn = ExecuteScalar("SELECT max(Ord) as Ord FROM " + Table + " WHERE LEN(Level)=" + (level.Length + 5)).ToString();
+			}
+			else
+			{
+				strReturn = ExecuteScalar("SELECT max(Ord) as Ord FROM " + Table + " WHERE LEN(Level)=" + (level.Length + 5) + " AND LEFT(Level," + level.Length + ")='" + level + "'").ToString();
+			}
+			if (string.IsNullOrEmpty(strReturn))
+			{
+				strReturn = "0";
+			}
+			return strReturn;
+		}
         #endregion
     }
 }
