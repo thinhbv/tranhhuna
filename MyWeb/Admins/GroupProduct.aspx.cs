@@ -92,6 +92,7 @@ namespace MyWeb.Admins
 					Level = listE[0].Level.Substring(0, listE[0].Level.Length - 5);
 					txtName.Text = listE[0].Name;
 					chkPosition.Checked = listE[0].Position == "1" || listE[0].Position == "True";
+					txtItems.Text = listE[0].Items;
 					txtOrd.Text = listE[0].Ord;
 					chkActive.Checked = listE[0].Active == "1" || listE[0].Active == "True";
 					pnView.Visible = false;
@@ -119,6 +120,8 @@ namespace MyWeb.Admins
 		{
 			pnUpdate.Visible = true;
 			ControlClass.ResetControlValues(this);
+			SqlDataProvider sql = new SqlDataProvider();
+			txtOrd.Text = (Int16.Parse(sql.GetMaxOrd("GroupProduct", Level)) + 1).ToString();
 			pnView.Visible = false;
 			Insert = true;
 		}
@@ -157,6 +160,7 @@ namespace MyWeb.Admins
 				obj.Position = chkPosition.Checked ? "1" : "0";
 				obj.Ord = txtOrd.Text != "" ? txtOrd.Text : "1";
 				obj.Active = chkActive.Checked ? "1" : "0";
+				obj.Items = txtItems.Text.Trim();
 				if (Insert == true){
 					GroupProductService.GroupProduct_Insert(obj);
 				}

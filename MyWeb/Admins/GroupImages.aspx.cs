@@ -115,6 +115,8 @@ namespace MyWeb.Admins
 		{
 			pnUpdate.Visible = true;
 			ControlClass.ResetControlValues(this);
+			SqlDataProvider sql = new SqlDataProvider();
+			txtOrd.Text = (Int16.Parse(sql.GetMaxOrd("GroupImage", Level)) + 1).ToString();
 			pnView.Visible = false;
 			Insert = true;
 		}

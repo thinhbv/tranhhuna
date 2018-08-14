@@ -84,6 +84,22 @@
 													</ItemTemplate>
 												</asp:Repeater>
 											</div>
+											<div id="list-product-04" class="row">
+												<asp:Repeater ID="rptProducts04" runat="server">
+													<ItemTemplate>
+														<div class="col-md-3 col-sm-5 col-xs-6 wow fadeInUp">
+															<a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>">
+																<img src="<%# Eval("Image1").ToString() %>" alt="<%# Eval("Name") %>" title="<%# Eval("Name") %>"></a>
+															<h6 class="badge col-md-12 col-sm-12 col-xs-12">
+																<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> Đ</span>
+																<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>
+															</h6>
+															
+															<h6 style="clear:left;"><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 45) %></a></h6>
+														</div>
+													</ItemTemplate>
+												</asp:Repeater>
+											</div>
 										</div>
 										<!--homefeatured-->
 									</div>
@@ -122,6 +138,22 @@
 													</ItemTemplate>
 												</asp:Repeater>
 											</div>
+											<div id="list-product-04" class="row">
+												<asp:Repeater ID="rptProducts04" runat="server">
+													<ItemTemplate>
+														<div class="col-md-3 col-sm-5 col-xs-6 wow fadeInUp">
+															<a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>">
+																<img src="<%# Eval("Image1").ToString() %>" alt="<%# Eval("Name") %>" title="<%# Eval("Name") %>"></a>
+															<h6 class="badge col-md-12 col-sm-12 col-xs-12">
+																<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> Đ</span>
+																<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>
+															</h6>
+															
+															<h6 style="clear:left;"><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 45) %></a></h6>
+														</div>
+													</ItemTemplate>
+												</asp:Repeater>
+											</div>
 										</div>
 										<!--homefeatured-->
 									</div>
@@ -156,17 +188,6 @@
 					<uc2:U_NewsList runat="server" id="idU_NewsList" />
 				</div>
 			</section>
-			<%--<section class="parallax well3 text-center" data-url="images/parallax2.jpg" data-mobile="true">
-				<div class="container">
-					<h2 class="wow fadeIn">
-						<strong>
-							<em>
-								Một câu châm ngôn hay ở đây....
-							</em>
-						</strong>
-					</h2>
-				</div>
-			</section>--%>
 			<section class="well4 text-center">			
 				<uc4:U_ImageList runat="server" id="idU_ImageList" />
 			</section>

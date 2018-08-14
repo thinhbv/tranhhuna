@@ -1874,9 +1874,14 @@ a[href^="callto:"] {
 em {
   font-style: normal;
 }
-img {
+.col-md-2 img {
   vertical-align: middle;
   max-width: 220px;
+  height: auto;
+}
+.col-md-3 img {
+  vertical-align: middle;
+  max-width: 280px;
   height: auto;
 }
 .img-responsive {
@@ -2143,6 +2148,9 @@ cursor:default;
 
 #list-product .wow{
 height:305px;
+}
+#list-product-04 .wow{
+height:360px;
 }
 #group02 .wow{
 height:300px;

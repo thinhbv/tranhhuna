@@ -14,6 +14,7 @@ namespace MyWeb.Controls
 	public partial class U_ProductList : System.Web.UI.UserControl
 	{
 		private string level = string.Empty;
+		private string itemCnt = string.Empty;
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			try
@@ -32,16 +33,28 @@ namespace MyWeb.Controls
 					}
 
 					HttpCookie cookie = Request.Cookies[Consts.GUID_SHOPPING_CART];
-					rptProducts.DataSource = StringClass.ModifyDataProduct(dtPro, cookie);
-					rptProducts.DataBind();
+
+					switch (itemCnt)
+					{
+						case "4":
+							rptProducts04.DataSource = StringClass.ModifyDataProduct(dtPro, cookie);
+							rptProducts04.DataBind();
+							break;
+						default:
+							rptProducts.DataSource = StringClass.ModifyDataProduct(dtPro, cookie);
+							rptProducts.DataBind();
+							break;
+					}
 				}
 			}
 			catch (Exception ex)
 			{
-				MailSender.SendMail("", "", "Error System", ex.Message + "\n" +ex.StackTrace);
+				MailSender.SendMail("", "", "Error System", ex.Message + "\n" + ex.StackTrace);
 			}
 		}
 
 		public string Level { get { return level; } set { level = value; } }
+
+		public string ItemCount { get { return itemCnt; } set { itemCnt = value; } }
 	}
 }

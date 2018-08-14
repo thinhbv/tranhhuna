@@ -71,17 +71,28 @@ namespace MyWeb
 			if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
 			{
 				string id = DataBinder.Eval(item.DataItem, "Id").ToString();
+				string itemCnt = DataBinder.Eval(item.DataItem, "Items").ToString();
 				DataTable dtPro = ProductService.Product_GetByTop("", "Active = 1 AND IsPopular=1 AND GroupId=" + id, "Ord");
 				if (dtPro.Rows.Count == 0)
 				{
 					item.Visible = false;
 				}
 				Repeater rptPro = (Repeater)item.FindControl("rptPro");
+				Repeater rptProducts04 = (Repeater)item.FindControl("rptProducts04");
 				if (rptPro != null)
 				{
 					HttpCookie cookie = Request.Cookies[Consts.GUID_SHOPPING_CART];
-					rptPro.DataSource = StringClass.ModifyDataProduct(dtPro, cookie);
-					rptPro.DataBind();
+					switch (itemCnt)
+					{
+						case "4":
+							rptProducts04.DataSource = StringClass.ModifyDataProduct(dtPro, cookie);
+							rptProducts04.DataBind();
+							break;
+						default:
+							rptPro.DataSource = StringClass.ModifyDataProduct(dtPro, cookie);
+							rptPro.DataBind();
+							break;
+					}				
 				}
 			}
 		}

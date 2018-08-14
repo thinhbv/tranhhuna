@@ -157,6 +157,33 @@ namespace MyWeb.Admins {
         protected global::System.Web.UI.WebControls.CheckBox chkPosition;
         
         /// <summary>
+        /// lblItems control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblItems;
+        
+        /// <summary>
+        /// txtItems control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtItems;
+        
+        /// <summary>
+        /// rfvOrdItems control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvOrdItems;
+        
+        /// <summary>
         /// lblOrd control.
         /// </summary>
         /// <remarks>

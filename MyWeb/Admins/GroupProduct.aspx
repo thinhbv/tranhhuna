@@ -54,6 +54,8 @@
 						<asp:ImageButton ID="Image2" runat="server" CommandName="cmdPosition" CommandArgument='<%#Eval("Id") %>' ImageUrl='<%#MyWeb.Common.PageHelper.ShowCheckImage(DataBinder.Eval(Container.DataItem, "Position"))%>' />
 					</ItemTemplate>
 				</asp:TemplateColumn>
+				 <asp:BoundColumn DataField="Items" HeaderText="Sản phẩm/Hàng" ItemStyle-CssClass="Number"
+                    Visible="true" />
                 <asp:BoundColumn DataField="Ord" HeaderText="Thứ tự" ItemStyle-CssClass="Number"
                     Visible="true" />
                 <asp:TemplateColumn ItemStyle-CssClass="Active">
@@ -127,6 +129,16 @@
 					<asp:CheckBox ID="chkPosition" runat="server" />
 				</td>
 			</tr>
+			<tr>
+                <th>
+                    <asp:Label ID="lblItems" runat="server" Text="Sản phẩm/Hàng:"></asp:Label>
+                </th>
+                <td>
+                    <asp:TextBox ID="txtItems" runat="server" CssClass="text number" /><asp:RequiredFieldValidator
+                        ID="rfvOrdItems" runat="server" ControlToValidate="txtItems" Display="Dynamic" ErrorMessage="*"
+                        SetFocusOnError="True"></asp:RequiredFieldValidator>
+                </td>
+            </tr>
             <tr>
                 <th>
                     <asp:Label ID="lblOrd" runat="server" Text="Thứ tự:"></asp:Label>

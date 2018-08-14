@@ -72,12 +72,31 @@ namespace MyWeb.Modules.Product
 							ddlSize.SelectedIndex = 0;
 
 							//Hiển thị sản phẩm tương tự
-							DataTable dtRelated = ProductService.Product_GetByTop("6", "Active = 1 AND GroupId='" + pro.Rows[0]["GroupId"].ToString() + "' AND Id <> '" + id + "'", "Ord");
+							List<GroupProduct> lstG = GroupProductService.GroupProduct_GetById(pro.Rows[0]["GroupId"].ToString());
+							string itemCnt = string.Empty;
+							if (lstG.Count > 0)
+							{
+								itemCnt = lstG[0].Items;
+							}
+							if (string.IsNullOrEmpty(itemCnt) || itemCnt == "0")
+							{
+								itemCnt = "3";
+							}
+							DataTable dtRelated = ProductService.Product_GetByTop((Int16.Parse(itemCnt)*2).ToString(), "Active = 1 AND GroupId='" + pro.Rows[0]["GroupId"].ToString() + "' AND Id <> '" + id + "'", "Ord");
 							if (dtRelated.Rows.Count > 0)
 							{
 								HttpCookie cookie = Request.Cookies[Consts.GUID_SHOPPING_CART];
-								rptProducts.DataSource = StringClass.ModifyDataProduct(dtRelated, cookie);
-								rptProducts.DataBind();
+								switch (itemCnt)
+								{
+									case "4":
+										rptProducts04.DataSource = StringClass.ModifyDataProduct(dtRelated, cookie);
+										rptProducts04.DataBind();
+										break;
+									default:
+										rptProducts.DataSource = StringClass.ModifyDataProduct(dtRelated, cookie);
+										rptProducts.DataBind();
+										break;
+								}			
 							}
 						}
 					}

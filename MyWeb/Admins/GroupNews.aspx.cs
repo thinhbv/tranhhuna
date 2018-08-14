@@ -123,7 +123,9 @@ namespace MyWeb.Admins
         protected void AddButton_Click(object sender, EventArgs e)
         {
             pnUpdate.Visible = true;
-            ControlClass.ResetControlValues(this);
+			ControlClass.ResetControlValues(this);
+			SqlDataProvider sql = new SqlDataProvider();
+			txtOrd.Text = (Int16.Parse(sql.GetMaxOrd("GroupNews", Level)) + 1).ToString();
             pnView.Visible = false;
             Insert = true;
         }

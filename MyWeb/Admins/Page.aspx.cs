@@ -177,6 +177,9 @@ namespace MyWeb.Admins
             PageHelper.LoadDropDownListPageType(ddlType);
             LoadDropDownListPageLinkType();
             LoadDropDownListPageLink();
+
+			SqlDataProvider sql = new SqlDataProvider();
+			txtOrd.Text = (Int16.Parse(sql.GetMaxOrd("Page", Level)) + 1).ToString();
             pnView.Visible = false;
             Insert = true;
         }
