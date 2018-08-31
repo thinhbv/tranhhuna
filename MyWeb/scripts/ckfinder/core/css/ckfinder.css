@@ -150,7 +150,7 @@ td.FCKFileSize
 .FCKFolder .Icon
 {
 	background-position: center center;
-	background-image: url("../img/ckffolder.gif);
+	background-image: url(../images/ckffolder.gif);
 	cursor: pointer;
 	cursor: hand;
 }
@@ -158,7 +158,7 @@ td.FCKFileSize
 .FCKFolder .PlusMinus
 {
 	background-position: center center;
-	background-image: url("../img/ckfplus.gif);
+	background-image: url(../images/ckfplus.gif);
 }
 
 .FCKFolderSelected
@@ -169,17 +169,17 @@ td.FCKFileSize
 
 .FCKFolderSelected .Icon
 {
-	background-image: url("../img/ckffolderopened.gif);
+	background-image: url(../images/ckffolderopened.gif);
 }
 
 .FCKFolderOpened .PlusMinus
 {
-	background-image: url("../img/ckfminus.gif);
+	background-image: url(../images/ckfminus.gif);
 }
 
 .FCKFolderNoPlusMinus .PlusMinus
 {
-	background-image: url("../img/spacer.gif);
+	background-image: url(../images/spacer.gif);
 }
 
 .FCKLabel A
@@ -196,13 +196,13 @@ td.FCKFileSize
 
 .FCKPlus .FCKPlusMinus
 {
-	background-image: url("../img/ckfplus.gif);
+	background-image: url(../images/ckfplus.gif);
 	background-repeat: no-repeat;
 }
 
 .FCKMinus .FCKPlusMinus
 {
-	background-image: url("../img/ckfminus.gif);
+	background-image: url(../images/ckfminus.gif);
 	background-repeat: no-repeat;
 }
 

@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Admin Page</title><link href="/App_Themes/admin/layout.css" rel="stylesheet" type="text/css" /><!--[if IE 8]><link href="/App_Themes/admin/styleie8.css" rel="stylesheet" type="text/css" /><![endif]--> <script src="/Scripts/library.full.js" type="text/javascript"></script>
-    <script src="/Scripts/ckfinder/ckfinder.js" type="text/javascript"></script>
+    <script src="/Scripts/ckfinder/ckfinder.js?v=20180903" type="text/javascript"></script>
     <script src="/Scripts/jquery-1.11.0.min.js" type="text/javascript"></script>
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
