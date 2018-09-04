@@ -390,7 +390,7 @@ CKFinder.SetupCKEditor = function( editorObj, basePath, imageType, flashType )
 	editorObj.config.filebrowserFlashUploadUrl = dir + "core/connector/" + ckfinder.ConnectorLanguage + "/connector."
 		+ ckfinder.ConnectorLanguage + "?command=QuickUpload&type=" + ( flashType || 'Flash' ) ;
 }
-var CKFinderpath = 'http://' + location.hostname + ":" + window.location.port;
+var CKFinderpath = 'https://' + location.hostname + ":" + window.location.port;
 var editedField;
 
 function BrowseServer( field, str_type)

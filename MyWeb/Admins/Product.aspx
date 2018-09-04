@@ -237,7 +237,7 @@
 				</th>
 				<td>
 					<asp:TextBox ID="txtImage1" runat="server" CssClass="text image"></asp:TextBox>&nbsp;<input
-						id="btnImgImage1" type="button" onclick="BrowseServer('<% =txtImage1.ClientID %>	','Images');"
+						id="btnImgImage1" type="button" onclick="BrowseServer('<% =txtImage1.ClientID %>','Images');"
 						value="Browse Server" />&nbsp;
                     <asp:Image ID="imgImage1" runat="server" ImageAlign="Middle" Width="100px" />
 				</td>
