@@ -1132,8 +1132,8 @@ th {
   box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.4);
   color: #fff;
   position: fixed;
-  right: 40px;
-  bottom: 40px;
+  right: 85px;
+  bottom: 25px;
   display: none;
   overflow: hidden;
   text-align: center;
@@ -2388,7 +2388,7 @@ em {
   margin-top: 21px;
 }
 * + h6 {
-  margin-top: 16px;
+  margin-top: 5px;
 }
 * + .btn-link {
   margin-top: 21px;

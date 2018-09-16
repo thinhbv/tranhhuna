@@ -29,23 +29,6 @@
 			  	}
 			  });
 		})
-		//$(".added-cart").click(function () {
-		//	var proid = $(this)[0].id;
-		//	var item = $(this);
-		//	$.ajax({
-		//		method: "POST",
-		//		url: "/Processor.aspx",
-		//		data: { mode: 'delete', procid: proid }
-		//	})
-		//	  .done(function (result) {
-		//	  	if (result === "1") {
-		//	  		item.removeAttr("class");
-		//	  		item.attr("class", "add-cart");
-		//	  		item.attr("title", "Thêm vào giỏ hàng");
-		//	  		$("#item-count")[0].innerText = (parseInt($("#item-count")[0].innerText) - 1).toString();
-		//	  	}
-		//	  });
-		//})
 	})
 </script>
 <div class="container">
@@ -59,8 +42,8 @@
 						<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> Đ</span>
 						<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>
 					</h6>
-					<h6 style="clear: left;"><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 60) %></a></h6>
 					<p class="l-height"><%# StringClass.FormatContentNews(Eval("Content").ToString(),100) %></p>
+					<h6 style="clear: left;"><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 60) %></a></h6>
 				</div>
 			</ItemTemplate>
 		</asp:Repeater>
@@ -75,8 +58,8 @@
 						<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> Đ</span>
 						<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>
 					</h6>
-					<h6 style="clear: left;"><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 60) %></a></h6>
 					<p class="l-height"><%# StringClass.FormatContentNews(Eval("Content").ToString(),100) %></p>
+					<h6 style="clear: left;"><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 60) %></a></h6>				
 				</div>
 			</ItemTemplate>
 		</asp:Repeater>

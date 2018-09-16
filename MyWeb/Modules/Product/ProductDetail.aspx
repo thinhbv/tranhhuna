@@ -87,7 +87,7 @@
 			return price;
 		}
 	</script>
-	<link href="../../../css/product.css" rel="stylesheet" />
+	<link href="../../../css/product.css?v=20180817" rel="stylesheet" />
 	<script src="../../../scripts/jquery.serialScroll.js"></script>
 	<script src="../../../scripts/jquery.scrollTo.js"></script>
 	<script type="text/javascript" src="../../../scripts/product.js"></script>
@@ -216,8 +216,9 @@
 													<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> Đ</span>
 													<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>
 												</h6>
-												<h6><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 60) %></a></h6>
 												<p class="l-height"><%# StringClass.FormatContentNews(Eval("Content").ToString(),100) %></p>
+												<h6><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 60) %></a></h6>
+												
 											</div>
 										</ItemTemplate>
 									</asp:Repeater>
@@ -232,8 +233,8 @@
 													<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> Đ</span>
 													<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>
 												</h6>
-												<h6><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 60) %></a></h6>
 												<p class="l-height"><%# StringClass.FormatContentNews(Eval("Content").ToString(),100) %></p>
+												<h6><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 60) %></a></h6>												
 											</div>
 										</ItemTemplate>
 									</asp:Repeater>

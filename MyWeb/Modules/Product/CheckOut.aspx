@@ -3,7 +3,7 @@
 <%@ Import Namespace="MyWeb.Common" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 	<link rel="stylesheet" href="../../../css/font-awesome.min.css">
-	<link href="../../../css/shoppingcart.css" rel="stylesheet" />
+	<link href="../../../css/shoppingcart.css?v=20180817" rel="stylesheet" />
 	<script type="text/javascript">
 		$(document).ready(function () {
 			if ($("#itemcount").text() === "0") {

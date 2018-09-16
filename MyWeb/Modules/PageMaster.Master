@@ -16,7 +16,7 @@
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
 
 	<!-- Bootstrap -->
-	<link href="/css/bootstrap.css" rel="stylesheet">
+	<link href="/css/bootstrap.css?v=20180817" rel="stylesheet">
 
 	<!-- Links -->
 	<link href="/css/search.css" rel="stylesheet">

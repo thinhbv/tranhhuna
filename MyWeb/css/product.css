@@ -28,6 +28,7 @@
         max-width: 320px;
         margin: 0 auto 15px;
         float: none;
+		padding:0;
     }
 }
 
@@ -36,6 +37,7 @@
         max-width: 480px;
         margin: 0 auto 15px;
         float: none;
+		padding:0;
     }
 }
 
@@ -59,28 +61,28 @@
 
 @media (min-width: 992px) and (max-width: 1199px) {
     .pb-left-column #image-block.is_caroucel {
-        margin-left: 96px;
+        margin-left: 0;
         margin-right: 0;
     }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
     .pb-left-column #image-block.is_caroucel {
-        margin-left: 91px;
+        margin-left: 0;
         margin-right: -10px;
     }
 }
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
     .pb-left-column #image-block.is_caroucel {
-        margin-left: 94px;
+        margin-left: 0;
         margin-right: 0;
     }
 }
 
 @media only screen and (max-width: 479px) {
     .pb-left-column #image-block.is_caroucel {
-        margin-left: 74px;
+        margin-left: 0;
     }
 }
 
