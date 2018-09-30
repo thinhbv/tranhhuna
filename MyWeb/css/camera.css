@@ -5,11 +5,11 @@
 =========================================================*/
 .camera_container {
   position: relative;
-  padding-bottom: 26.63414634%;
+  padding-bottom: 33.63414634%;
 }
 @media (max-width: 1314.1025641px) {
   .camera_container {
-    padding-bottom: 350px;
+    padding-bottom: 450px;
   }
 }
 .camera_wrap {

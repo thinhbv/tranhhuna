@@ -16,10 +16,10 @@
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
 
 	<!-- Bootstrap -->
-	<link href="/css/bootstrap.css?v=20180817" rel="stylesheet">
+	<link href="/css/bootstrap.css?v=20180930" rel="stylesheet">
 
 	<!-- Links -->
-	<link href="/css/search.css" rel="stylesheet">
+	<link href="/css/search.css?v=20180930" rel="stylesheet">
 	<link href="/css/camera.css" rel="stylesheet">
 
 

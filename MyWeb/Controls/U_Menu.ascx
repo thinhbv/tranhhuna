@@ -53,7 +53,7 @@
 
 <div class="search-form">
 	<label class="search-form_label" for="in">
-		<input id="in" class="search-form_input" type="text" name="s"
+		<input id="tm_search_query" class="search-form_input" type="text" name="s"
 			placeholder="Nhập keyword của bạn ở đây..." />
 		<span class="search-form_liveout"></span>
 	</label>

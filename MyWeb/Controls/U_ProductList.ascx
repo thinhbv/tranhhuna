@@ -43,7 +43,7 @@
 						<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>
 					</h6>
 					<p class="l-height"><%# StringClass.FormatContentNews(Eval("Content").ToString(),100) %></p>
-					<h6 style="clear: left;"><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 60) %></a></h6>
+					<h6 class="title-pro" style="clear: left;"><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 60) %></a></h6>
 				</div>
 			</ItemTemplate>
 		</asp:Repeater>
@@ -59,7 +59,7 @@
 						<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>
 					</h6>
 					<p class="l-height"><%# StringClass.FormatContentNews(Eval("Content").ToString(),100) %></p>
-					<h6 style="clear: left;"><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 60) %></a></h6>				
+					<h6 class="title-pro" style="clear: left;"><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 60) %></a></h6>				
 				</div>
 			</ItemTemplate>
 		</asp:Repeater>

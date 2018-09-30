@@ -1766,8 +1766,9 @@ th {
 }
 @media (max-width: 500px) {
   .row .col-xs-6 {
-    clear: both;
-    width: 100%;
+    /*clear: both;*/
+    width: 50%;
+	padding-left: 5px;
   }
 }
 @media (max-width: 500px) and (max-width: 500px) {
@@ -1876,7 +1877,7 @@ em {
 }
 .col-md-2 img {
   vertical-align: middle;
-  max-width: 220px;
+  max-width: 100%;
   height: auto;
 }
 .col-md-3 img {
@@ -3139,8 +3140,8 @@ pre code {
 .container {
   margin-right: auto;
   margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 @media (min-width: 768px) {
   .container {
@@ -3198,7 +3199,7 @@ pre code {
   width: 50%;
 }
 .col-xs-5 {
-  width: 41.66666667%;
+  width: 49.666667%;
 }
 .col-xs-4 {
   width: 33.33333333%;
@@ -5715,8 +5716,8 @@ margin-bottom:50px;
 }
 .navbar-default .navbar-nav > li > a {
   color: #ffffff;
-  padding: 22px 20px 19px 19px;
-  font-size: 16px;
+  padding: 15px 20px 15px 19px;
+  font-size: 15px;
   line-height: 1.2;
   font-weight: 900;
   text-transform: uppercase;
@@ -7835,3 +7836,4 @@ button.close {
 }
 
 .sdsarticleBottom{margin-top:30px;}
+.title-pro{clear:left; font-weight:normal;}

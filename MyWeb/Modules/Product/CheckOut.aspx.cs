@@ -120,10 +120,10 @@ namespace MyWeb.Modules.Product
 					}
 					Orders order = new Orders();
 					order.Id = Id;
-					order.Name = fname.Value.Trim();
-					order.Email = email.Value.Trim();
-					order.Tel = adr.Value.Trim();
-					order.Address = city.Value.Trim();
+					order.Name = StringClass.SqlInjection(fname.Value.Trim());
+					order.Email = StringClass.SqlInjection(email.Value.Trim());
+					order.Tel = StringClass.SqlInjection(adr.Value.Trim());
+					order.Address = StringClass.SqlInjection(city.Value.Trim());
 					order.OrderId = orderId;
 					order.OrderDate = DateTimeClass.ConvertDateTime(DateTime.Now, "dd/MM/yyyy HH:mm:ss");
 					if (rdoChuyenkhoan.Checked)
@@ -136,7 +136,7 @@ namespace MyWeb.Modules.Product
 					}
 					order.Price = totalPrice;
 					order.Status = "1";
-					order.Detail = content.Value.Trim();
+					order.Detail = StringClass.SqlInjection(content.Value.Trim());
 					order.DeliveryDate = "";
 					OrdersService.PurchaseProduct(order, htData);
 					lblMsg.Text = "Cảm ơn bạn đã mua sản phẩm của chúng tôi. Chúng tôi sẽ giao hàng trong thời gian sớm nhất.";

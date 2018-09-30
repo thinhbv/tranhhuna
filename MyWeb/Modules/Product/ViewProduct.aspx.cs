@@ -44,7 +44,12 @@ namespace MyWeb.Modules.Product
 						}
 						groupName = listGroup[0].Name;
 					}
-				}	
+				}
+
+				if (Request.QueryString["key"] != null)
+				{
+					groupName = Request.QueryString["key"].ToString();
+				}
 			}
         }
     }
