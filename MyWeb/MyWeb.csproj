@@ -95,11 +95,40 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\FredCK.FCKeditorV2.dll</HintPath>
     </Reference>
+    <Reference Include="Google.Apis, Version=1.40.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.40.0\lib\net45\Google.Apis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.40.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.40.0\lib\net45\Google.Apis.Auth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.40.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.40.0\lib\net45\Google.Apis.Auth.PlatformServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.40.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.40.0\lib\net45\Google.Apis.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Drive.v3, Version=1.40.0.1596, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Drive.v3.1.40.0.1596\lib\net45\Google.Apis.Drive.v3.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.40.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.40.0\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.DynamicData" />
@@ -126,6 +155,7 @@
     <Content Include="Admins\Page.aspx" />
     <Content Include="Admins\Product.aspx" />
     <Content Include="Admins\Support.aspx" />
+    <Content Include="Admins\UploadFiles.aspx" />
     <Content Include="Admins\UploadImages.aspx" />
     <Content Include="Admins\User.aspx" />
     <Content Include="App_Themes\Admin\images\add.png" />
@@ -236,6 +266,7 @@
     <Content Include="img\pro_button.png" />
     <Content Include="img\tm\plus-minus.png" />
     <Content Include="img\tm\pro_button.png" />
+    <Content Include="Index.html" />
     <Content Include="InnerError.html" />
     <Content Include="LoginFB.aspx" />
     <Content Include="Modules\Images\ImageList.aspx" />
@@ -802,6 +833,7 @@
     <Content Include="scripts\unitegallery\themes\video\skin-right-title-only.css" />
     <Content Include="scripts\unitegallery\themes\video\ug-theme-video.js" />
     <Content Include="scripts\wow.js" />
+    <Content Include="Store Home_files\home.css" />
     <Content Include="uploads\advertise\page-1_slide01.jpg" />
     <Content Include="uploads\advertise\page-1_slide02.jpg" />
     <Content Include="uploads\advertise\page-1_slide03.jpg" />
@@ -1020,7 +1052,9 @@
     <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-155.jpg" />
     <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-156.jpg" />
     <Content Include="uploads\_thumbs\Images\tranh-hana\HOV-157.jpg" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminMaster.Master.cs">
@@ -1120,6 +1154,13 @@
     </Compile>
     <Compile Include="Admins\Support.aspx.designer.cs">
       <DependentUpon>Support.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\UploadFiles.aspx.cs">
+      <DependentUpon>UploadFiles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\UploadFiles.aspx.designer.cs">
+      <DependentUpon>UploadFiles.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admins\UploadImages.aspx.cs">
       <DependentUpon>UploadImages.aspx</DependentUpon>
@@ -1375,6 +1416,9 @@
     <Content Include="Modules\PageMaster.Master" />
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="credentials.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="fonts\fontawesome-webfont-2.woff" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\MaterialIcons-Regular.woff2" />
@@ -1383,6 +1427,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\DaMyNghe.pubxml" />
     <None Include="Properties\PublishProfiles\MyWeb.pubxml" />
     <None Include="Web.Debug.config">

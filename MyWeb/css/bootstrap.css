@@ -2154,7 +2154,7 @@ height:305px;
 height:360px;
 }
 #group02 .wow{
-height:300px;
+height:330px;
 }
 .mg_add {
   margin-top: 54px;
@@ -5461,6 +5461,15 @@ max-width:300px;
 }
 #home-page-tabs{
 margin-bottom:50px;
+}
+#home-page-tabs .item-row{
+	width:100%;
+	border:1px solid #cfcfcf;
+	text-align:center;
+	background:#efefef;
+}
+#home-page-tabs .item-row img{
+width:100%;
 }
 .nav-tabs.nav-justified {
   width: 100%;

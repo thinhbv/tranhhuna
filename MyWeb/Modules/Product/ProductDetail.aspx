@@ -210,8 +210,10 @@
 									<asp:Repeater ID="rptProducts" runat="server">
 										<ItemTemplate>
 											<div class="col-md-2 col-sm-4 col-xs-6 wow fadeInUp">
+												<div class="item-row">
 												<a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>">
 													<img src="<%# StringClass.ThumbImage(Eval("Image1").ToString()) %>" alt="<%# Eval("Name") %>" title="<%# Eval("Name") %>"></a>
+												</div>
 												<h6 class="badge col-md-12 col-sm-12 col-xs-12">
 													<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> Đ</span>
 													<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>
@@ -227,8 +229,10 @@
 									<asp:Repeater ID="rptProducts04" runat="server">
 										<ItemTemplate>
 											<div class="col-md-3 col-sm-5 col-xs-6 wow fadeInUp">
+												<div class="item-row">
 												<a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>">
 													<img src="<%# Eval("Image1").ToString() %>" alt="<%# Eval("Name") %>" title="<%# Eval("Name") %>"></a>
+												</div>
 												<h6 class="badge col-md-12 col-sm-12 col-xs-12">
 													<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> Đ</span>
 													<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>
