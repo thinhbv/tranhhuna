@@ -10,6 +10,7 @@ using System.Data;
 using System.Web.Mail;
 using System.Web;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace MyWeb.Common
 {
@@ -354,6 +355,10 @@ namespace MyWeb.Common
 				dr["Link"] = PageHelper.GeneralGroupUrl(Consts.CON_TIN_TUC, dr["Id"].ToString(), dr["Name"].ToString());
 			}
 			return dt;
+		}
+		public static bool IsValidEmail(string email)
+		{
+			return new EmailAddressAttribute().IsValid(email);
 		}
 	}
 }

@@ -33,6 +33,9 @@ namespace MyWeb
             RouteTable.Routes.MapPageRoute("Logon", "Logon", "~/Modules/Page/Logon.aspx");
 			RouteTable.Routes.MapPageRoute("Admin", "admin", "~/Admins/Default.aspx");
 			RouteTable.Routes.MapPageRoute("Cart", "gio-hang", "~/Modules/Product/CheckOut.aspx");
+			RouteTable.Routes.MapPageRoute("Login", "thanh-vien/dang-nhap", "~/Modules/Page/Login.aspx");
+			RouteTable.Routes.MapPageRoute("Register", "thanh-vien/dang-ki", "~/Modules/Page/Register.aspx");
+			RouteTable.Routes.MapPageRoute("ForgotPass", "thanh-vien/quen-mat-khau", "~/Modules/Page/ForgotPass.aspx");
         }
 
         protected void Application_Start(object sender, EventArgs e)

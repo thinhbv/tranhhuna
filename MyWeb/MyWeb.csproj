@@ -273,8 +273,11 @@
     <Content Include="Modules\News\NewsDetail.aspx" />
     <Content Include="Modules\News\ViewNews.aspx" />
     <Content Include="Modules\Page\Contact.aspx" />
+    <Content Include="Modules\Page\ForgotPass.aspx" />
+    <Content Include="Modules\Page\Login.aspx" />
     <Content Include="Modules\Page\Logon.aspx" />
     <Content Include="Modules\Page\PageDetail.aspx" />
+    <Content Include="Modules\Page\Register.aspx" />
     <Content Include="Modules\Product\CheckOut.aspx" />
     <Content Include="Modules\Product\ProductDetail.aspx" />
     <Content Include="Modules\Product\ViewProduct.aspx" />
@@ -1340,6 +1343,20 @@
     <Compile Include="Modules\Page\Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Page\ForgotPass.aspx.cs">
+      <DependentUpon>ForgotPass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Page\ForgotPass.aspx.designer.cs">
+      <DependentUpon>ForgotPass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Page\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Page\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Page\Logon.aspx.cs">
       <DependentUpon>Logon.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1353,6 +1370,13 @@
     </Compile>
     <Compile Include="Modules\Page\PageDetail.aspx.designer.cs">
       <DependentUpon>PageDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Page\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Page\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modules\Product\CheckOut.aspx.cs">
       <DependentUpon>CheckOut.aspx</DependentUpon>

@@ -43,7 +43,9 @@
 				</li>
 			</ItemTemplate>
 		</asp:Repeater>
+		
 	</ul>
+	<div><a href="/thanh-vien/dang-nhap" title="Đăng nhập">Đăng nhập</a> / <a href="/thanh-vien/dang-ki" title="Đăng nhập">Đăng kí</a></div>
 </nav>
 <!--navbar-default-->
 <div class="sform">

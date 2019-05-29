@@ -46,6 +46,7 @@
     <Compile Include="CommentNewsService.cs" />
     <Compile Include="ConfigService.cs" />
     <Compile Include="ContactService.cs" />
+    <Compile Include="CustomersService.cs" />
     <Compile Include="GroupImagesService.cs" />
     <Compile Include="GroupNewsService.cs" />
     <Compile Include="GroupProductService.cs" />
