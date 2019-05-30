@@ -60,7 +60,7 @@ namespace MyWeb.Modules.Page
 					Customers cus = new Customers();
 					cus.Email = StringClass.SqlInjection(txtUserName.Value.Trim());
 					cus.UserName = cus.Email.Substring(0, cus.Email.LastIndexOf("@"));
-					cus.CreatedDate = DateTime.Now.ToShortDateString();
+					cus.FullName = cus.Email.Substring(0, cus.Email.LastIndexOf("@"));
 					cus.Password = StringClass.SqlInjection(StringClass.Encode(txtPass.Value.Trim()));
 					cus.Active = "1";
 					DataTable dt = CustomersService.Customers_GetByName(StringClass.SqlInjection(txtUserName.Value.Trim()));
@@ -73,8 +73,9 @@ namespace MyWeb.Modules.Page
 					CustomersService.Customers_Insert(cus); 
 					FormsAuthentication.SetAuthCookie(StringClass.SqlInjection(txtUserName.Value.Trim()), false);
 					Session["Email"] = cus.Email;
-					Session["UserName"] = cus.UserName;
+					Session["FullName"] = cus.FullName;
 					Session["IsAuthorized"] = true;
+					Response.Redirect("/", false);
 				}
 			}
 			catch (Exception ex)

@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Modules/PageMaster.Master" AutoEventWireup="true" CodeBehind="ViewProduct.aspx.cs" Inherits="MyWeb.Modules.Product.ViewProduct" %>
 
 <%@ Register Src="~/Controls/U_ProductList.ascx" TagPrefix="uc1" TagName="U_ProductList" %>
-<%@ Register Src="~/Controls/U_GroupProductList.ascx" TagPrefix="uc2" TagName="U_GroupProductList" %>
+<%--<%@ Register Src="~/Controls/U_GroupProductList.ascx" TagPrefix="uc2" TagName="U_GroupProductList" %>--%>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
@@ -24,7 +24,7 @@
 	<main>
 		<section class="well center767">
 			<uc1:U_ProductList ID="idU_ProductList" runat="server" />
-			<uc2:U_GroupProductList ID="U_GroupProductList" runat="server" />
+			<%--<uc2:U_GroupProductList ID="U_GroupProductList" runat="server" />--%>
 		</section>
 	</main>
 </asp:Content>

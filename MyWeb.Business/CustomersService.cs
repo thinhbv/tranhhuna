@@ -60,5 +60,11 @@ namespace MyWeb.Business
 			return db.Customers_GetByName(UserName);
 		}
 		#endregion
+		#region[Customers_GetByAppId]
+		public static DataTable Customers_GetByAppId(string appId)
+		{
+			return db.Customers_GetByAppId(appId);
+		}
+		#endregion
 	}
 }

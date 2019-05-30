@@ -1,14 +1,65 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Modules/PageMaster.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="MyWeb.Modules.Page.Login" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+	<meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="611511258170-in5k2tdgb89bfa2ja9sp8mdu4imsum7k.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+	<script language="javascript" type="text/javascript">
+		function LoginCompleted() {
+			FB.api('/me', {fields: 'id, name, email' }, function (response) {
+				$.ajax({
+					type: 'POST',
+					url: '/checklogin.aspx?id=' + response.id + '&name=' + response.name +'&email=' + response.email,
+					// Always include an `X-Requested-With` header in every AJAX request,
+					// to protect against CSRF attacks.
+					headers: {
+						'X-Requested-With': 'XMLHttpRequest'
+					},
+					contentType: 'application/octet-stream; charset=utf-8',
+					success: function (result) {
+						// Handle or verify the server response.
+					},
+					processData: false,
+					data: { id: response.id, name: response.name, email: response.email }
+				}, { scope: 'email,user_likes' });
+				window.location.href = "/";
+			});
+			
+        }
+        function onSignIn(googleUser) {
+        	var profile = googleUser.getBasicProfile();
+        	console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        	console.log('Name: ' + profile.getName());
+        	console.log('Image URL: ' + profile.getImageUrl());
+        	console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        }
+        function onSuccess(googleUser) {
+        	console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+        }
+        function onFailure(error) {
+        	console.log(error);
+        }
+        function renderButton() {
+        	gapi.signin2.render('my-signin2', {
+        		'scope': 'profile email',
+        		'width': 240,
+        		'height': 40,
+        		'longtitle': true,
+        		'theme': 'dark',
+        		'onsuccess': onSuccess,
+        		'onfailure': onFailure
+        	});
+        }
+    </script>
 	<style type="text/css">
 		.btn.btn-facebook{
 			background: #3B66C4;
 			margin-left:10px;
 		}
-		.btn.btn-google{
+		.btn-google{
 			background: #D04332;
 			margin-left:10px;
+			margin-top:34px;
 		}
 		.tab-left .tab-bar {
 			float: left;
@@ -144,10 +195,11 @@
 											</div>
 
 											<hr />
-											
-											<a class="btn btn-google btn-sm bounceIn animation-delay5 login-link pull-right" href="index.html"><i class="fa fa-google-plus-square fa-4"></i> Đăng nhập với Google</a>
-											<a class="btn btn-facebook btn-sm bounceIn animation-delay5 login-link pull-right" href="index.html"><i class="fa fa-facebook-square fa-4"></i> Đăng nhập với Facebook</a>
-											<asp:LinkButton ID="lbtLogin" runat="server" CssClass="btn btn-success btn-sm bounceIn animation-delay5 login-link pull-right" OnClick="lbtLogin_Click"><i class="fa fa-sign-in"></i> Đăng nhập</asp:LinkButton>
+											<div id="fb-root"></div>
+											<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.3&appId=707967022622148&autoLogAppEvents=1"></script>
+											<a class="fb-login-button btn-google bounceIn animation-delay5 login-link pull-right" data-width="" scope="email" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false" data-onlogin="LoginCompleted();"></a>
+											<a class=" btn-google bounceIn animation-delay5 login-link pull-right" id="my-signin2"></a>
+											<asp:LinkButton ID="lbtLogin" runat="server" CssClass="btn btn-success btn-sm bounceIn animation-delay5 login-link pull-left" OnClick="lbtLogin_Click"><i class="fa fa-sign-in"></i> Đăng nhập</asp:LinkButton>
 										</form>
 									</div>
 								</div>

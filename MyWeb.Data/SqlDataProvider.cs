@@ -14,7 +14,7 @@ namespace MyWeb.Data
         /// SQL server connection string
 		/// </summary>
 #if DEBUG
-		static string strConStr = @"Data Source=THINHBV-PC\MSSQLSERVER2014;Initial Catalog=tranhhuna;User ID=sa;Password=1qaz2wsx;Pooling=true;Max Pool Size=256;Min Pool Size=16;";
+		static string strConStr = @"Data Source=THINHBV-PC\SQLEXPRESS2014;Initial Catalog=shareco1_tranhhuna;User ID=sa;Password=1qaz2wsx;Pooling=true;Max Pool Size=256;Min Pool Size=16;";
 #else
 		static string strConStr = @"Data Source=.;Initial Catalog=shareco1_tranhhuna;User ID=shareco1_tranhhuna;Password=cYyg20#2;Pooling=true;Max Pool Size=256;Min Pool Size=16;";
 		//static string strConStr = @"Data Source=.;Initial Catalog=shareco1_tranhhuna01;User ID=shareco1_tranhhuna;Password=tpTe2?15;Pooling=true;Max Pool Size=256;Min Pool Size=16;";

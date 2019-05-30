@@ -51,4 +51,55 @@
 			</tr>
 		</table>
 	</asp:Panel>
+	<asp:Button ID="btnLogin" Text="Login" runat="server" OnClick="Login" />
+<asp:Panel ID="pnlProfile" runat="server" Visible="false">
+<hr />
+<asp:DataList ID="dlFiles" runat="server">
+<ItemTemplate>
+<table border="0" cellpadding="0" cellspacing="0" class="table">
+        <tr>
+            <th colspan="2">
+                <%# Eval("Title") %>
+            </th>
+        </tr>
+        <tr>
+            <td rowspan="6" style="width: 100px" valign="top">
+                <a href='<%# Eval("ThumbnailLink") %>' target="_blank">
+                    <img alt="" src='<%# Eval("ThumbnailLink") %>' class="thumbnail" />
+                </a>
+            </td>
+            <tr>
+                <td style="width: 200px">
+                    <b>File Name:</b>
+                    <%# Eval("OriginalFileName") %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Created Date:</b>
+                    <%# Convert.ToDateTime(Eval("CreatedDate")).ToString("dd, MMM yyyy") %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Modified Date:</b>
+                    <%# Convert.ToDateTime(Eval("ModifiedDate")).ToString("dd, MMM yyyy") %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>File Type:</b>
+                    <img alt="" src='<%# Eval("IconLink") %>' />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href='<%# Eval("WebContentLink") %>'>Download File</a>
+                </td>
+            </tr>
+        </tr>
+    </table>
+</ItemTemplate>
+</asp:DataList>
+</asp:Panel>
 </asp:Content>

@@ -50,7 +50,7 @@ namespace MyWeb.Modules.Page
 					{
 						FormsAuthentication.SetAuthCookie(StringClass.SqlInjection(txtUserName.Value.Trim()), false);
 						Session["Email"] = dt.Rows[0]["Email"].ToString().Trim();
-						Session["UserName"] = dt.Rows[0]["UserName"].ToString().Trim();
+						Session["FullName"] = dt.Rows[0]["FullName"].ToString().Trim();
 						Session["IsAuthorized"] = true;
 						Response.Redirect(redirectUrl, false);
 					}

@@ -11,6 +11,7 @@ namespace MyWeb.Data
 
 		#region[Declare variables]
 		private string _Id;
+		private string _AppId;
 		private string _FullName;
 		private string _UserName;
 		private string _Password;
@@ -24,6 +25,7 @@ namespace MyWeb.Data
 		#endregion
 		#region[Public Properties]
 		public string Id { get { return _Id; } set { _Id = value; } }
+		public string AppId { get { return _AppId; } set { _AppId = value; } }
 		public string FullName { get { return _FullName; } set { _FullName = value; } }
 		public string UserName { get { return _UserName; } set { _UserName = value; } }
 		public string Password { get { return _Password; } set { _Password = value; } }
@@ -35,5 +37,19 @@ namespace MyWeb.Data
 		public string Ord { get { return _Ord; } set { _Ord = value; } }
 		public string Active { get { return _Active; } set { _Active = value; } }
 		#endregion
+		public Customers()
+		{
+			AppId = "";
+			FullName = "";
+			UserName = "";
+			Password = "";
+			Email = "";
+			Phone = "";
+			Birthday = "";
+			CreatedDate = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
+			Gender = "";
+			Ord = "0";
+			Active = "1";
+		}
 	}
 }

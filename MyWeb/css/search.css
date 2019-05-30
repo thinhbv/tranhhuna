@@ -581,31 +581,100 @@ body.search_body {
 * @subsection   Breadcrumbs
 */
 .breadcrumb {
-    border-radius: 0;
+	border-radius: 0;
 }
 
-    .breadcrumb li {
-        float: left;
-        margin-right: 20px;
-        color: #444;
-    }
+	.breadcrumb li {
+		float: left;
+		margin-right: 20px;
+		color: #444;
+	}
 
-        .breadcrumb li a {
-            color: #c5c911;
-        }
+		.breadcrumb li a {
+			color: #c5c911;
+		}
 
-            .breadcrumb li a:hover {
-                color: #444 !important;
-            }
+			.breadcrumb li a:hover {
+				color: #444 !important;
+			}
 
-            .breadcrumb li a.home {
-                color: #c5c911;
-            }
+			.breadcrumb li a.home {
+				color: #c5c911;
+			}
 
-    .breadcrumb .navigation-pipe {
-        display: none;
-    }
+	.breadcrumb .navigation-pipe {
+		display: none;
+	}
 
 /*
 * @subsection   Barre comparaison
 */
+.form-login {
+	float: right;
+	padding: 14px;
+	margin-right: 40px;
+	color: white;
+	font-weight: bold;
+}
+
+	.form-login a:hover {
+		text-decoration: underline;
+		color: #fcefeb;
+	}
+.form-logout .dropdown-menu {
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	min-width: 220px;
+}
+.dropdown-menu {
+    right: 0;
+    left: auto;
+    top: 95%;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-color: #f1f5fc;
+	width:auto;
+}
+
+@media (max-width:480px) {
+    .dropdown-menu.dropdown-1 {
+        left: -50px!important;
+        right: auto!important;
+    }
+}
+
+@media (max-width:480px) {
+    .dropdown-menu.dropdown-2 {
+        left: -80px!important;
+        right: auto!important;
+    }
+}
+
+@media (max-width:480px) {
+    .dropdown-menu.dropdown-3 {
+        left: -120px!important;
+        right: auto!important;
+    }
+}
+
+.dropdown-menu li {
+    border-bottom-color: #f1f5fc;
+}
+.dropdown-menu li:first-child {
+	margin-bottom: 10px;
+}
+
+	.dropdown-menu li a:hover {
+		background: #fff !important;
+		color: #000 !important;
+	}
+
+.dropdown-menu li:not(:first-child) a {
+	transition: all .2s ease-in-out;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+}

@@ -75,21 +75,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\AjaxControlToolkit.dll</HintPath>
     </Reference>
-    <Reference Include="CKFinder, Version=1.4.2.34578, Culture=neutral, PublicKeyToken=579e7adc719a1423, processorArchitecture=MSIL">
+    <Reference Include="ASPSnippets.GoogleAPI, Version=2.0.1.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\CKFinder.dll</HintPath>
+      <HintPath>bin\ASPSnippets.GoogleAPI.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Data.v8.3, Version=8.3.4.0, Culture=neutral, PublicKeyToken=5377c8e3b72b4073, processorArchitecture=MSIL">
+    <Reference Include="DotNetOpenAuth, Version=3.4.7.11121, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\DevExpress.Data.v8.3.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Web.ASPxEditors.v8.3, Version=8.3.4.0, Culture=neutral, PublicKeyToken=5377c8e3b72b4073, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\DevExpress.Web.ASPxEditors.v8.3.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Web.v8.3, Version=8.3.4.0, Culture=neutral, PublicKeyToken=5377c8e3b72b4073, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\DevExpress.Web.v8.3.dll</HintPath>
+      <HintPath>bin\DotNetOpenAuth.dll</HintPath>
     </Reference>
     <Reference Include="FredCK.FCKeditorV2, Version=2.6.3.30006, Culture=neutral, PublicKeyToken=4f86767c9b519a06, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -111,6 +103,9 @@
       <HintPath>..\packages\Google.Apis.Core.1.40.0\lib\net45\Google.Apis.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Google.Apis.Drive.v2">
+      <HintPath>..\packages\Google.Apis.Drive.v2.1.40.0.1596\lib\net45\Google.Apis.Drive.v2.dll</HintPath>
+    </Reference>
     <Reference Include="Google.Apis.Drive.v3, Version=1.40.0.1596, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Apis.Drive.v3.1.40.0.1596\lib\net45\Google.Apis.Drive.v3.dll</HintPath>
       <Private>True</Private>
@@ -123,6 +118,10 @@
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="OpenIdRelyingPartyWebForms, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\OpenIdRelyingPartyWebForms.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -222,13 +221,16 @@
     <Content Include="App_Themes\Admin\images\XPWindowright.jpg" />
     <Content Include="App_Themes\Admin\layout.css" />
     <Content Include="App_Themes\Admin\styleie8.css" />
+    <Content Include="bin\ASPSnippets.GoogleAPI.dll" />
+    <Content Include="bin\DotNetOpenAuth.dll" />
+    <Content Include="bin\OpenIdRelyingPartyWebForms.dll" />
+    <Content Include="CheckLogin.aspx" />
     <Content Include="Controls\admLeft.ascx" />
     <Content Include="Controls\admTop.ascx" />
     <Content Include="Controls\Footer.ascx" />
     <Content Include="Controls\U_Banner.ascx" />
     <Content Include="Controls\U_Contact.ascx" />
     <Content Include="Controls\U_Delivery.ascx" />
-    <Content Include="Controls\U_GroupProductList.ascx" />
     <Content Include="Controls\U_ImageList.ascx" />
     <Content Include="Controls\U_Menu.ascx" />
     <Content Include="Controls\U_MenuLeft.ascx" />
@@ -261,14 +263,13 @@
     <Content Include="images\Update.png" />
     <Content Include="img\bg_cnt.png" />
     <Content Include="img\camera-loader.gif" />
+    <Content Include="img\loading.gif" />
     <Content Include="img\parallax2.jpg" />
     <Content Include="img\plus-minus.png" />
     <Content Include="img\pro_button.png" />
     <Content Include="img\tm\plus-minus.png" />
     <Content Include="img\tm\pro_button.png" />
-    <Content Include="Index.html" />
     <Content Include="InnerError.html" />
-    <Content Include="LoginFB.aspx" />
     <Content Include="Modules\Images\ImageList.aspx" />
     <Content Include="Modules\News\NewsDetail.aspx" />
     <Content Include="Modules\News\ViewNews.aspx" />
@@ -1179,6 +1180,13 @@
     <Compile Include="Admins\User.aspx.designer.cs">
       <DependentUpon>User.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CheckLogin.aspx.cs">
+      <DependentUpon>CheckLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckLogin.aspx.designer.cs">
+      <DependentUpon>CheckLogin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Controls\admLeft.ascx.cs">
       <DependentUpon>admLeft.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1220,13 +1228,6 @@
     </Compile>
     <Compile Include="Controls\U_Delivery.ascx.designer.cs">
       <DependentUpon>U_Delivery.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\U_GroupProductList.ascx.cs">
-      <DependentUpon>U_GroupProductList.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Controls\U_GroupProductList.ascx.designer.cs">
-      <DependentUpon>U_GroupProductList.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls\U_ImageList.ascx.cs">
       <DependentUpon>U_ImageList.ascx</DependentUpon>
@@ -1300,13 +1301,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="LoginFB.aspx.cs">
-      <DependentUpon>LoginFB.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LoginFB.aspx.designer.cs">
-      <DependentUpon>LoginFB.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modules\Images\ImageList.aspx.cs">
       <DependentUpon>ImageList.aspx</DependentUpon>
@@ -1440,7 +1434,10 @@
     <Content Include="Modules\PageMaster.Master" />
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
-    <Content Include="credentials.json">
+    <Content Include="client_secret.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\client_secret.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="fonts\fontawesome-webfont-2.woff" />
@@ -1454,6 +1451,9 @@
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\DaMyNghe.pubxml" />
     <None Include="Properties\PublishProfiles\MyWeb.pubxml" />
+    <None Include="key.p12">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

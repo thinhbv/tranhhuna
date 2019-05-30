@@ -51,6 +51,7 @@ namespace MyWeb.Data
 		{
 			dbCmd = new SqlCommand("sp_Customers_Insert");
 			dbCmd.CommandType = CommandType.StoredProcedure;
+			dbCmd.Parameters.Add(new SqlParameter("@AppId", data.AppId));
 			dbCmd.Parameters.Add(new SqlParameter("@FullName", data.FullName));
 			dbCmd.Parameters.Add(new SqlParameter("@UserName", data.UserName));
 			dbCmd.Parameters.Add(new SqlParameter("@Password", data.Password));
@@ -73,6 +74,7 @@ namespace MyWeb.Data
 			dbCmd = new SqlCommand("sp_Customers_Update");
 			dbCmd.CommandType = CommandType.StoredProcedure;
 			dbCmd.Parameters.Add(new SqlParameter("@Id", data.Id));
+			dbCmd.Parameters.Add(new SqlParameter("@AppId", data.AppId));
 			dbCmd.Parameters.Add(new SqlParameter("@FullName", data.FullName));
 			dbCmd.Parameters.Add(new SqlParameter("@UserName", data.UserName));
 			dbCmd.Parameters.Add(new SqlParameter("@Password", data.Password));
@@ -117,6 +119,15 @@ namespace MyWeb.Data
 			string strReturn = "Select Top 1 * From Customers Where Email=@Email And Active = 1";
 			SqlCommand cmd = GetCommand(strReturn);
 			cmd.Parameters.Add("@Email", SqlDbType.VarChar).Value = UserName;
+			return GetData(cmd);
+		}
+		#endregion
+		#region[Customers_AppId]
+		public DataTable Customers_GetByAppId(string appId)
+		{
+			string strReturn = "Select Top 1 * From Customers Where AppId=@appId And Active = 1";
+			SqlCommand cmd = GetCommand(strReturn);
+			cmd.Parameters.Add("@appId", SqlDbType.VarChar).Value = appId;
 			return GetData(cmd);
 		}
 		#endregion

@@ -19,7 +19,6 @@
 	}
 </script>
 <nav class="navbar navbar-default navbar-static-top ">
-
 	<ul class="navbar-nav sf-menu navbar-left" data-type="navbar">
 		<asp:Repeater ID="rptParent" runat="server" OnItemDataBound="rptParent_ItemDataBound">
 			<ItemTemplate>
@@ -43,9 +42,37 @@
 				</li>
 			</ItemTemplate>
 		</asp:Repeater>
-		
+
 	</ul>
-	<div><a href="/thanh-vien/dang-nhap" title="Đăng nhập">Đăng nhập</a> / <a href="/thanh-vien/dang-ki" title="Đăng nhập">Đăng kí</a></div>
+	<%if (Session["FullName"] == null)
+   {%>
+	<div class="form-login"><a href="/thanh-vien/dang-nhap" title="Đăng nhập">Đăng nhập</a> / <a href="/thanh-vien/dang-ki" title="Đăng nhập">Đăng kí</a></div>
+	<%}
+   else
+   {%>
+	<div class="form-login">
+		<div class="profile dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+				Xin chào <strong><% =Session["FullName"] %></strong>
+				<span><i class="fa fa-chevron-down"></i></span>
+			</a>
+			<ul class="dropdown-menu">
+				<li>
+					<a class="clearfix" href="#">
+						<div class="detail">
+							<strong><% =Session["FullName"] %></strong>
+							<p class="grey"><% =Session["Email"] %></p>
+						</div>
+					</a>
+				</li>
+				<li><a tabindex="-1" href="profile.html" class="main-link"><i class="fa fa-edit fa-lg"></i> Thông tin cá nhân</a></li>
+				<li><a tabindex="-1" href="gallery.html" class="main-link"><i class="fa fa-picture-o fa-lg"></i> Lịch sử tải xuống</a></li>
+				<li class="divider"></li>
+				<li><a tabindex="-1" class="main-link logoutConfirm_open" href="#logoutConfirm"><i class="fa fa-lock fa-lg"></i> Đăng xuất</a></li>
+			</ul>
+		</div>
+	</div>
+	<%} %>
 </nav>
 <!--navbar-default-->
 <div class="sform">

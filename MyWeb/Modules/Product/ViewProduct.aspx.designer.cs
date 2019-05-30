@@ -29,14 +29,5 @@ namespace MyWeb.Modules.Product {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::MyWeb.Controls.U_ProductList idU_ProductList;
-        
-        /// <summary>
-        /// U_GroupProductList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::MyWeb.Controls.U_GroupProductList U_GroupProductList;
     }
 }
