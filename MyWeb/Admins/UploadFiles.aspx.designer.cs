@@ -13,6 +13,78 @@ namespace MyWeb.Admins {
     public partial class UploadFiles {
         
         /// <summary>
+        /// pnView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnView;
+        
+        /// <summary>
+        /// lbtAddT control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtAddT;
+        
+        /// <summary>
+        /// lbtDeleteT control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtDeleteT;
+        
+        /// <summary>
+        /// lbtRefreshT control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtRefreshT;
+        
+        /// <summary>
+        /// grdUploadFiles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataGrid grdUploadFiles;
+        
+        /// <summary>
+        /// lbtAddB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtAddB;
+        
+        /// <summary>
+        /// lbtDeleteB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtDeleteB;
+        
+        /// <summary>
+        /// lbtRefreshB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtRefreshB;
+        
+        /// <summary>
         /// pnUpdate control.
         /// </summary>
         /// <remarks>
@@ -22,102 +94,111 @@ namespace MyWeb.Admins {
         protected global::System.Web.UI.WebControls.Panel pnUpdate;
         
         /// <summary>
-        /// lbtUploadT control.
+        /// lbtUpdateT control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtUploadT;
+        protected global::System.Web.UI.WebControls.LinkButton lbtUpdateT;
         
         /// <summary>
-        /// lblFolderName control.
+        /// lbtBackT control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFolderName;
+        protected global::System.Web.UI.WebControls.LinkButton lbtBackT;
         
         /// <summary>
-        /// txtFolderNameUpload control.
+        /// lblName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFolderNameUpload;
+        protected global::System.Web.UI.WebControls.Label lblName;
         
         /// <summary>
-        /// lblPath control.
+        /// txtName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPath;
+        protected global::System.Web.UI.WebControls.TextBox txtName;
         
         /// <summary>
-        /// fupFiles control.
+        /// rfvName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fupFiles;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvName;
         
         /// <summary>
-        /// lblMsg control.
+        /// lblImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMsg;
+        protected global::System.Web.UI.WebControls.Label lblImage;
         
         /// <summary>
-        /// Span1 control.
+        /// txtImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Span1;
+        protected global::System.Web.UI.WebControls.TextBox txtImage;
         
         /// <summary>
-        /// lbtUploadB control.
+        /// imgImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtUploadB;
+        protected global::System.Web.UI.WebControls.Image imgImage;
         
         /// <summary>
-        /// btnLogin control.
+        /// lblActive control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogin;
+        protected global::System.Web.UI.WebControls.Label lblActive;
         
         /// <summary>
-        /// pnlProfile control.
+        /// chkActive control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlProfile;
+        protected global::System.Web.UI.WebControls.CheckBox chkActive;
         
         /// <summary>
-        /// dlFiles control.
+        /// lbtUpdateB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dlFiles;
+        protected global::System.Web.UI.WebControls.LinkButton lbtUpdateB;
+        
+        /// <summary>
+        /// lbtBackB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtBackB;
     }
 }

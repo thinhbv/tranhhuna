@@ -181,6 +181,6 @@
                 CausesValidation="false" runat="server" OnClick="LinkButton_Click">Upload ảnh</asp:LinkButton></li>
         <li>
             <img alt="" src="/App_Themes/admin/images/icon_pro.jpg" /><asp:LinkButton ID="lbtUploadFiles"
-                CausesValidation="false" runat="server" OnClick="LinkButton_Click">Upload file ảnh</asp:LinkButton></li>
+                CausesValidation="false" runat="server" OnClick="LinkButton_Click">Tải file miễn phí</asp:LinkButton></li>
     </ul>
 </asp:Panel>

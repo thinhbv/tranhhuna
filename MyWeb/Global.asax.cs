@@ -38,6 +38,7 @@ namespace MyWeb
 			RouteTable.Routes.MapPageRoute("ForgotPass", "thanh-vien/quen-mat-khau", "~/Modules/Page/ForgotPass.aspx");
 			RouteTable.Routes.MapPageRoute("LoginFacebook", "thanh-vien/dang-nhap-facebook", "~/Modules/LoginExtension/Facebook.aspx");
 			RouteTable.Routes.MapPageRoute("LoginGoogle", "thanh-vien/dang-nhap-google", "~/Modules/LoginExtension/Google.aspx");
+			RouteTable.Routes.MapPageRoute("DownloadFree", "tai-mien-phi", "~/Modules/Product/FreeDownload.aspx");
         }
 
         protected void Application_Start(object sender, EventArgs e)

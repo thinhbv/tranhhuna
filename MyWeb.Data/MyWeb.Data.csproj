@@ -78,6 +78,8 @@
     <Compile Include="TagsInfo.cs" />
     <Compile Include="TB_ThongKeController.cs" />
     <Compile Include="TB_ThongKeInfo.cs" />
+    <Compile Include="UploadFilesController.cs" />
+    <Compile Include="UploadFilesInfo.cs" />
     <Compile Include="UserController.cs" />
     <Compile Include="UserInfo.cs" />
   </ItemGroup>

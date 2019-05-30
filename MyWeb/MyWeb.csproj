@@ -221,8 +221,6 @@
     <Content Include="App_Themes\Admin\images\XPWindowright.jpg" />
     <Content Include="App_Themes\Admin\layout.css" />
     <Content Include="App_Themes\Admin\styleie8.css" />
-    <Content Include="bin\ASPSnippets.GoogleAPI.dll" />
-    <Content Include="bin\DotNetOpenAuth.dll" />
     <Content Include="bin\OpenIdRelyingPartyWebForms.dll" />
     <Content Include="CheckLogin.aspx" />
     <Content Include="Controls\admLeft.ascx" />
@@ -231,6 +229,7 @@
     <Content Include="Controls\U_Banner.ascx" />
     <Content Include="Controls\U_Contact.ascx" />
     <Content Include="Controls\U_Delivery.ascx" />
+    <Content Include="Controls\U_GroupProductList.ascx" />
     <Content Include="Controls\U_ImageList.ascx" />
     <Content Include="Controls\U_Menu.ascx" />
     <Content Include="Controls\U_MenuLeft.ascx" />
@@ -280,6 +279,7 @@
     <Content Include="Modules\Page\PageDetail.aspx" />
     <Content Include="Modules\Page\Register.aspx" />
     <Content Include="Modules\Product\CheckOut.aspx" />
+    <Content Include="Modules\Product\FreeDownload.aspx" />
     <Content Include="Modules\Product\ProductDetail.aspx" />
     <Content Include="Modules\Product\ViewProduct.aspx" />
     <Content Include="Processor.aspx" />
@@ -1229,6 +1229,13 @@
     <Compile Include="Controls\U_Delivery.ascx.designer.cs">
       <DependentUpon>U_Delivery.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Controls\U_GroupProductList.ascx.cs">
+      <DependentUpon>U_GroupProductList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\U_GroupProductList.ascx.designer.cs">
+      <DependentUpon>U_GroupProductList.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Controls\U_ImageList.ascx.cs">
       <DependentUpon>U_ImageList.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1379,6 +1386,13 @@
     <Compile Include="Modules\Product\CheckOut.aspx.designer.cs">
       <DependentUpon>CheckOut.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Product\FreeDownload.aspx.cs">
+      <DependentUpon>FreeDownload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Product\FreeDownload.aspx.designer.cs">
+      <DependentUpon>FreeDownload.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Product\ProductDetail.aspx.cs">
       <DependentUpon>ProductDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1434,12 +1448,6 @@
     <Content Include="Modules\PageMaster.Master" />
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
-    <Content Include="client_secret.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="bin\client_secret.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Include="fonts\fontawesome-webfont-2.woff" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\MaterialIcons-Regular.woff2" />
@@ -1451,9 +1459,6 @@
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\DaMyNghe.pubxml" />
     <None Include="Properties\PublishProfiles\MyWeb.pubxml" />
-    <None Include="key.p12">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

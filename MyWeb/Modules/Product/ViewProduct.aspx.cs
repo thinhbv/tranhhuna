@@ -32,13 +32,13 @@ namespace MyWeb.Modules.Product
 						if (dt.Rows.Count > 0)
 						{
 							idU_ProductList.Visible = false;
-							//U_GroupProductList.Visible = true;
-							//U_GroupProductList.GroupProduct = dt;
+							U_GroupProductList.Visible = true;
+							U_GroupProductList.GroupProduct = dt;
 						}
 						else
 						{
 							idU_ProductList.Visible = true;
-							//U_GroupProductList.Visible = false;
+							U_GroupProductList.Visible = false;
 							idU_ProductList.Level = listGroup[0].Level;
 							idU_ProductList.ItemCount = listGroup[0].Items;
 						}
