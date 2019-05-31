@@ -24,17 +24,17 @@ namespace MyWeb
 				DataTable dt = CustomersService.Customers_GetByAppId(StringClass.SqlInjection(cus.AppId));
 				if (dt.Rows.Count == 0)
 				{
-					CustomersService.Customers_Insert(cus);
+					int id = CustomersService.Customers_Insert(cus);
 
 					Session["Email"] = cus.Email;
 					Session["FullName"] = cus.FullName;
-					Session["IsAuthorized"] = true;
+					Session["Id"] = id;
 				}
 				else
 				{
 					Session["Email"] = dt.Rows[0]["Email"].ToString().Trim();
 					Session["FullName"] = dt.Rows[0]["FullName"].ToString().Trim();
-					Session["IsAuthorized"] = true;
+					Session["Id"] = dt.Rows[0]["Id"].ToString().Trim();
 				}
 			}
 			catch (Exception ex)

@@ -31,7 +31,7 @@ namespace MyWeb.Business
 		}
 		#endregion
 		#region[Customers_Insert]
-		public static bool Customers_Insert(Customers data)
+		public static int Customers_Insert(Customers data)
 		{
 			return db.Customers_Insert(data);
 		}

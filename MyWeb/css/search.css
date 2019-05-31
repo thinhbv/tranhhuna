@@ -627,7 +627,7 @@ body.search_body {
 	-webkit-border-radius: 2px;
 	min-width: 220px;
 }
-.dropdown-menu {
+.profile .dropdown-menu {
     right: 0;
     left: auto;
     top: 95%;

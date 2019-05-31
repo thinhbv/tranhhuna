@@ -60,6 +60,7 @@
 	</asp:ContentPlaceHolder>
 </head>
 <body>
+	<form id="form1" runat="server">
 	<div class="page">
 		<!--========================================================
 								  HEADER
@@ -93,6 +94,7 @@
 			<uc6:Footer ID="idU_Footer" runat="server" />
 		</footer>
 	</div>
+	</form>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="scripts/bootstrap.min.js"></script>

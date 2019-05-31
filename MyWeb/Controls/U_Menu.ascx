@@ -68,7 +68,7 @@
 				<li><a tabindex="-1" href="profile.html" class="main-link"><i class="fa fa-edit fa-lg"></i> Thông tin cá nhân</a></li>
 				<li><a tabindex="-1" href="gallery.html" class="main-link"><i class="fa fa-picture-o fa-lg"></i> Lịch sử tải xuống</a></li>
 				<li class="divider"></li>
-				<li><a tabindex="-1" class="main-link logoutConfirm_open" href="#logoutConfirm"><i class="fa fa-lock fa-lg"></i> Đăng xuất</a></li>
+				<li><asp:LinkButton ID="lbtLogout" runat="server" tabindex="-1" CssClass="main-link logoutConfirm_open" OnClick="lbtLogout_Click"><i class="fa fa-lock fa-lg"></i> Đăng xuất</asp:LinkButton></li>
 			</ul>
 		</div>
 	</div>

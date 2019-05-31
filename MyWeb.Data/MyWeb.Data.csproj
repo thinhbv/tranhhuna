@@ -50,6 +50,8 @@
     <Compile Include="ContactInfo.cs" />
     <Compile Include="CustomersController.cs" />
     <Compile Include="CustomersInfo.cs" />
+    <Compile Include="DownloadHistoryController.cs" />
+    <Compile Include="DownloadHistoryInfo.cs" />
     <Compile Include="GroupImagesController.cs" />
     <Compile Include="GroupImagesInfo.cs" />
     <Compile Include="GroupNewsController.cs" />

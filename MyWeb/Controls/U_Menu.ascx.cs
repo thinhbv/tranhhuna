@@ -232,5 +232,18 @@ namespace MyWeb.Controls
 				MailSender.SendMail("", "", "Error System", ex.Message + "\n" +ex.StackTrace);
 			}
 		}
+
+		protected void lbtLogout_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				Session.RemoveAll();
+				Session.Abandon();
+			}
+			catch (Exception ex)
+			{
+				MailSender.SendMail("", "", "Error System", ex.Message + "\n" +ex.StackTrace);
+			}
+		}
     }
 }

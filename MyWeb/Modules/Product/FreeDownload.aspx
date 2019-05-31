@@ -22,14 +22,14 @@
 		<section class="well center767">
 			<div class="container">
 				<div id="list-product" class="row">
-					<asp:Repeater ID="rptProducts" runat="server" OnItemDataBound="rptProducts_ItemDataBound">
+					<asp:Repeater ID="rptProducts" runat="server" OnItemDataBound="rptProducts_ItemDataBound" OnItemCommand="rptProducts_ItemCommand">
 						<ItemTemplate>
 							<div class="col-md-2 col-sm-4 col-xs-6 wow fadeInUp">
 								<div class="item-row">
 								<img src="<%# StringClass.ThumbImage(Eval("ThumbnailLink").ToString()) %>" alt="<%# Eval("Name") %>" title="<%# Eval("Name") %>">
 								</div>
 									<h6 class="badge col-md-12 col-sm-12 col-xs-12">
-									<asp:LinkButton id="ltbDownload" runat="server" CssClass="add-cart" ToolTip="Tải miễn phí"><i class="fa fa-download" aria-hidden="true"></i></asp:LinkButton>
+									<asp:LinkButton id="hlDownload" runat="server" CssClass="add-cart" ToolTip="Tải miễn phí" CommandName="download" CommandArgument='<%#Eval("Id") %>'><i class="fa fa-download" aria-hidden="true"></i></asp:LinkButton>
 								</h6>
 								<h6 class="title-pro" style="clear: left;"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 60) %></h6>
 							</div>
@@ -38,5 +38,6 @@
 				</div>
 			</div>
 		</section>
+		<asp:Label ID="lblMsg" runat="server"></asp:Label>
 	</main>
 </asp:Content>

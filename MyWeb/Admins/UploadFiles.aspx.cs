@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -10,6 +8,17 @@ using MyWeb.Data;
 using MyWeb.Business;
 using MyWeb.Common;
 using System.Data;
+using Google.Apis.Auth.OAuth2.Flows;
+using Google.Apis.Auth.OAuth2.Web;
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.Drive.v3;
+using Google.Apis.Util.Store;
+using System.Reflection;
+using System.Threading;
+using Google.Apis.Services;
+using System.IO;
+using System.Data.SqlClient;
+using Newtonsoft.Json;
 
 namespace MyWeb.Admins
 {
@@ -30,7 +39,7 @@ namespace MyWeb.Admins
 
 		private void BindGrid()
 		{
-			grdUploadFiles.DataSource = FilesUploadService.FilesUpload_GetByTop("","","Id DESC");
+			grdUploadFiles.DataSource = FilesUploadService.FilesUpload_GetByTop("", "", "Id DESC");
 			grdUploadFiles.DataBind();
 			if (grdUploadFiles.PageCount <= 1)
 			{
@@ -84,7 +93,7 @@ namespace MyWeb.Admins
 				case "Edit":
 					Insert = false;
 					Id = strCA;
-					dt = FilesUploadService.FilesUpload_GetByTop("1", "Id=" + Id, "");
+					dt = FilesUploadService.FilesUpload_GetByTop("1", "Id='" + Id + "'", "");
 
 					txtName.Text = dt.Rows[0]["Name"].ToString();
 					txtImage.Text = dt.Rows[0]["ThumbnailLink"].ToString();
@@ -172,6 +181,162 @@ namespace MyWeb.Admins
 			pnUpdate.Visible = false;
 			BindGrid();
 			Insert = false;
+		}
+
+		protected void lbtSynch_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				DriveService service = CreateDriveService();
+				string pageToken = null;
+				List<Google.Apis.Drive.v3.Data.File> lstFiles;
+				do
+				{
+					lstFiles = ListFiles(service, ref pageToken);
+
+				} while (pageToken != null);
+				lstFiles = lstFiles.Distinct().ToList();
+				string json = Newtonsoft.Json.JsonConvert.SerializeObject(lstFiles);
+				DataTable pDt = JsonConvert.DeserializeObject<DataTable>(json);
+				foreach (var column in pDt.Columns.Cast<DataColumn>().ToArray())
+				{
+					if (pDt.AsEnumerable().All(dr => dr.IsNull(column)))
+						pDt.Columns.Remove(column);
+				}
+				pDt.Columns.Add("OriginalFileName", typeof(string));
+				if (pDt.Columns["thumbnailLink"] == null)
+				{
+					pDt.Columns.Add("thumbnailLink", typeof(string));
+				}
+				pDt.Columns.Add("Active", typeof(int));
+				pDt.Columns["Id"].SetOrdinal(0);
+				pDt.Columns["Name"].SetOrdinal(1);
+				pDt.Columns["thumbnailLink"].SetOrdinal(2);
+				pDt.Columns["IconLink"].SetOrdinal(3);
+				pDt.Columns["WebContentLink"].SetOrdinal(4);
+				for (int i = 0; i < pDt.Rows.Count; i++)
+				{
+					pDt.Rows[i]["Active"] = 1;
+				}
+				pDt.AcceptChanges();
+				BulkInsert(pDt);
+				BindGrid();
+				WebMsgBox.Show("Đồng bộ dữ liệu thành công!");
+			}
+			catch (Exception)
+			{
+			}
+		}
+		private List<Google.Apis.Drive.v3.Data.File> ListFiles(DriveService service, ref string pageToken)
+		{
+			
+			string owner = "buithinh.tt1@gmail.com";
+			List<Google.Apis.Drive.v3.Data.File> lstFiles = new List<Google.Apis.Drive.v3.Data.File>();
+			// Define parameters of request.
+			FilesResource.ListRequest listRequest = service.Files.List();
+			listRequest.PageSize = 10;
+			listRequest.Fields = "nextPageToken, files(id,name,thumbnailLink,webContentLink,iconLink)";
+			listRequest.PageToken = pageToken;
+			listRequest.Q = "(mimeType='application/rar' OR mimeType='application/zip') and '" + owner + "' in owners and createdTime > '2019-05-01T12:00:00'";
+
+			// List files.
+			var request = listRequest.Execute();
+			if (request.Files != null && request.Files.Count > 0)
+			{
+				lstFiles.AddRange(request.Files);
+
+				pageToken = request.NextPageToken;
+
+				if (request.NextPageToken != null)
+				{
+					Console.ReadLine();
+				}
+			}
+			return lstFiles;
+		}
+		private void BulkInsert(DataTable dt)
+		{
+			using (SqlConnection connection = SqlDataProvider.connection)
+			{
+				string TableName = "FilesUpload";
+				try
+				{
+					// make sure to enable triggers
+					// more on triggers in next post
+					SqlBulkCopy bulkCopy =
+						new SqlBulkCopy
+						(
+						connection,
+						SqlBulkCopyOptions.TableLock |
+						SqlBulkCopyOptions.FireTriggers |
+						SqlBulkCopyOptions.UseInternalTransaction,
+						null
+						);
+
+					// set the destination table name
+					bulkCopy.DestinationTableName = TableName;
+					connection.Open();
+					SqlCommand cmd = new SqlCommand("TRUNCATE TABLE " + TableName, connection);
+					cmd.ExecuteNonQuery();
+					// write the data in the "dataTable"
+					bulkCopy.WriteToServerAsync(dt);
+				}
+				catch (Exception)
+				{
+					throw;
+				}
+				finally
+				{
+					connection.Close();
+				}
+			}
+		}
+		private DriveService CreateDriveService()
+		{
+			DriveService service = null;
+			string UserId = "user-id";
+			GoogleAuthorizationCodeFlow flow;
+			using (var stream = new FileStream(Server.MapPath(@"/client_secrets.json"), FileMode.Open, FileAccess.Read))
+			{
+				flow = new GoogleAuthorizationCodeFlow(new GoogleAuthorizationCodeFlow.Initializer
+				{
+					DataStore = new FileDataStore(Server.MapPath(@"/Drive.Sample.Store")),
+					ClientSecretsStream = stream,
+					Scopes = new[] { DriveService.Scope.Drive }
+				});
+			}
+			var uri = Request.Url.ToString();
+			var code = Request["code"];
+			if (code != null)
+			{
+				var token = flow.ExchangeCodeForTokenAsync(UserId, code,
+					uri.Substring(0, uri.IndexOf("?")), CancellationToken.None).Result;
+
+				// Extract the right state.
+				var oauthState = AuthWebUtility.ExtracRedirectFromState(
+					flow.DataStore, UserId, Request["state"]).Result;
+				Response.Redirect(oauthState);
+			}
+			else
+			{
+				var result = new AuthorizationCodeWebApp(flow, uri, uri).AuthorizeAsync(UserId,
+					CancellationToken.None).Result;
+				if (result.RedirectUri != null)
+				{
+					// Redirect the user to the authorization server.
+					Response.Redirect(result.RedirectUri);
+				}
+				else
+				{
+					// The data store contains the user credential, so the user has been already authenticated.
+					service = new DriveService(new BaseClientService.Initializer
+					{
+						ApplicationName = "Google Drive API",
+						HttpClientInitializer = result.Credential
+					});
+				}
+			}
+			return service;
 		}
 	}
 }

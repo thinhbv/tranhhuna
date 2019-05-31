@@ -47,6 +47,7 @@
     <Compile Include="ConfigService.cs" />
     <Compile Include="ContactService.cs" />
     <Compile Include="CustomersService.cs" />
+    <Compile Include="DownloadHistoryService.cs" />
     <Compile Include="FilesUploadService.cs" />
     <Compile Include="GroupImagesService.cs" />
     <Compile Include="GroupNewsService.cs" />

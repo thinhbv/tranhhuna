@@ -47,7 +47,7 @@ namespace MyWeb.Data
 		}
 		#endregion
 		#region[Customers_Insert]
-		public bool Customers_Insert(Customers data)
+		public int Customers_Insert(Customers data)
 		{
 			dbCmd = new SqlCommand("sp_Customers_Insert");
 			dbCmd.CommandType = CommandType.StoredProcedure;
@@ -62,10 +62,10 @@ namespace MyWeb.Data
 			dbCmd.Parameters.Add(new SqlParameter("@Gender", data.Gender));
 			dbCmd.Parameters.Add(new SqlParameter("@Ord", data.Ord));
 			dbCmd.Parameters.Add(new SqlParameter("@Active", data.Active));
-			ExecuteNonQuery(dbCmd);
+			int Id = (int)ExecuteScalar(dbCmd);
 			//Clear cache
 			System.Web.HttpContext.Current.Cache.Remove("Customers");
-			return true;
+			return Id;
 		}
 		#endregion
 		#region[Customers_Update]

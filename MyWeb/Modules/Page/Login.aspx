@@ -6,7 +6,10 @@
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 	<script language="javascript" type="text/javascript">
 		function LoginCompleted() {
-			FB.api('/me', {fields: 'id, name, email' }, function (response) {
+			FB.api('/me', { fields: 'id, name, email' }, function (response) {
+				if (response.error) {
+					return false;
+				}
 				$.ajax({
 					type: 'POST',
 					url: '/checklogin.aspx?id=' + response.id + '&name=' + response.name +'&email=' + response.email,

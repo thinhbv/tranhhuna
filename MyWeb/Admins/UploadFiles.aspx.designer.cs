@@ -31,6 +31,15 @@ namespace MyWeb.Admins {
         protected global::System.Web.UI.WebControls.LinkButton lbtAddT;
         
         /// <summary>
+        /// lbtSynchT control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtSynchT;
+        
+        /// <summary>
         /// lbtDeleteT control.
         /// </summary>
         /// <remarks>
@@ -38,15 +47,6 @@ namespace MyWeb.Admins {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbtDeleteT;
-        
-        /// <summary>
-        /// lbtRefreshT control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtRefreshT;
         
         /// <summary>
         /// grdUploadFiles control.
@@ -67,6 +67,15 @@ namespace MyWeb.Admins {
         protected global::System.Web.UI.WebControls.LinkButton lbtAddB;
         
         /// <summary>
+        /// lbtSynchB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtSynchB;
+        
+        /// <summary>
         /// lbtDeleteB control.
         /// </summary>
         /// <remarks>
@@ -74,15 +83,6 @@ namespace MyWeb.Admins {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbtDeleteB;
-        
-        /// <summary>
-        /// lbtRefreshB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtRefreshB;
         
         /// <summary>
         /// pnUpdate control.
