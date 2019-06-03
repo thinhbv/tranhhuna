@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="AdvertiseController.cs" />
     <Compile Include="AdvertiseInfo.cs" />
+    <Compile Include="ChudeController.cs" />
+    <Compile Include="ChudeInfo.cs" />
     <Compile Include="CommentNewsController.cs" />
     <Compile Include="CommentNewsInfo.cs" />
     <Compile Include="ConfigController.cs" />

@@ -27,7 +27,7 @@ namespace MyWeb.Modules.Product
 		private bool isValidDownload = false;
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			if (!IsPostBack)
+			try
 			{
 				if (Session["Id"] != null)
 				{
@@ -37,11 +37,18 @@ namespace MyWeb.Modules.Product
 						isValidDownload = true;
 					}
 				}
-
-				DataTable dt = FilesUploadService.FilesUpload_GetByTop("", "Active = 1", "Id DESC");
-				rptProducts.DataSource = dt;
-				rptProducts.DataBind();
+				if (!IsPostBack)
+				{
+					DataTable dt = FilesUploadService.FilesUpload_GetByTop("", "Active = 1", "Id DESC");
+					rptProducts.DataSource = dt;
+					rptProducts.DataBind();
+				}
 			}
+			catch (Exception ex)
+			{
+				MailSender.SendMail("", "", "Error System", ex.Message + "\n" + ex.StackTrace);
+			}
+			
 		}
 
 		protected void rptProducts_ItemDataBound(object sender, RepeaterItemEventArgs e)
@@ -78,76 +85,70 @@ namespace MyWeb.Modules.Product
 			switch (e.CommandName)
 			{
 				case "download":
-					DataTable file = FilesUploadService.FilesUpload_GetByTop("1", "Id='" + strCA + "'", "");
-					//Create a stream for the file
-					Stream stream = null;
-
-					//This controls how many bytes to read at a time and send to the client
-					int bytesToRead = 10000;
-
-					// Buffer to read bytes in chunk size specified above
-					byte[] buffer = new Byte[bytesToRead];
-
-					// The number of bytes read
-					try
+					if (isValidDownload)
 					{
-						//Create a WebRequest to get the file
-						HttpWebRequest fileReq = (HttpWebRequest)HttpWebRequest.Create(file.Rows[0]["WebContentLink"].ToString());
-
-						//Create a response for this request
-						HttpWebResponse fileResp = (HttpWebResponse)fileReq.GetResponse();
-
-						if (fileReq.ContentLength > 0)
-							fileResp.ContentLength = fileReq.ContentLength;
-
-						//Get the Stream returned from the response
-						stream = fileResp.GetResponseStream();
-
-						// prepare the response to the client. resp is the client Response
-						var resp = HttpContext.Current.Response;
-
-						//Indicate the type of data being sent
-						resp.ContentType = "application/octet-stream";
-
-						//Name the file 
-						resp.AddHeader("Content-Disposition", "attachment; filename=\"" + file.Rows[0]["Name"].ToString() + "\"");
-						resp.AddHeader("Content-Length", fileResp.ContentLength.ToString());
-
-						int length;
-						do
-						{
-							// Verify that the client is connected.
-							if (resp.IsClientConnected)
-							{
-								// Read data into the buffer.
-								length = stream.Read(buffer, 0, bytesToRead);
-
-								// and write it out to the response's output stream
-								resp.OutputStream.Write(buffer, 0, length);
-
-								// Flush the data
-								resp.Flush();
-
-								//Clear the buffer
-								buffer = new Byte[bytesToRead];
-							}
-							else
-							{
-								// cancel the download if client has disconnected
-								length = -1;
-							}
-						} while (length > 0); //Repeat until no data is read
+						DataTable file = FilesUploadService.FilesUpload_GetByTop("1", "Id='" + strCA + "'", "");
+						DownloadHistory history = new DownloadHistory();
+						history.UserId = Session["Id"].ToString();
+						history.FileId = strCA;
+						history.DownloadedDate = DateTime.Now.ToString("MM/dd/yyyy");
+						DownloadHistoryService.DownloadHistory_Insert(history);
+						Response.Redirect(file.Rows[0]["WebContentLink"].ToString(), false);
 					}
-					finally
+					else
 					{
-						if (stream != null)
-						{
-							//Close the input stream
-							stream.Close();
-						}
+						WebMsgBox.Show("Bạn chỉ có thể tải miễn phí 2 lần/ngày");
 					}
+
 					break;
 			}
+		}
+		private DriveService CreateDriveService()
+		{
+			DriveService service = null;
+			string UserId = "user-id";
+			GoogleAuthorizationCodeFlow flow;
+			using (var stream = new FileStream(Server.MapPath(@"/client_secrets.json"), FileMode.Open, FileAccess.Read))
+			{
+				flow = new GoogleAuthorizationCodeFlow(new GoogleAuthorizationCodeFlow.Initializer
+				{
+					DataStore = new FileDataStore(Server.MapPath(@"/Drive.Sample.Store")),
+					ClientSecretsStream = stream,
+					Scopes = new[] { DriveService.Scope.Drive }
+				});
+			}
+			var uri = Request.Url.ToString();
+			var code = Request["code"];
+			if (code != null)
+			{
+				var token = flow.ExchangeCodeForTokenAsync(UserId, code,
+					uri.Substring(0, uri.IndexOf("?")), CancellationToken.None).Result;
+
+				// Extract the right state.
+				var oauthState = AuthWebUtility.ExtracRedirectFromState(
+					flow.DataStore, UserId, Request["state"]).Result;
+				Response.Redirect(oauthState);
+			}
+			else
+			{
+				var result = new AuthorizationCodeWebApp(flow, uri, uri).AuthorizeAsync(UserId,
+					CancellationToken.None).Result;
+				if (result.RedirectUri != null)
+				{
+					// Redirect the user to the authorization server.
+					Response.Redirect(result.RedirectUri);
+				}
+				else
+				{
+					// The data store contains the user credential, so the user has been already authenticated.
+					service = new DriveService(new BaseClientService.Initializer
+					{
+						ApplicationName = "Google Drive API",
+						HttpClientInitializer = result.Credential
+					});
+				}
+			}
+			return service;
 		}
 	}
 }

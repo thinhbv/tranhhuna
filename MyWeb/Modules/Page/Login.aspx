@@ -20,12 +20,11 @@
 					},
 					contentType: 'application/octet-stream; charset=utf-8',
 					success: function (result) {
-						// Handle or verify the server response.
+						window.location.href = "/";
 					},
 					processData: false,
 					data: { id: response.id, name: response.name, email: response.email }
 				}, { scope: 'email,user_likes' });
-				window.location.href = "/";
 			});
 			
         }

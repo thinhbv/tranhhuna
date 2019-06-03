@@ -158,6 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admins\Advertise.aspx" />
+    <Content Include="Admins\Chude.aspx" />
     <Content Include="Admins\Config.aspx" />
     <Content Include="Admins\Contact.aspx" />
     <Content Include="Admins\Default.aspx" />
@@ -1092,6 +1093,13 @@
     </Compile>
     <Compile Include="Admins\Advertise.aspx.designer.cs">
       <DependentUpon>Advertise.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\Chude.aspx.cs">
+      <DependentUpon>Chude.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\Chude.aspx.designer.cs">
+      <DependentUpon>Chude.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admins\Config.aspx.cs">
       <DependentUpon>Config.aspx</DependentUpon>

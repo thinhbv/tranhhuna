@@ -228,8 +228,7 @@ namespace MyWeb.Admins
 			}
 		}
 		private List<Google.Apis.Drive.v3.Data.File> ListFiles(DriveService service, ref string pageToken)
-		{
-			
+		{		
 			string owner = "buithinh.tt1@gmail.com";
 			List<Google.Apis.Drive.v3.Data.File> lstFiles = new List<Google.Apis.Drive.v3.Data.File>();
 			// Define parameters of request.
@@ -256,7 +255,7 @@ namespace MyWeb.Admins
 		}
 		private void BulkInsert(DataTable dt)
 		{
-			using (SqlConnection connection = SqlDataProvider.connection)
+			using (SqlConnection connection = SqlDataProvider.GetConnection())
 			{
 				string TableName = "FilesUpload";
 				try
@@ -275,7 +274,6 @@ namespace MyWeb.Admins
 
 					// set the destination table name
 					bulkCopy.DestinationTableName = TableName;
-					connection.Open();
 					SqlCommand cmd = new SqlCommand("TRUNCATE TABLE " + TableName, connection);
 					cmd.ExecuteNonQuery();
 					// write the data in the "dataTable"
