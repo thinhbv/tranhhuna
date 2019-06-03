@@ -110,6 +110,9 @@
         <li>
             <img src="/App_Themes/admin/images/icon_pro.jpg" /><asp:LinkButton ID="lbtProduct" CausesValidation="false"
                 runat="server" OnClick="LinkButton_Click">Danh mục sản phẩm</asp:LinkButton></li>
+        <li>
+            <img src="/App_Themes/admin/images/icon_pro.jpg" /><asp:LinkButton ID="lbtChude" CausesValidation="false"
+                runat="server" OnClick="LinkButton_Click">Danh mục chủ đề</asp:LinkButton></li>
     </ul>
 </asp:Panel>
 <table class="table" cellspacing="0" cellpadding="0">

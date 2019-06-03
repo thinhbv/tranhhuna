@@ -15,7 +15,7 @@
 					</a>
 				</li>
 				<asp:Literal ID="ltrCrumb" runat="server"></asp:Literal>
-				<li class="crumb-3 last"><%=Server.HtmlEncode(groupName) %>
+				<li class="crumb-3 last"><asp:Label ID="lblGroupName" runat="server"></asp:Label>
 				</li>
 			</ul>
 		</div>

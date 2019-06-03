@@ -282,15 +282,15 @@
 					<asp:CheckBox ID="chkPopular" runat="server" />
 				</td>
 			</tr>
-			<%--<tr>
+			<tr>
 				<th>
-					<asp:Label ID="lblHot" runat="server" Text="Sản phẩm bán chạy:"></asp:Label>
+					<asp:Label ID="lblHot" runat="server" Text="Chủ đề:"></asp:Label>
 				</th>
 				<td>
-					<asp:CheckBox ID="chkHot" runat="server" />
+					<asp:CheckBoxList ID="cklChude" runat="server"></asp:CheckBoxList>
 				</td>
 			</tr>
-			<tr>
+			<%--<tr>
 				<th>
 					<asp:Label ID="lblNew" runat="server" Text="Sản phẩm mới:"></asp:Label>
 				</th>

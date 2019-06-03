@@ -14,12 +14,16 @@ namespace MyWeb.Modules.Product
     public partial class ViewProduct : System.Web.UI.Page
 	{
 		string id = string.Empty;
-		protected string groupName = string.Empty;
+		string chudeId = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
 			if (Page.RouteData.Values["GroupId"] != null)
 			{
 				id = Page.RouteData.Values["GroupId"] as string;
+			}
+			if (Page.RouteData.Values["Id"] != null)
+			{
+				chudeId = Page.RouteData.Values["Id"] as string;
 			}
 			if (!IsPostBack)
 			{
@@ -42,13 +46,22 @@ namespace MyWeb.Modules.Product
 							idU_ProductList.Level = listGroup[0].Level;
 							idU_ProductList.ItemCount = listGroup[0].Items;
 						}
-						groupName = listGroup[0].Name;
+						lblGroupName.Text = listGroup[0].Name;
+					}
+				}
+				else if (Microsoft.VisualBasic.Information.IsNumeric(chudeId))
+				{
+					DataTable chude = ChudeService.Chude_GetById(chudeId);
+					if (chude.Rows.Count > 0)
+					{
+						lblGroupName.Text = chude.Rows[0]["Name"].ToString();
+						idU_ProductList.ChudeId = chudeId;
 					}
 				}
 
 				if (Request.QueryString["key"] != null)
 				{
-					groupName = Request.QueryString["key"].ToString();
+					lblGroupName.Text = Request.QueryString["key"].ToString();
 				}
 			}
         }

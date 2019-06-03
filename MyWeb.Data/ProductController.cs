@@ -145,6 +145,7 @@ namespace MyWeb.Data
 				dbCmd.Parameters.Add(new SqlParameter("@IsPopular", data.IsPopular));
 				dbCmd.Parameters.Add(new SqlParameter("@IsSpecial", data.IsSpecial));
 				dbCmd.Parameters.Add(new SqlParameter("@IsNew", data.IsNew));
+				dbCmd.Parameters.Add(new SqlParameter("@ChudeId", data.ChudeId));
 				dbCmd.Parameters.Add(new SqlParameter("@Ord", data.Ord));
 				dbCmd.Parameters.Add(new SqlParameter("@Active", data.Active));
 				dbCmd.ExecuteNonQuery();
@@ -176,6 +177,7 @@ namespace MyWeb.Data
 				dbCmd.Parameters.Add(new SqlParameter("@IsPopular", data.IsPopular));
 				dbCmd.Parameters.Add(new SqlParameter("@IsSpecial", data.IsSpecial));
 				dbCmd.Parameters.Add(new SqlParameter("@IsNew", data.IsNew));
+				dbCmd.Parameters.Add(new SqlParameter("@ChudeId", data.ChudeId));
 				dbCmd.Parameters.Add(new SqlParameter("@Ord", data.Ord));
 				dbCmd.Parameters.Add(new SqlParameter("@Active", data.Active));
 				dbCmd.ExecuteNonQuery();

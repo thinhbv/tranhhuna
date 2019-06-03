@@ -19,8 +19,8 @@ QUẢN LÝ CHỦ ĐỀ
 </div>
 <asp:DataGrid ID="grdChude" runat="server" Width="100%" CssClass="TableView"
 AutoGenerateColumns="False" AllowPaging="True" PageSize="40" PagerStyle-Mode="NumericPages"
-PagerStyle-HorizontalAlign="Center" OnItemDataBound="grdGroupImages_ItemDataBound"
-OnItemCommand="grdGroupImages_ItemCommand" OnPageIndexChanged="grdGroupImages_PageIndexChanged">
+PagerStyle-HorizontalAlign="Center" OnItemDataBound="grdChude_ItemDataBound"
+OnItemCommand="grdChude_ItemCommand" OnPageIndexChanged="grdChude_PageIndexChanged">
 <HeaderStyle CssClass="trHeader"></HeaderStyle>
 <ItemStyle CssClass="trOdd"></ItemStyle>
 <AlternatingItemStyle CssClass="trEven"></AlternatingItemStyle>

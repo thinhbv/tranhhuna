@@ -346,6 +346,24 @@ namespace MyWeb.Admins {
         protected global::System.Web.UI.WebControls.CheckBox chkPopular;
         
         /// <summary>
+        /// lblHot control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHot;
+        
+        /// <summary>
+        /// cklChude control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList cklChude;
+        
+        /// <summary>
         /// lblOrd control.
         /// </summary>
         /// <remarks>

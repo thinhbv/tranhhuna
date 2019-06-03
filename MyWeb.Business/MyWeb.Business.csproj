@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdvertiseService.cs" />
+    <Compile Include="ChudeService.cs" />
     <Compile Include="CommentNewsService.cs" />
     <Compile Include="ConfigService.cs" />
     <Compile Include="ContactService.cs" />

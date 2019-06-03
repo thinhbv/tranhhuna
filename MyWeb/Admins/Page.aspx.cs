@@ -62,6 +62,15 @@ namespace MyWeb.Admins
 					ddlLink.Items.Add(new ListItem(StringClass.ShowNameLevel(listGProduct.Rows[i]["Name"].ToString(), listGProduct.Rows[i]["Level"].ToString() + "00000"), PageHelper.GeneralGroupUrl(Consts.CON_SAN_PHAM, listGProduct.Rows[i]["Id"].ToString(), listGProduct.Rows[i]["Name"].ToString())));
                 }
             }
+			DataTable listChude = ChudeService.Chude_GetByTop("", "Active=1", "Ord");
+			ddlLink.Items.Add(new ListItem("Chủ đề", "#"));
+			if (listChude.Rows.Count > 0)
+			{
+				for (int i = 0; i < listChude.Rows.Count; i++)
+				{
+					ddlLink.Items.Add(new ListItem(StringClass.ShowNameLevel(listChude.Rows[i]["Name"].ToString(), "0000000000"), "/san-pham/chu-de-" + listChude.Rows[i]["Id"].ToString() + "/" + StringClass.NameToTag(listChude.Rows[i]["Name"].ToString())));
+				}
+			}
             ddlLink.Items.Add(new ListItem("Liên hệ", "/lien-he"));
             ddlLink.DataBind();
         }

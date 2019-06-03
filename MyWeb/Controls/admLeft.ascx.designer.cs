@@ -148,6 +148,15 @@ namespace MyWeb.Controls {
         protected global::System.Web.UI.WebControls.LinkButton lbtProduct;
         
         /// <summary>
+        /// lbtChude control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtChude;
+        
+        /// <summary>
         /// div2 control.
         /// </summary>
         /// <remarks>

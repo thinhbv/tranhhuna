@@ -21,12 +21,13 @@ namespace MyWeb.Admins
 				lbtDeleteT.Attributes.Add("onClick", "javascript:return confirm('Bạn có muốn xóa?');");
 				lbtDeleteB.Attributes.Add("onClick", "javascript:return confirm('Bạn có muốn xóa?');");
 				NumberClass.OnlyInputNumber(txtOrd);
-				LoadDropDownListGroupImage();
+				LoadDropDownListGroupProduct();
+				//LoadCheckBoxChude();
 				BindGrid();
 			}
 		}
 
-		protected void LoadDropDownListGroupImage()
+		private void LoadDropDownListGroupProduct()
 		{
 			ddlGroupProduct.Items.Clear();
 			drlnhom.Items.Clear();
@@ -42,6 +43,18 @@ namespace MyWeb.Admins
 			}
 			ddlGroupProduct.DataBind();
 			drlnhom.DataBind();
+		}
+
+		private void LoadCheckBoxChude()
+		{
+			cklChude.Items.Clear();
+			DataTable dt = ChudeService.Chude_GetByTop("", "Active = 1", "Id");
+			for (int i = 0; i < dt.Rows.Count; i++)
+			{
+				DataRow row = dt.Rows[i];
+				cklChude.Items.Add(new ListItem(row["Name"].ToString(), row["Id"].ToString()));
+			}
+			cklChude.DataBind();
 		}
 
 		private void BindGrid()
@@ -125,7 +138,8 @@ namespace MyWeb.Admins
 				case "Edit":
 					Insert = false;
 					Id = strCA;
-					LoadDropDownListGroupImage();
+					LoadDropDownListGroupProduct();
+					LoadCheckBoxChude();
 					ddlGroupProduct.SelectedValue = dtPro.Rows[0]["GroupId"].ToString();
 					txtName.Text = dtPro.Rows[0]["Name"].ToString();
 					txtImage1.Text = dtPro.Rows[0]["Image1"].ToString();
@@ -135,6 +149,14 @@ namespace MyWeb.Admins
 					fckDetail.Value = dtPro.Rows[0]["Detail"].ToString();
 					txtPricePro.Text = StringClass.ConvertPrice(dtPro.Rows[0]["Price"].ToString());
 					chkPopular.Checked = dtPro.Rows[0]["IsPopular"].ToString() == "1" || dtPro.Rows[0]["IsPopular"].ToString() == "True";
+					List<string> chude = new List<string>(dtPro.Rows[0]["ChudeId"].ToString().Split(','));
+					foreach (ListItem item in cklChude.Items)
+					{
+						if (chude.Contains(item.Value))
+						{
+							item.Selected = true;
+						}
+					}
 					//chkHot.Checked = dtPro.Rows[0]["IsHot"].ToString() == "1" || dtPro.Rows[0]["IsHot"].ToString() == "True";
 					//chkNew.Checked = dtPro.Rows[0]["IsNew"].ToString() == "1" || dtPro.Rows[0]["IsNew"].ToString() == "True";
 					//chkSpecial.Checked = dtPro.Rows[0]["IsSpecial"].ToString() == "1" || dtPro.Rows[0]["IsSpecial"].ToString() == "True";
@@ -189,7 +211,8 @@ namespace MyWeb.Admins
 		{
 			pnUpdate.Visible = true;
 			ControlClass.ResetControlValues(this);
-			LoadDropDownListGroupImage();
+			LoadDropDownListGroupProduct();
+			LoadCheckBoxChude();
 			pnView.Visible = false;
 			pnUpdatePrice.Visible = false;
 			Insert = true;
@@ -240,6 +263,18 @@ namespace MyWeb.Admins
 				obj.IsHot = "0";
 				obj.IsNew = "0";
 				obj.IsSpecial = "0";
+				obj.ChudeId = "";
+				foreach (ListItem item in cklChude.Items)
+				{
+					if (item.Selected)
+					{
+						obj.ChudeId += item.Value + ",";
+					}
+				}
+				if (!string.IsNullOrEmpty(obj.ChudeId))
+				{
+					obj.ChudeId = obj.ChudeId.Substring(0, obj.ChudeId.Length - 1);
+				}
 				obj.Ord = txtOrd.Text != "" ? txtOrd.Text : "1";
 				obj.Active = chkActive.Checked ? "1" : "0";
 				if (Insert == true)

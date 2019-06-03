@@ -23,7 +23,8 @@ namespace MyWeb.Data
         private string _IsHot;
         private string _IsPopular;
         private string _IsSpecial;
-        private string _IsNew;
+		private string _IsNew;
+		private string _ChudeId;
         private string _Ord;
         private string _Active;
         #endregion
@@ -43,7 +44,8 @@ namespace MyWeb.Data
         public string IsHot { get { return _IsHot; } set { _IsHot = value; } }
         public string IsPopular { get { return _IsPopular; } set { _IsPopular = value; } }
         public string IsSpecial { get { return _IsSpecial; } set { _IsSpecial = value; } }
-        public string IsNew { get { return _IsNew; } set { _IsNew = value; } }
+		public string IsNew { get { return _IsNew; } set { _IsNew = value; } }
+		public string ChudeId { get { return _ChudeId; } set { _ChudeId = value; } }
         public string Ord { get { return _Ord; } set { _Ord = value; } }
         public string Active { get { return _Active; } set { _Active = value; } }
         #endregion
