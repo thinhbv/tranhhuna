@@ -10,7 +10,7 @@
 		var nbItemsPerLineTablet = 2;
 		var page_name = 'category';
 		$(document).ready(function () {
-			$(".added-cart").each(function () {
+			<%--$(".added-cart").each(function () {
 				$(this).attr("title", "Đã thêm vào giỏ hàng");
 			})
 			$(".plus").click(function () {
@@ -48,15 +48,15 @@
 				  		$("#item-count")[0].innerText = (parseInt($("#item-count")[0].innerText) + 1).toString();
 				  	}
 				  });
-			});
-			$('#<%=ddlSize.ClientID%>').change(function () {
+			});--%>
+			<%--$('#<%=ddlSize.ClientID%>').change(function () {
 				var index = this.selectedIndex;
 				var lPrice = $('#<%=hdPrice.ClientID%>').val();
 				var arr = lPrice.split(",");
 				$("#price").text(FormatPrice(arr[index]) + " Đ");
-			});
+			});--%>
 		})
-		function AddToCart() {
+		<%--function AddToCart() {
 			var proid = '<%= id%>';
 			var quantity = $('#<%=txtQuantity.ClientID%>').val();
 			var size = $('#<%=ddlSize.ClientID%>').val();
@@ -85,7 +85,7 @@
 			chunks = chunks.reverse();
 			price = chunks.join(".");
 			return price;
-		}
+		}--%>
 	</script>
 	<link href="../../../css/product.css?v=20180817" rel="stylesheet" />
 	<script src="../../../scripts/jquery.serialScroll.js"></script>
@@ -149,26 +149,17 @@
 											<asp:DropDownList ID="ddlSize" runat="server" Width="80"></asp:DropDownList>&nbsp;cm
 										</p>
 									</div>
-									<div class="product-info-line">
+									<%--<div class="product-info-line">
 										<p id="product_condition">
 											<label style="width: 75px">Số lượng: </label>
 											<asp:TextBox ID="txtQuantity" runat="server" Text="1" Width="60"></asp:TextBox>
-											<%--<table border="0" cellspacing="0" width="25">
-												<tr>
-													<td><input type="button" value="-" class="minus" /></td>
-													<td><input type="button" value="+" class="plus" /></td>
-												</tr>
-											</table>--%>
-											<%--<input type="button" value="-" class="minus" />
-											<input type="button" value="+" class="plus" />--%>
 										</p>
-									</div>
-									<div class="product-info-line">
+									</div>--%>
+									<%--<div class="product-info-line">
 										<p id="product_condition">
-											<%--<asp:Button ID="btnBuyNow" runat="server" Text="Mua ngay" CssClass="button-form" OnClick="btnBuyNow_Click" />--%>
 											<asp:Button ID="btnAddCart" runat="server" Text="Thêm vào giỏ hàng" CssClass="button-form" OnClientClick="AddToCart();return false;" />
 										</p>
-									</div>
+									</div>--%>
 									<div class="extra-right">
 										<!-- Go to www.addthis.com/dashboard to customize your tools -->
 										<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f87903d1009b87f"></script>

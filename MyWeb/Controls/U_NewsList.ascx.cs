@@ -42,7 +42,7 @@ namespace MyWeb.Controls
 							ltrNews.Text += "<div class='col-md-4 col-sm-6 col-md-offset-0 col-sm-offset-3 col-xs-12 wow fadeInRight'>\n";
 						}
 						string url = PageHelper.GeneralDetailUrl(Consts.CON_TIN_TUC, groupName, dtNews.Rows[i]["Id"].ToString(), dtNews.Rows[i]["Name"].ToString());
-						ltrNews.Text += "<img src='" + dtNews.Rows[i]["Image"].ToString() + "' alt='" + dtNews.Rows[i]["Name"].ToString() + "' title='" + dtNews.Rows[i]["Name"].ToString() + "'>\n";
+						ltrNews.Text += "<img src='" + dtNews.Rows[i]["Image"].ToString() + "' alt='" + dtNews.Rows[i]["Name"].ToString() + "' title='" + dtNews.Rows[i]["Name"].ToString() + "' width='100%'>\n";
 						ltrNews.Text += "<h4><strong><a href='" + url + "'>" + dtNews.Rows[i]["Name"].ToString() + "</a></strong></h4>\n";
 						ltrNews.Text += "<p>" + StringClass.FormatContentNews(dtNews.Rows[i]["Content"].ToString(), 100) + "</p>\n";
 						ltrNews.Text += "<a href='" + url + "' class='btn-link'>Chi tiết >></a>\n";

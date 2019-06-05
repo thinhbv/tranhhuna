@@ -31,24 +31,6 @@ namespace MyWeb.Modules.Product {
         protected global::System.Web.UI.WebControls.DropDownList ddlSize;
         
         /// <summary>
-        /// txtQuantity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQuantity;
-        
-        /// <summary>
-        /// btnAddCart control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddCart;
-        
-        /// <summary>
         /// ltrDetail control.
         /// </summary>
         /// <remarks>

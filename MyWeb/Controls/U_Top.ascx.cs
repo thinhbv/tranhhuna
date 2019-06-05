@@ -19,12 +19,12 @@ namespace MyWeb.Controls
             {
 				try
 				{
-					HttpCookie cookie = Request.Cookies[Consts.GUID_SHOPPING_CART];
-					if (cookie != null && cookie.Value != null)
-					{
-						DataTable dtOrderDetail = OrderDetailService.OrderDetail_GetByTop("", "OrderId IN (Select Id From Orders Where OrderId='" + StringClass.SqlInjection(cookie.Value) + "' And Status=0)", "");
-						totalCount = dtOrderDetail.Rows.Count.ToString();
-					}
+					//HttpCookie cookie = Request.Cookies[Consts.GUID_SHOPPING_CART];
+					//if (cookie != null && cookie.Value != null)
+					//{
+					//	DataTable dtOrderDetail = OrderDetailService.OrderDetail_GetByTop("", "OrderId IN (Select Id From Orders Where OrderId='" + StringClass.SqlInjection(cookie.Value) + "' And Status=0)", "");
+					//	totalCount = dtOrderDetail.Rows.Count.ToString();
+					//}
 					//List<Advertise> list = AdvertiseService.Advertise_GetByPosition("1");
 					//if (list.Count > 0)
 					//{

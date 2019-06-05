@@ -19,10 +19,10 @@
 				Khu chung cư Mễ Trì
 			</address>
 		</div>--%>
-		<a href="/gio-hang" title="Giỏ hàng của bạn">
+		<%--<a href="/gio-hang" title="Giỏ hàng của bạn">
 			<div class="fa-shopping-cart">
 				<b id="item-count"><%=totalCount %></b>
 			</div>
-		</a>
+		</a>--%>
 	</div>
 </div>
