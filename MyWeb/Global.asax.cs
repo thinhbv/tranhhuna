@@ -36,9 +36,8 @@ namespace MyWeb
 			RouteTable.Routes.MapPageRoute("Cart", "gio-hang", "~/Modules/Product/CheckOut.aspx");
 			RouteTable.Routes.MapPageRoute("Login", "thanh-vien/dang-nhap", "~/Modules/Page/Login.aspx");
 			RouteTable.Routes.MapPageRoute("Register", "thanh-vien/dang-ki", "~/Modules/Page/Register.aspx");
+			RouteTable.Routes.MapPageRoute("Info", "thanh-vien/thong-tin-ca-nhan", "~/Modules/Page/Profiles.aspx");
 			RouteTable.Routes.MapPageRoute("ForgotPass", "thanh-vien/quen-mat-khau", "~/Modules/Page/ForgotPass.aspx");
-			RouteTable.Routes.MapPageRoute("LoginFacebook", "thanh-vien/dang-nhap-facebook", "~/Modules/LoginExtension/Facebook.aspx");
-			RouteTable.Routes.MapPageRoute("LoginGoogle", "thanh-vien/dang-nhap-google", "~/Modules/LoginExtension/Google.aspx");
 			RouteTable.Routes.MapPageRoute("DownloadFree", "tai-mien-phi", "~/Modules/Product/FreeDownload.aspx");
         }
 

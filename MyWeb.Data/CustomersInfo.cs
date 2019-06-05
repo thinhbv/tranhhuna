@@ -31,7 +31,7 @@ namespace MyWeb.Data
 		public string Password { get { return _Password; } set { _Password = value; } }
 		public string Email { get { return _Email; } set { _Email = value; } }
 		public string Phone { get { return _Phone; } set { _Phone = value; } }
-		public string Birthday { get { return _Birthday; } set { _Birthday = value; } }
+		public string BirthDay { get { return _Birthday; } set { _Birthday = value; } }
 		public string CreatedDate { get { return _CreatedDate; } set { _CreatedDate = value; } }
 		public string Gender { get { return _Gender; } set { _Gender = value; } }
 		public string Ord { get { return _Ord; } set { _Ord = value; } }
@@ -45,7 +45,7 @@ namespace MyWeb.Data
 			Password = "";
 			Email = "";
 			Phone = "";
-			Birthday = "";
+			BirthDay = "";
 			CreatedDate = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
 			Gender = "";
 			Ord = "0";

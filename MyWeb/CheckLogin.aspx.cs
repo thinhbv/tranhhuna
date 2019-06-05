@@ -25,16 +25,18 @@ namespace MyWeb
 				if (dt.Rows.Count == 0)
 				{
 					int id = CustomersService.Customers_Insert(cus);
-
-					Session["Email"] = cus.Email;
-					Session["FullName"] = cus.FullName;
-					Session["Id"] = id;
+					cus.Id = id.ToString();
+					Session["Info"] = cus;
 				}
 				else
 				{
-					Session["Email"] = dt.Rows[0]["Email"].ToString().Trim();
-					Session["FullName"] = dt.Rows[0]["FullName"].ToString().Trim();
-					Session["Id"] = dt.Rows[0]["Id"].ToString().Trim();
+					cus.Id = dt.Rows[0]["Id"].ToString();
+					cus.AppId = dt.Rows[0]["AppId"].ToString();
+					cus.UserName = dt.Rows[0]["UserName"].ToString();
+					cus.FullName = dt.Rows[0]["FullName"].ToString();
+					cus.Phone = dt.Rows[0]["Phone"].ToString();
+					cus.Email = dt.Rows[0]["Email"].ToString();
+					Session["Info"] = cus;
 				}
 			}
 			catch (Exception ex)

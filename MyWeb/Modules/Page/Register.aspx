@@ -100,7 +100,7 @@
 							<div class="login-widget animation-delay1">
 								<div class="panel panel-default">
 									<div class="panel-heading">
-										<i class="fa fa-plus-circle fa-lg"></i> Đăng kí
+										<i class="fa fa-plus-circle fa-lg"></i> Đăng kí thành viên
 									</div>
 									<div class="panel-body">
 										<form class="form-login">

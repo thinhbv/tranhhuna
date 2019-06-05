@@ -57,7 +57,7 @@ namespace MyWeb.Data
 			dbCmd.Parameters.Add(new SqlParameter("@Password", data.Password));
 			dbCmd.Parameters.Add(new SqlParameter("@Email", data.Email));
 			dbCmd.Parameters.Add(new SqlParameter("@Phone", data.Phone));
-			dbCmd.Parameters.Add(new SqlParameter("@Birthday", data.Birthday));
+			dbCmd.Parameters.Add(new SqlParameter("@Birthday", data.BirthDay));
 			dbCmd.Parameters.Add(new SqlParameter("@CreatedDate", data.CreatedDate));
 			dbCmd.Parameters.Add(new SqlParameter("@Gender", data.Gender));
 			dbCmd.Parameters.Add(new SqlParameter("@Ord", data.Ord));
@@ -80,7 +80,7 @@ namespace MyWeb.Data
 			dbCmd.Parameters.Add(new SqlParameter("@Password", data.Password));
 			dbCmd.Parameters.Add(new SqlParameter("@Email", data.Email));
 			dbCmd.Parameters.Add(new SqlParameter("@Phone", data.Phone));
-			dbCmd.Parameters.Add(new SqlParameter("@Birthday", data.Birthday));
+			dbCmd.Parameters.Add(new SqlParameter("@Birthday", data.BirthDay));
 			dbCmd.Parameters.Add(new SqlParameter("@CreatedDate", data.CreatedDate));
 			dbCmd.Parameters.Add(new SqlParameter("@Gender", data.Gender));
 			dbCmd.Parameters.Add(new SqlParameter("@Ord", data.Ord));
@@ -116,7 +116,7 @@ namespace MyWeb.Data
 		#region[Customers_GetByName]
 		public DataTable Customers_GetByName(string UserName)
 		{
-			string strReturn = "Select Top 1 * From Customers Where Email=@Email And Active = 1";
+			string strReturn = "Select Top 1 * From Customers Where Email=@Email And AppId = '' And Active = 1";
 			SqlCommand cmd = GetCommand(strReturn);
 			cmd.Parameters.Add("@Email", SqlDbType.VarChar).Value = UserName;
 			return GetData(cmd);

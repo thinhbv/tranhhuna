@@ -297,6 +297,7 @@
     <Content Include="Modules\Page\Login.aspx" />
     <Content Include="Modules\Page\Logon.aspx" />
     <Content Include="Modules\Page\PageDetail.aspx" />
+    <Content Include="Modules\Page\Profiles.aspx" />
     <Content Include="Modules\Page\Register.aspx" />
     <Content Include="Modules\Product\CheckOut.aspx" />
     <Content Include="Modules\Product\FreeDownload.aspx" />
@@ -1397,6 +1398,13 @@
     </Compile>
     <Compile Include="Modules\Page\PageDetail.aspx.designer.cs">
       <DependentUpon>PageDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Page\Profiles.aspx.cs">
+      <DependentUpon>Profiles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Page\Profiles.aspx.designer.cs">
+      <DependentUpon>Profiles.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modules\Page\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>

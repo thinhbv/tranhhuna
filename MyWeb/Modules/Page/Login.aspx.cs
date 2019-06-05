@@ -45,13 +45,18 @@ namespace MyWeb.Modules.Page
 					string pUI = StringClass.SqlInjection(txtUserName.Value.Trim());
 					string pPW = StringClass.SqlInjection(txtPassword.Value.Trim());
 					DataTable dt = new DataTable();
-					dt = CustomersService.Customers_Login(pUI, StringClass.Encode(pPW));
-					if (dt.Rows.Count > 0)
+					dt = CustomersService.Customers_GetByName(pUI);
+					if (dt.Rows.Count > 0 && pPW.Equals(StringClass.Decode(dt.Rows[0]["Password"].ToString())))
 					{
+						Customers cus = new Customers();
+						cus.Id = dt.Rows[0]["Id"].ToString();
+						cus.AppId = dt.Rows[0]["AppId"].ToString();
+						cus.UserName = dt.Rows[0]["UserName"].ToString();
+						cus.FullName = dt.Rows[0]["FullName"].ToString();
+						cus.Phone = dt.Rows[0]["Phone"].ToString();
+						cus.Email = dt.Rows[0]["Email"].ToString();
 						FormsAuthentication.SetAuthCookie(StringClass.SqlInjection(txtUserName.Value.Trim()), false);
-						Session["Email"] = dt.Rows[0]["Email"].ToString().Trim();
-						Session["FullName"] = dt.Rows[0]["FullName"].ToString().Trim();
-						Session["Id"] = dt.Rows[0]["Id"].ToString().Trim();
+						Session["Info"] = cus;
 						Response.Redirect(redirectUrl, false);
 					}
 					else

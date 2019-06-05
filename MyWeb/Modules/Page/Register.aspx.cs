@@ -17,7 +17,6 @@ namespace MyWeb.Modules.Page
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-
 		}
 
 		protected void lbtRegister_Click(object sender, EventArgs e)
@@ -70,11 +69,10 @@ namespace MyWeb.Modules.Page
 						txtUserName.Focus();
 						return;
 					}
-					CustomersService.Customers_Insert(cus); 
+					int id = CustomersService.Customers_Insert(cus);
+					cus.Id = id.ToString();
 					FormsAuthentication.SetAuthCookie(StringClass.SqlInjection(txtUserName.Value.Trim()), false);
-					Session["Email"] = cus.Email;
-					Session["FullName"] = cus.FullName;
-					Session["IsAuthorized"] = true;
+					Session["Info"] = cus;
 					Response.Redirect("/", false);
 				}
 			}

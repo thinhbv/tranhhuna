@@ -44,7 +44,7 @@
 		</asp:Repeater>
 
 	</ul>
-	<%if (Session["FullName"] == null)
+	<%if (!isLogin)
    {%>
 	<div class="form-login"><a href="/thanh-vien/dang-nhap" title="Đăng nhập">Đăng nhập</a> / <a href="/thanh-vien/dang-ki" title="Đăng nhập">Đăng kí</a></div>
 	<%}
@@ -53,22 +53,22 @@
 	<div class="form-login">
 		<div class="profile dropdown">
 			<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-				Xin chào <strong><% =Session["FullName"] %></strong>
+				Xin chào <strong><% =fullName %></strong>
 				<span><i class="fa fa-chevron-down"></i></span>
 			</a>
 			<ul class="dropdown-menu">
 				<li>
 					<a class="clearfix" href="#">
 						<div class="detail">
-							<strong><% =Session["FullName"] %></strong>
-							<p class="grey"><% =Session["Email"] %></p>
+							<strong><% =fullName %></strong>
+							<p class="grey"><% =email %></p>
 						</div>
 					</a>
 				</li>
-				<li><a tabindex="-1" href="profile.html" class="main-link"><i class="fa fa-edit fa-lg"></i> Thông tin cá nhân</a></li>
-				<li><a tabindex="-1" href="gallery.html" class="main-link"><i class="fa fa-picture-o fa-lg"></i> Lịch sử tải xuống</a></li>
+				<li><a tabindex="-1" href="/thanh-vien/thong-tin-ca-nhan" class="main-link"><i class="fa fa-edit fa-lg"></i> Thông tin cá nhân</a></li>
+				<li><a tabindex="-1" href="/thanh-vien/thong-tin-ca-nhan#doi-mat-khau" class="main-link"><i class="fa fa-key"></i> Đổi mật khẩu</a></li>
 				<li class="divider"></li>
-				<li><asp:LinkButton ID="lbtLogout" runat="server" tabindex="-1" CssClass="main-link logoutConfirm_open" OnClick="lbtLogout_Click"><i class="fa fa-lock fa-lg"></i> Đăng xuất</asp:LinkButton></li>
+				<li><asp:LinkButton ID="lbtLogout" runat="server" tabindex="-1" CssClass="main-link logoutConfirm_open" OnClick="lbtLogout_Click"><i class="fa fa-sign-out"></i> Đăng xuất</asp:LinkButton></li>
 			</ul>
 		</div>
 	</div>

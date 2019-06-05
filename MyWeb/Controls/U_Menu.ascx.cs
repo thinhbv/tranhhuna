@@ -16,8 +16,18 @@ namespace MyWeb.Controls
 	{
 		DataTable dtPage = new DataTable();
 		protected string keyword = string.Empty;
+		protected bool isLogin = false;
+		protected string fullName = "";
+		protected string email = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+			if (Session["Info"] != null)
+			{
+				isLogin = true;
+				Customers cus = (Customers)Session["Info"];
+				fullName = cus.FullName;
+				email = cus.Email;
+			}
             if (!IsPostBack)
             {
 				try
@@ -239,6 +249,7 @@ namespace MyWeb.Controls
 			{
 				Session.RemoveAll();
 				Session.Abandon();
+				Response.Redirect("/", false);
 			}
 			catch (Exception ex)
 			{

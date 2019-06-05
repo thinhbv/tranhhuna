@@ -2,8 +2,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 	<meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="611511258170-in5k2tdgb89bfa2ja9sp8mdu4imsum7k.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+	<meta name="google-signin-client_id" content="611511258170-in5k2tdgb89bfa2ja9sp8mdu4imsum7k.apps.googleusercontent.com">
+	<script src="https://apis.google.com/js/api:client.js"></script>
 	<script language="javascript" type="text/javascript">
 		function LoginCompleted() {
 			FB.api('/me', { fields: 'id, name, email' }, function (response) {
@@ -12,7 +12,7 @@
 				}
 				$.ajax({
 					type: 'POST',
-					url: '/checklogin.aspx?id=' + response.id + '&name=' + response.name +'&email=' + response.email,
+					url: '/checklogin.aspx?id=' + response.id + '&name=' + response.name + '&email=' + response.email,
 					// Always include an `X-Requested-With` header in every AJAX request,
 					// to protect against CSRF attacks.
 					headers: {
@@ -22,47 +22,121 @@
 					success: function (result) {
 						window.location.href = "/";
 					},
-					processData: false,
-					data: { id: response.id, name: response.name, email: response.email }
-				}, { scope: 'email,user_likes' });
+					processData: false
+				});
 			});
-			
-        }
-        function onSignIn(googleUser) {
-        	var profile = googleUser.getBasicProfile();
-        	console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-        	console.log('Name: ' + profile.getName());
-        	console.log('Image URL: ' + profile.getImageUrl());
-        	console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-        }
-        function onSuccess(googleUser) {
-        	console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-        }
-        function onFailure(error) {
-        	console.log(error);
-        }
-        function renderButton() {
-        	gapi.signin2.render('my-signin2', {
-        		'scope': 'profile email',
-        		'width': 240,
-        		'height': 40,
-        		'longtitle': true,
-        		'theme': 'dark',
-        		'onsuccess': onSuccess,
-        		'onfailure': onFailure
-        	});
-        }
-    </script>
+		}
+		var googleUser = {};
+		var startApp = function () {
+			gapi.load('auth2', function () {
+				// Retrieve the singleton for the GoogleAuth library and set up the client.
+				auth2 = gapi.auth2.init({
+					client_id: '611511258170-in5k2tdgb89bfa2ja9sp8mdu4imsum7k.apps.googleusercontent.com',
+					cookiepolicy: 'single_host_origin',
+					// Request scopes in addition to 'profile' and 'email'
+					scope: 'profile email'
+				});
+				attachSignin(document.getElementById('customBtn'));
+			});
+		};
+
+		function attachSignin(element) {
+			console.log(element.id);
+			auth2.attachClickHandler(element, {},
+				function (googleUser) {
+					$.ajax({
+						type: 'POST',
+						url: '/checklogin.aspx?id=' + googleUser.getBasicProfile().getId() + '&name=' + googleUser.getBasicProfile().getName() + '&email=' + googleUser.getBasicProfile().getEmail(),
+						// Always include an `X-Requested-With` header in every AJAX request,
+						// to protect against CSRF attacks.
+						headers: {
+							'X-Requested-With': 'XMLHttpRequest'
+						},
+						contentType: 'application/octet-stream; charset=utf-8',
+						success: function (result) {
+							window.location.href = "/";
+						},
+						processData: false
+					});
+				}, function (error) {
+					alert(JSON.stringify(error, undefined, 2));
+				});
+		}
+		function onSuccess(googleUser) {
+			$.ajax({
+				type: 'POST',
+				url: '/checklogin.aspx?id=' + googleUser.getBasicProfile().getId() + '&name=' + googleUser.getBasicProfile().getName() + '&email=' + googleUser.getBasicProfile().getEmail(),
+				// Always include an `X-Requested-With` header in every AJAX request,
+				// to protect against CSRF attacks.
+				headers: {
+					'X-Requested-With': 'XMLHttpRequest'
+				},
+				contentType: 'application/octet-stream; charset=utf-8',
+				success: function (result) {
+					window.location.href = "/";
+				},
+				processData: false
+			});
+		}
+		function onFailure(error) {
+			alert("Đã có lỗi xảy ra khi đăng nhập. Vui lòng thử lại.");
+		}
+		function renderButton() {
+			gapi.signin2.render('my-signin2', {
+				'scope': 'profile email',
+				'width': 240,
+				'height': 40,
+				'longtitle': true,
+				'theme': 'dark',
+				'onsuccess': onSuccess,
+				'onfailure': onFailure
+			});
+		}
+	</script>
 	<style type="text/css">
-		.btn.btn-facebook{
+		#customBtn {
+			display: inline-block;
+			background: white;
+			color: #444;
+			width: 275px;
+			background: #DE4B39;
+			white-space: nowrap;
+		}
+
+			#customBtn:hover {
+				cursor: pointer;
+			}
+
+		span.icon {
+			background: url('/img/g-normal.png') transparent 5px 50% no-repeat;
+			display: inline-block;
+			vertical-align: middle;
+			width: 40px;
+			height: 40px;
+		}
+
+		span.buttonText {
+			color: white;
+			display: inline-block;
+			vertical-align: middle;
+			padding: 9px;
+			font-size: 16px;
+			/* Use the Roboto font that is loaded in the <head> */
+			font-family: Helvetica, Arial, sans-serif;
+		}
+	</style>
+	<style type="text/css">
+		.btn.btn-facebook {
 			background: #3B66C4;
-			margin-left:10px;
+			margin-left: 10px;
 		}
-		.btn-google{
+
+		.btn-google {
 			background: #D04332;
-			margin-left:10px;
-			margin-top:34px;
+			margin-left: 10px;
+			margin-top: 34px;
 		}
+
 		.tab-left .tab-bar {
 			float: left;
 		}
@@ -154,7 +228,8 @@
 								</div>
 							</div>
 						</div>
-					</div><!--#left_column-->
+					</div>
+					<!--#left_column-->
 					<div id="center_column" class="center_column col-xs-12 col-sm-9">
 						<div class="login-wrapper">
 							<div class="login-widget animation-delay1">
@@ -162,7 +237,6 @@
 									<div class="panel-heading clearfix">
 										<div class="pull-left">
 											<i class="fa fa-lock fa-lg"></i> Đăng nhập
-				
 										</div>
 
 										<div class="pull-right">
@@ -180,27 +254,32 @@
 												<label>Mật khẩu</label>
 												<input type="password" id="txtPassword" runat="server" placeholder="Password" class="form-control input-sm bounceIn animation-delay4">
 											</div>
-											<div class="form-group">
+											<%--<div class="form-group">
 												<label class="label-checkbox inline">
 													<input type="checkbox" class="regular-checkbox chk-delete" />
 													<span class="custom-checkbox info bounceIn animation-delay4"></span>
 												</label>
-												Lưu mật khẩu		
-					
-											</div>
+												Lưu mật khẩu
+											</div>--%>
 
-											<div class="seperator"></div>
+											<%--<div class="seperator"></div>--%>
 											<div class="form-group">
 												Bạn quên mật khẩu?<br />
-												Vui lòng <a href="#">vào đây</a> để lấy lại mật khẩu.
-					
+												Vui lòng <a href="/thanh-vien/quen-mat-khau" style="color:red; text-decoration:underline;">vào đây</a> để lấy lại mật khẩu.
 											</div>
 
 											<hr />
 											<div id="fb-root"></div>
 											<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.3&appId=707967022622148&autoLogAppEvents=1"></script>
 											<a class="fb-login-button btn-google bounceIn animation-delay5 login-link pull-right" data-width="" scope="email" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false" data-onlogin="LoginCompleted();"></a>
-											<a class=" btn-google bounceIn animation-delay5 login-link pull-right" id="my-signin2"></a>
+											<%--<a class=" btn-google bounceIn animation-delay5 login-link pull-right" id="my-signin2"></a>--%>
+											<a id="gSignInWrapper" class=" btn-google bounceIn animation-delay5 login-link pull-right">
+												<span id="customBtn" class="customGPlusSignIn">
+													<span class="icon"></span><span class="buttonText">Đăng nhập bằng Google</span>
+												</span>
+											</a>
+											<div id="name"></div>
+											<script>startApp();</script>
 											<asp:LinkButton ID="lbtLogin" runat="server" CssClass="btn btn-success btn-sm bounceIn animation-delay5 login-link pull-left" OnClick="lbtLogin_Click"><i class="fa fa-sign-in"></i> Đăng nhập</asp:LinkButton>
 										</form>
 									</div>
