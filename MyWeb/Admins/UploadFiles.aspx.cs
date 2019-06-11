@@ -39,7 +39,7 @@ namespace MyWeb.Admins
 
 		private void BindGrid()
 		{
-			grdUploadFiles.DataSource = FilesUploadService.FilesUpload_GetByTop("", "", "Id DESC");
+			grdUploadFiles.DataSource = FilesUploadService.FilesUpload_GetByTop("", "", "Name");
 			grdUploadFiles.DataBind();
 			if (grdUploadFiles.PageCount <= 1)
 			{
@@ -157,6 +157,7 @@ namespace MyWeb.Admins
 				obj.Id = Id;
 				obj.Name = txtName.Text;
 				obj.ThumbnailLink = txtImage.Text;
+				obj.OriginalFileName = "";
 				obj.IconLink = "";
 				obj.WebContentLink = "";
 				obj.Active = chkActive.Checked ? "1" : "0";
