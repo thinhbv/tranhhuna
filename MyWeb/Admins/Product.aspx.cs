@@ -159,7 +159,7 @@ namespace MyWeb.Admins
 					}
 					//chkHot.Checked = dtPro.Rows[0]["IsHot"].ToString() == "1" || dtPro.Rows[0]["IsHot"].ToString() == "True";
 					//chkNew.Checked = dtPro.Rows[0]["IsNew"].ToString() == "1" || dtPro.Rows[0]["IsNew"].ToString() == "True";
-					//chkSpecial.Checked = dtPro.Rows[0]["IsSpecial"].ToString() == "1" || dtPro.Rows[0]["IsSpecial"].ToString() == "True";
+					chkSpecial.Checked = dtPro.Rows[0]["IsSpecial"].ToString() == "1" || dtPro.Rows[0]["IsSpecial"].ToString() == "True";
 					txtOrd.Text = dtPro.Rows[0]["Ord"].ToString();
 					chkActive.Checked = dtPro.Rows[0]["Active"].ToString() == "1" || dtPro.Rows[0]["Active"].ToString() == "True";
 					pnView.Visible = false;
@@ -216,6 +216,7 @@ namespace MyWeb.Admins
 			pnView.Visible = false;
 			pnUpdatePrice.Visible = false;
 			Insert = true;
+			Id = StringClass.RandomString(10);
 		}
 
 		protected void DeleteButton_Click(object sender, EventArgs e)
@@ -262,7 +263,7 @@ namespace MyWeb.Admins
 				obj.IsPopular = chkPopular.Checked ? "1" : "0";
 				obj.IsHot = "0";
 				obj.IsNew = "0";
-				obj.IsSpecial = "0";
+				obj.IsSpecial = chkSpecial.Checked ? "1" : "0";
 				obj.ChudeId = "";
 				foreach (ListItem item in cklChude.Items)
 				{

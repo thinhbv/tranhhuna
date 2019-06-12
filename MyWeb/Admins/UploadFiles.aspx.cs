@@ -50,7 +50,17 @@ namespace MyWeb.Admins
 				grdUploadFiles.PagerStyle.Visible = true;
 			}
 		}
-
+		private void LoadDropDownBoxProduct()
+		{
+			ddlProduct.Items.Clear();
+			DataTable dt = ProductService.Product_GetByTop("", "Active = 1 AND isSpecial = 1", "Id");
+			for (int i = 0; i < dt.Rows.Count; i++)
+			{
+				DataRow row = dt.Rows[i];
+				ddlProduct.Items.Add(new ListItem(row["Name"].ToString(), row["Id"].ToString()));
+			}
+			ddlProduct.DataBind();
+		}
 		protected void grdUploadFiles_ItemDataBound(object sender, DataGridItemEventArgs e)
 		{
 			ListItemType itemType = e.Item.ItemType;
@@ -94,8 +104,12 @@ namespace MyWeb.Admins
 					Insert = false;
 					Id = strCA;
 					dt = FilesUploadService.FilesUpload_GetByTop("1", "Id='" + Id + "'", "");
-
-					txtName.Text = dt.Rows[0]["Name"].ToString();
+					LoadDropDownBoxProduct();
+					if (!string.Empty.Equals(dt.Rows[0]["ProductId"].ToString()))
+					{
+						ddlProduct.SelectedValue = dt.Rows[0]["ProductId"].ToString();
+					}
+					
 					txtImage.Text = dt.Rows[0]["ThumbnailLink"].ToString();
 					imgImage.ImageUrl = dt.Rows[0]["ThumbnailLink"].ToString().Length > 0 ? dt.Rows[0]["ThumbnailLink"].ToString() : "";
 					chkActive.Checked = dt.Rows[0]["Active"].ToString() == "1" || dt.Rows[0]["Active"].ToString() == "True";
@@ -121,6 +135,7 @@ namespace MyWeb.Admins
 		{
 			pnUpdate.Visible = true;
 			ControlClass.ResetControlValues(this);
+			LoadDropDownBoxProduct();
 			pnView.Visible = false;
 			Insert = true;
 		}
@@ -155,18 +170,23 @@ namespace MyWeb.Admins
 			{
 				Data.FilesUpload obj = new Data.FilesUpload();
 				obj.Id = Id;
-				obj.Name = txtName.Text;
+				obj.ProductId = ddlProduct.SelectedValue;
+				obj.OriginalFileName = ddlProduct.SelectedItem.Text;
 				obj.ThumbnailLink = txtImage.Text;
-				obj.OriginalFileName = "";
-				obj.IconLink = "";
-				obj.WebContentLink = "";
 				obj.Active = chkActive.Checked ? "1" : "0";
 				if (Insert == true)
 				{
+					obj.Name = "";
+					obj.IconLink = "";
+					obj.WebContentLink = "";
 					FilesUploadService.FilesUpload_Insert(obj);
 				}
 				else
 				{
+					dt = FilesUploadService.FilesUpload_GetByTop("1", "Id='" + Id + "'", "");
+					obj.Name = dt.Rows[0]["Name"].ToString();
+					obj.IconLink = dt.Rows[0]["IconLink"].ToString();
+					obj.WebContentLink = dt.Rows[0]["WebContentLink"].ToString();
 					FilesUploadService.FilesUpload_Update(obj);
 				}
 				BindGrid();
@@ -204,6 +224,7 @@ namespace MyWeb.Admins
 					if (pDt.AsEnumerable().All(dr => dr.IsNull(column)))
 						pDt.Columns.Remove(column);
 				}
+				pDt.Columns.Add("ProductId", typeof(int));
 				pDt.Columns.Add("OriginalFileName", typeof(string));
 				if (pDt.Columns["thumbnailLink"] == null)
 				{
@@ -211,10 +232,11 @@ namespace MyWeb.Admins
 				}
 				pDt.Columns.Add("Active", typeof(int));
 				pDt.Columns["Id"].SetOrdinal(0);
-				pDt.Columns["Name"].SetOrdinal(1);
-				pDt.Columns["thumbnailLink"].SetOrdinal(2);
-				pDt.Columns["IconLink"].SetOrdinal(3);
-				pDt.Columns["WebContentLink"].SetOrdinal(4);
+				pDt.Columns["ProductId"].SetOrdinal(1);
+				pDt.Columns["Name"].SetOrdinal(2);
+				pDt.Columns["thumbnailLink"].SetOrdinal(3);
+				pDt.Columns["IconLink"].SetOrdinal(4);
+				pDt.Columns["WebContentLink"].SetOrdinal(5);
 				for (int i = 0; i < pDt.Rows.Count; i++)
 				{
 					pDt.Rows[i]["Active"] = 1;
@@ -226,6 +248,7 @@ namespace MyWeb.Admins
 			}
 			catch (Exception)
 			{
+				throw;
 			}
 		}
 		private List<Google.Apis.Drive.v3.Data.File> ListFiles(DriveService service, ref string pageToken)
@@ -275,10 +298,11 @@ namespace MyWeb.Admins
 
 					// set the destination table name
 					bulkCopy.DestinationTableName = TableName;
-					SqlCommand cmd = new SqlCommand("TRUNCATE TABLE " + TableName, connection);
-					cmd.ExecuteNonQuery();
+					//SqlCommand cmd = new SqlCommand("TRUNCATE TABLE " + TableName, connection);
+					//cmd.ExecuteNonQuery();
 					// write the data in the "dataTable"
-					bulkCopy.WriteToServerAsync(dt);
+					bulkCopy.WriteToServer(dt);
+					//bulkCopy.WriteToServerAsync(dt);
 				}
 				catch (Exception)
 				{

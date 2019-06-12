@@ -29,7 +29,7 @@ namespace MyWeb.Data
         }
         public static SqlConnection GetConnection()
         {
-			if (connection == null) { connection = new SqlConnection(strConStr); }
+			if (connection == null || connection.ConnectionString == "") { connection = new SqlConnection(strConStr); }
             if (connection.State == ConnectionState.Closed)
             {
                 //connection.Close();

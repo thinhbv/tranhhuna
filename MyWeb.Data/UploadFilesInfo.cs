@@ -11,6 +11,7 @@ namespace MyWeb.Data
 
 		#region[Declare variables]
 		private string _Id;
+		private string _ProductId;
 		private string _Name;
 		private string _ThumbnailLink;
 		private string _IconLink;
@@ -20,6 +21,7 @@ namespace MyWeb.Data
 		#endregion
 		#region[Public Properties]
 		public string Id { get { return _Id; } set { _Id = value; } }
+		public string ProductId { get { return _ProductId; } set { _ProductId = value; } }
 		public string Name { get { return _Name; } set { _Name = value; } }
 		public string ThumbnailLink { get { return _ThumbnailLink; } set { _ThumbnailLink = value; } }
 		public string IconLink { get { return _IconLink; } set { _IconLink = value; } }

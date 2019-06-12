@@ -93,15 +93,15 @@
 					<ItemTemplate>
 						<asp:ImageButton ID="Image4" runat="server" CommandName="IsNew" CommandArgument='<%#Eval("Id") %>' ImageUrl='<%#MyWeb.Common.PageHelper.ShowCheckImage(DataBinder.Eval(Container.DataItem, "IsNew"))%>' />
 					</ItemTemplate>
-				</asp:TemplateColumn>
+				</asp:TemplateColumn>--%>
 				<asp:TemplateColumn ItemStyle-CssClass="Number">
 					<HeaderTemplate>
-						Đặc biệt
+						Miễn phí
 					</HeaderTemplate>
 					<ItemTemplate>
 						<asp:ImageButton ID="Image5" runat="server" CommandName="IsSpecial" CommandArgument='<%#Eval("Id") %>' ImageUrl='<%#MyWeb.Common.PageHelper.ShowCheckImage(DataBinder.Eval(Container.DataItem, "IsSpecial"))%>' />
 					</ItemTemplate>
-				</asp:TemplateColumn>--%>
+				</asp:TemplateColumn>
 				<asp:TemplateColumn ItemStyle-CssClass="Number">
 					<HeaderTemplate>
 						Thứ tự<asp:ImageButton ID="imgUpdateOrd" runat="server" ToolTip="Cập nhật thứ tự"
@@ -297,15 +297,15 @@
 				<td>
 					<asp:CheckBox ID="chkNew" runat="server" />
 				</td>
-			</tr>
+			</tr>--%>
 			<tr>
 				<th>
-					<asp:Label ID="lblSpecial" runat="server" Text="Sản phẩm đặc biệt:"></asp:Label>
+					<asp:Label ID="lblSpecial" runat="server" Text="Sản phẩm tải miễn phí:"></asp:Label>
 				</th>
 				<td>
 					<asp:CheckBox ID="chkSpecial" runat="server" />
 				</td>
-			</tr>--%>
+			</tr>
 			<tr>
 				<th>
 					<asp:Label ID="lblOrd" runat="server" Text="Thứ tự:"></asp:Label>

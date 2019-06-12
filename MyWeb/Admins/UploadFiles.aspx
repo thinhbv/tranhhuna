@@ -39,7 +39,7 @@
 				</asp:TemplateColumn>
 				<asp:BoundColumn DataField="Id" HeaderText="Id" Visible="False" />
 				<asp:BoundColumn DataField="Active" HeaderText="Active" Visible="False" />
-				<asp:BoundColumn DataField="Name" HeaderText="Tiêu đề file" />
+				<asp:BoundColumn DataField="OriginalFileName" HeaderText="Tiêu đề file" />
 				<asp:TemplateColumn ItemStyle-CssClass="Image">
 					<HeaderTemplate>
 						Hình ảnh
@@ -48,7 +48,7 @@
 						<script type="text/javascript">playfile('<%#Eval("ThumbnailLink").ToString() %>', "95", "80", "false", "", "", "")</script>
 					</ItemTemplate>
 				</asp:TemplateColumn>
-				<asp:BoundColumn DataField="OriginalFileName" HeaderText="Tên file" ItemStyle-CssClass="Number"
+				<asp:BoundColumn DataField="Name" HeaderText="Tên file" ItemStyle-CssClass="text"
 					Visible="true" />
 				<asp:TemplateColumn ItemStyle-CssClass="Active">
 					<HeaderTemplate>
@@ -106,6 +106,16 @@
 			</tr>
 			<tr>
 				<th>
+					<asp:Label ID="lblProduct" runat="server" Text="Sản phẩm:"></asp:Label>
+				</th>
+				<td>
+					<asp:DropDownList ID="ddlProduct" runat="server"></asp:DropDownList><asp:RequiredFieldValidator
+						ID="RequiredFieldValidator1" runat="server" ControlToValidate="ddlProduct" Display="Dynamic" ErrorMessage="*"
+						SetFocusOnError="True"></asp:RequiredFieldValidator>
+				</td>
+			</tr>
+			<%--<tr>
+				<th>
 					<asp:Label ID="lblName" runat="server" Text="Tiêu đề file:"></asp:Label>
 				</th>
 				<td>
@@ -113,7 +123,7 @@
 						ID="rfvName" runat="server" ControlToValidate="txtName" Display="Dynamic" ErrorMessage="*"
 						SetFocusOnError="True"></asp:RequiredFieldValidator>
 				</td>
-			</tr>
+			</tr>--%>
 			<tr>
 				<th>
 					<asp:Label ID="lblImage" runat="server" Text="Hình ảnh:"></asp:Label>

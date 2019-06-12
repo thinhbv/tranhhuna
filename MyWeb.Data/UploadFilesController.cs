@@ -28,6 +28,8 @@ namespace MyWeb.Data
 		{
 			dbCmd = new SqlCommand("sp_FilesUpload_Insert");
 			dbCmd.CommandType = CommandType.StoredProcedure;
+			dbCmd.Parameters.Add(new SqlParameter("@Id", data.Id));
+			dbCmd.Parameters.Add(new SqlParameter("@ProductId", data.ProductId));
 			dbCmd.Parameters.Add(new SqlParameter("@Name", data.Name));
 			dbCmd.Parameters.Add(new SqlParameter("@ThumbnailLink", data.ThumbnailLink));
 			dbCmd.Parameters.Add(new SqlParameter("@IconLink", data.IconLink));
@@ -46,6 +48,7 @@ namespace MyWeb.Data
 			dbCmd = new SqlCommand("sp_FilesUpload_Update");
 			dbCmd.CommandType = CommandType.StoredProcedure;
 			dbCmd.Parameters.Add(new SqlParameter("@Id", data.Id));
+			dbCmd.Parameters.Add(new SqlParameter("@ProductId", data.ProductId));
 			dbCmd.Parameters.Add(new SqlParameter("@Name", data.Name));
 			dbCmd.Parameters.Add(new SqlParameter("@ThumbnailLink", data.ThumbnailLink));
 			dbCmd.Parameters.Add(new SqlParameter("@IconLink", data.IconLink));
