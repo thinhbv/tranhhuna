@@ -50,7 +50,7 @@
 				</asp:TemplateColumn>
 				<asp:BoundColumn DataField="Name" HeaderText="Tên file" ItemStyle-CssClass="text"
 					Visible="true" />
-				<asp:TemplateColumn ItemStyle-CssClass="Active">
+				<asp:TemplateColumn ItemStyle-CssClass="Image">
 					<HeaderTemplate>
 						Kích hoạt
 					</HeaderTemplate>

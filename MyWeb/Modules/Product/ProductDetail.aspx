@@ -155,11 +155,13 @@
 											<asp:TextBox ID="txtQuantity" runat="server" Text="1" Width="60"></asp:TextBox>
 										</p>
 									</div>--%>
-									<%--<div class="product-info-line">
+									<%if (isShowDownload) {%>
+									<div class="product-info-line">
 										<p id="product_condition">
-											<asp:Button ID="btnAddCart" runat="server" Text="Thêm vào giỏ hàng" CssClass="button-form" OnClientClick="AddToCart();return false;" />
+											<asp:Button ID="btnAddCart" runat="server" Text="Tải miễn phí" CssClass="button-form" OnClick="btnAddCart_Click" />
 										</p>
-									</div>--%>
+									</div>
+									<%} %>
 									<div class="extra-right">
 										<!-- Go to www.addthis.com/dashboard to customize your tools -->
 										<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f87903d1009b87f"></script>

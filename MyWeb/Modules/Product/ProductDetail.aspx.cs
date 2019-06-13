@@ -19,6 +19,10 @@ namespace MyWeb.Modules.Product
 		protected string sPrice = string.Empty;
 		protected string id = string.Empty;
 		string groupname = string.Empty;
+		private bool isLogin = false;
+		private bool isValidDownload = false;
+		Customers cus = new Customers();
+		protected bool isShowDownload = false; 
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			if (Page.RouteData.Values["Id"] != null)
@@ -29,26 +33,40 @@ namespace MyWeb.Modules.Product
 			{
 				groupname = Page.RouteData.Values["groupName"] as string;
 			}
-			if (!IsPostBack)
+			if (Session["Info"] != null)
 			{
-				try
+				cus = (Customers)Session["Info"];
+				isLogin = true;
+				DataTable dtCount = DownloadHistoryService.DownloadHistory_GetByUserId(cus.Id);
+				if (dtCount.Rows.Count < 2)
 				{
-					if (Microsoft.VisualBasic.Information.IsNumeric(id))
+					isValidDownload = true;
+				}
+			}
+			try
+			{
+				if (Microsoft.VisualBasic.Information.IsNumeric(id))
+				{
+					DataTable pro = ProductService.Product_GetById(id);
+					if (pro.Rows.Count > 0)
 					{
-						DataTable pro = ProductService.Product_GetById(id);
-						if (pro.Rows.Count > 0)
+						name = pro.Rows[0]["Name"].ToString();
+						Page.Title = name;
+						content = pro.Rows[0]["Content"].ToString();
+						ltrDetail.Text = pro.Rows[0]["Detail"].ToString();
+						sImage_01 = pro.Rows[0]["Image1"].ToString();
+						sPrice = pro.Rows[0]["Price"].ToString();
+						hdPrice.Value = sPrice;
+						if (sPrice.IndexOf(",") > -1)
 						{
-							name = pro.Rows[0]["Name"].ToString();
-							Page.Title = name;
-							content = pro.Rows[0]["Content"].ToString();
-							ltrDetail.Text = pro.Rows[0]["Detail"].ToString();
-							sImage_01 = pro.Rows[0]["Image1"].ToString();
-							sPrice = pro.Rows[0]["Price"].ToString();
-							hdPrice.Value = sPrice;
-							if (sPrice.IndexOf(",") > -1)
-							{
-								sPrice = sPrice.Split(Char.Parse(","))[0];
-							}
+							sPrice = sPrice.Split(Char.Parse(","))[0];
+						}
+						if (pro.Rows[0]["IsSpecial"].ToString() == "1")
+						{
+							isShowDownload = true;
+						}
+						if (!IsPostBack)
+						{
 							string strSize = pro.Rows[0]["Image5"].ToString();
 							string[] lSize;
 							if (strSize.IndexOf(",") > -1)
@@ -82,7 +100,7 @@ namespace MyWeb.Modules.Product
 							{
 								itemCnt = "3";
 							}
-							DataTable dtRelated = ProductService.Product_GetByTop((Int16.Parse(itemCnt)*2).ToString(), "Active = 1 AND GroupId='" + pro.Rows[0]["GroupId"].ToString() + "' AND Id <> '" + id + "'", "Ord");
+							DataTable dtRelated = ProductService.Product_GetByTop((Int16.Parse(itemCnt) * 2).ToString(), "Active = 1 AND GroupId='" + pro.Rows[0]["GroupId"].ToString() + "' AND Id <> '" + id + "'", "Ord");
 							if (dtRelated.Rows.Count > 0)
 							{
 								HttpCookie cookie = Request.Cookies[Consts.GUID_SHOPPING_CART];
@@ -96,15 +114,52 @@ namespace MyWeb.Modules.Product
 										rptProducts.DataSource = StringClass.ModifyDataProduct(dtRelated, cookie);
 										rptProducts.DataBind();
 										break;
-								}			
+								}
 							}
 						}
 					}
 				}
-				catch (Exception ex)
+			}
+			catch (Exception ex)
+			{
+				MailSender.SendMail("", "", "Error System", ex.Message + "\n" + ex.StackTrace);
+			}
+		}
+
+		protected void btnAddCart_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				if (isLogin)
 				{
-					MailSender.SendMail("", "", "Error System", ex.Message + "\n" +ex.StackTrace);
+					if (isValidDownload)
+					{
+						DataTable file = FilesUploadService.FilesUpload_GetByTop("1", "ProductId='" + id + "'", "");
+						if (file.Rows.Count == 0)
+						{
+							WebMsgBox.Show("File này không còn tồn tại trong hệ thống!");
+							return;
+						}
+						DownloadHistory history = new DownloadHistory();
+						history.UserId = cus.Id;
+						history.FileId = file.Rows[0]["Id"].ToString();
+						history.DownloadedDate = DateTime.Now.ToString("MM/dd/yyyy");
+						DownloadHistoryService.DownloadHistory_Insert(history);
+						Response.Redirect(file.Rows[0]["WebContentLink"].ToString(), false);
+					}
+					else
+					{
+						WebMsgBox.Show("Bạn chỉ có thể tải miễn phí 2 lần/ngày");
+					}
 				}
+				else
+				{
+					Response.Redirect("/thanh-vien/dang-nhap", false);
+				}
+			}
+			catch (Exception ex)
+			{
+				MailSender.SendMail("", "", "Error System", ex.Message + "\n" + ex.StackTrace);
 			}
 		}
 

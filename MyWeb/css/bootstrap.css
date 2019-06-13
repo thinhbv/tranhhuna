@@ -2139,6 +2139,9 @@ margin:0;
 cursor:pointer;
 /*background:url(../images/CartIn.png) no-repeat right center;*/
 }
+.add-cart:hover {
+	color:rgba(0, 0, 0, 0.075);
+}
 .added-cart{
 float:right;
 font-size:20px;

@@ -24,21 +24,10 @@ namespace MyWeb.Modules.Product
 {
 	public partial class FreeDownload : System.Web.UI.Page
 	{
-		private bool isValidDownload = false;
-		private bool isLogin = false;
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			try
 			{
-				if (Session["Id"] != null)
-				{
-					isLogin = true;
-					DataTable dtCount = DownloadHistoryService.DownloadHistory_GetByUserId(Session["Id"].ToString());
-					if (dtCount.Rows.Count < 2)
-					{
-						isValidDownload = true;
-					}
-				}
 				if (!IsPostBack)
 				{
 					DataTable dt = FilesUploadService.FilesUpload_GetByTop("", "Active = 1", "Name");
@@ -55,30 +44,22 @@ namespace MyWeb.Modules.Product
 
 		protected void rptProducts_ItemDataBound(object sender, RepeaterItemEventArgs e)
 		{
-			//try
-			//{
-			//	RepeaterItem item = e.Item;
-			//	if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
-			//	{
-			//		LinkButton hlDownload = (LinkButton)item.FindControl("hlDownload");
-			//		if (hlDownload != null)
-			//		{
-			//			if (isValidDownload)
-			//			{
-			//				hlDownload.Enabled = true;
-			//				//hlDownload.NavigateUrl = DataBinder.Eval(item.DataItem, "WebContentLink").ToString(); ;
-			//			}
-			//			else
-			//			{
-			//				hlDownload.Enabled = false;
-			//			}
-			//		}
-			//	}
-			//}
-			//catch (Exception ex)
-			//{
-			//	MailSender.SendMail("", "", "Error System", ex.Message + "\n" + ex.StackTrace);
-			//}
+			try
+			{
+				RepeaterItem item = e.Item;
+				if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
+				{
+					HyperLink hlDownload = (HyperLink)item.FindControl("hlDownload");
+					if (hlDownload != null)
+					{
+						hlDownload.NavigateUrl = PageHelper.GeneralDetailUrl(Consts.CON_SAN_PHAM, "tải miễn phí", DataBinder.Eval(item.DataItem, "ProductId").ToString(), DataBinder.Eval(item.DataItem, "OriginalFileName").ToString());
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				MailSender.SendMail("", "", "Error System", ex.Message + "\n" + ex.StackTrace);
+			}
 		}
 
 		protected void rptProducts_ItemCommand(object source, RepeaterCommandEventArgs e)
@@ -87,34 +68,34 @@ namespace MyWeb.Modules.Product
 			switch (e.CommandName)
 			{
 				case "download":
-					try
-					{
-						if (isLogin)
-						{
-							if (isValidDownload)
-							{
-								DataTable file = FilesUploadService.FilesUpload_GetByTop("1", "Id='" + strCA + "'", "");
-								DownloadHistory history = new DownloadHistory();
-								history.UserId = Session["Id"].ToString();
-								history.FileId = strCA;
-								history.DownloadedDate = DateTime.Now.ToString("MM/dd/yyyy");
-								DownloadHistoryService.DownloadHistory_Insert(history);
-								Response.Redirect(file.Rows[0]["WebContentLink"].ToString(), false);
-							}
-							else
-							{
-								WebMsgBox.Show("Bạn chỉ có thể tải miễn phí 2 lần/ngày");
-							}
-						}
-						else
-						{
-							Response.Redirect("/thanh-vien/dang-nhap", false);
-						}
-					}
-					catch (Exception ex)
-					{
-						MailSender.SendMail("", "", "Error System", ex.Message + "\n" + ex.StackTrace);
-					}
+					//try
+					//{
+					//	if (isLogin)
+					//	{
+					//		if (isValidDownload)
+					//		{
+					//			DataTable file = FilesUploadService.FilesUpload_GetByTop("1", "Id='" + strCA + "'", "");
+					//			DownloadHistory history = new DownloadHistory();
+					//			history.UserId = Session["Id"].ToString();
+					//			history.FileId = strCA;
+					//			history.DownloadedDate = DateTime.Now.ToString("MM/dd/yyyy");
+					//			DownloadHistoryService.DownloadHistory_Insert(history);
+					//			Response.Redirect(file.Rows[0]["WebContentLink"].ToString(), false);
+					//		}
+					//		else
+					//		{
+					//			WebMsgBox.Show("Bạn chỉ có thể tải miễn phí 2 lần/ngày");
+					//		}
+					//	}
+					//	else
+					//	{
+					//		Response.Redirect("/thanh-vien/dang-nhap", false);
+					//	}
+					//}
+					//catch (Exception ex)
+					//{
+					//	MailSender.SendMail("", "", "Error System", ex.Message + "\n" + ex.StackTrace);
+					//}
 
 					break;
 			}

@@ -26,12 +26,12 @@
 						<ItemTemplate>
 							<div class="col-md-2 col-sm-4 col-xs-6 wow fadeInUp">
 								<div class="item-row">
-								<img src="<%# StringClass.ThumbImage(Eval("ThumbnailLink").ToString()) %>" alt="<%# Eval("Name") %>" title="<%# Eval("Name") %>">
+								<a href='<%#PageHelper.GeneralDetailUrl(Consts.CON_SAN_PHAM, "tải miễn phí", Eval("ProductId").ToString(), Eval("OriginalFileName").ToString()) %>' title="<%# Eval("OriginalFileName").ToString() %>"><img src="<%# StringClass.ThumbImage(Eval("ThumbnailLink").ToString()) %>" alt="<%# Eval("OriginalFileName") %>" title="<%# Eval("OriginalFileName") %>"></a>
 								</div>
 									<h6 class="badge col-md-12 col-sm-12 col-xs-12">
-									<asp:LinkButton id="hlDownload" runat="server" CssClass="add-cart" ToolTip="Tải miễn phí" CommandName="download" CommandArgument='<%#Eval("Id") %>'><i class="fa fa-download" aria-hidden="true"></i></asp:LinkButton>
+									<asp:HyperLink id="hlDownload" runat="server" CssClass="add-cart" ToolTip="Tải miễn phí" CommandName="download" CommandArgument='<%#Eval("Id") %>'><i class="fa fa-download" aria-hidden="true"></i></asp:HyperLink>
 								</h6>
-								<h6 class="title-pro" style="clear: left;"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 60) %></h6>
+								<h6 class="title-pro" style="clear: left;"><a href='<%#PageHelper.GeneralDetailUrl(Consts.CON_SAN_PHAM, "tải miễn phí", Eval("ProductId").ToString(), Eval("OriginalFileName").ToString()) %>' title="<%# Eval("OriginalFileName").ToString() %>"><%# Eval("OriginalFileName").ToString() %></a></h6>
 							</div>
 						</ItemTemplate>
 					</asp:Repeater>

@@ -662,9 +662,9 @@ body.search_body {
 .dropdown-menu li {
     border-bottom-color: #f1f5fc;
 }
-.dropdown-menu li:first-child {
+/*.dropdown-menu li:first-child {
 	margin-bottom: 10px;
-}
+}*/
 
 	.dropdown-menu li a:hover {
 		background: #fff !important;

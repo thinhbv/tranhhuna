@@ -210,38 +210,53 @@ namespace MyWeb.Admins
 			{
 				DriveService service = CreateDriveService();
 				string pageToken = null;
-				List<Google.Apis.Drive.v3.Data.File> lstFiles;
+				List<Google.Apis.Drive.v3.Data.File> lstFiles= new List<Google.Apis.Drive.v3.Data.File>();
 				do
 				{
-					lstFiles = ListFiles(service, ref pageToken);
+					lstFiles.AddRange(ListFiles(service, ref pageToken));
 
 				} while (pageToken != null);
 				lstFiles = lstFiles.Distinct().ToList();
-				string json = Newtonsoft.Json.JsonConvert.SerializeObject(lstFiles);
+				List<Google.Apis.Drive.v3.Data.File> lstNewFiles = new List<Google.Apis.Drive.v3.Data.File>();
+				DataTable dtFiles = FilesUploadService.FilesUpload_GetByTop("", "", "");
+				for (int i = 0; i < lstFiles.Count; i++)
+				{
+					DataRow[] rows = dtFiles.Select("Id='" + lstFiles[i].Id + "'");
+					if (rows == null || rows.Length == 0)
+					{
+						lstNewFiles.Add(lstFiles[i]);
+					}
+				}
+				if (lstNewFiles.Count == 0)
+				{
+					WebMsgBox.Show("Không có file mới để đồng bộ!");
+					return;
+				}
+				string json = Newtonsoft.Json.JsonConvert.SerializeObject(lstNewFiles);
 				DataTable pDt = JsonConvert.DeserializeObject<DataTable>(json);
 				foreach (var column in pDt.Columns.Cast<DataColumn>().ToArray())
 				{
 					if (pDt.AsEnumerable().All(dr => dr.IsNull(column)))
 						pDt.Columns.Remove(column);
 				}
-				pDt.Columns.Add("ProductId", typeof(int));
 				pDt.Columns.Add("OriginalFileName", typeof(string));
 				if (pDt.Columns["thumbnailLink"] == null)
 				{
 					pDt.Columns.Add("thumbnailLink", typeof(string));
 				}
 				pDt.Columns.Add("Active", typeof(int));
+				pDt.Columns.Add("ProductId", typeof(int));
 				pDt.Columns["Id"].SetOrdinal(0);
-				pDt.Columns["ProductId"].SetOrdinal(1);
-				pDt.Columns["Name"].SetOrdinal(2);
-				pDt.Columns["thumbnailLink"].SetOrdinal(3);
-				pDt.Columns["IconLink"].SetOrdinal(4);
-				pDt.Columns["WebContentLink"].SetOrdinal(5);
+				pDt.Columns["Name"].SetOrdinal(1);
+				pDt.Columns["thumbnailLink"].SetOrdinal(2);
+				pDt.Columns["IconLink"].SetOrdinal(3);
+				pDt.Columns["WebContentLink"].SetOrdinal(4);
 				for (int i = 0; i < pDt.Rows.Count; i++)
 				{
 					pDt.Rows[i]["Active"] = 1;
 				}
 				pDt.AcceptChanges();
+
 				BulkInsert(pDt);
 				BindGrid();
 				WebMsgBox.Show("Đồng bộ dữ liệu thành công!");
@@ -252,8 +267,8 @@ namespace MyWeb.Admins
 			}
 		}
 		private List<Google.Apis.Drive.v3.Data.File> ListFiles(DriveService service, ref string pageToken)
-		{		
-			string owner = "buithinh.tt1@gmail.com";
+		{
+			string owner = "filetranhfree@gmail.com";
 			List<Google.Apis.Drive.v3.Data.File> lstFiles = new List<Google.Apis.Drive.v3.Data.File>();
 			// Define parameters of request.
 			FilesResource.ListRequest listRequest = service.Files.List();
