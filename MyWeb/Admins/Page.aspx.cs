@@ -68,7 +68,7 @@ namespace MyWeb.Admins
 			{
 				for (int i = 0; i < listChude.Rows.Count; i++)
 				{
-					ddlLink.Items.Add(new ListItem(StringClass.ShowNameLevel(listChude.Rows[i]["Name"].ToString(), "0000000000"), "/san-pham/chu-de-" + listChude.Rows[i]["Id"].ToString() + "/" + StringClass.NameToTag(listChude.Rows[i]["Name"].ToString())));
+					ddlLink.Items.Add(new ListItem(StringClass.ShowNameLevel(listChude.Rows[i]["Name"].ToString(), "0000000000"), "/chu-de/chu-de-" + listChude.Rows[i]["Id"].ToString() + "/" + StringClass.NameToTag(listChude.Rows[i]["Name"].ToString())));
 				}
 			}
             ddlLink.Items.Add(new ListItem("Liên hệ", "/lien-he"));

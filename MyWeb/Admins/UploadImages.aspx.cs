@@ -124,7 +124,7 @@ namespace MyWeb.Admins
 			// To preserve the aspect ratio
 			float ratioX = (float)maxWidth / (float)originalWidth;
 			float ratioY = (float)maxHeight / (float)originalHeight;
-			float ratio = Math.Min(ratioX, ratioY);
+			float ratio = Math.Max(ratioX, ratioY);
 
 			// New width and height based on aspect ratio
 			int newWidth = (int)(originalWidth * ratio);

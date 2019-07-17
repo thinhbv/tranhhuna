@@ -597,6 +597,8 @@
     <Content Include="scripts\jqzoom\zoomloader.gif" />
     <Content Include="scripts\library.full.js" />
     <Content Include="scripts\loader0.js" />
+    <Content Include="scripts\mailform\jquery.form.min.js" />
+    <Content Include="scripts\mailform\jquery.rd-mailform.min.js" />
     <Content Include="scripts\product.js" />
     <Content Include="scripts\sdk.js" />
     <Content Include="scripts\storage.js" />
@@ -1087,7 +1089,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="scripts\mailform\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\fl-bigmug-line.woff" />

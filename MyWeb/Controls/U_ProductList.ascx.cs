@@ -30,11 +30,11 @@ namespace MyWeb.Controls
 					if (Request.QueryString["key"] != null)
 					{
 						string key = StringClass.SqlInjection(Request.QueryString["key"].ToString());
-						dtPro = ProductService.Product_GetByTop("12", "Active=1 AND (Name like '%" + key + "%' OR Detail like '%" + key + "%' OR Content like '%" + key + "%')", "Ord");
+						dtPro = ProductService.Product_GetByTop("12", "Active=1 AND (Name like '%" + key + "%' OR Detail like '%" + key + "%' OR Content like '%" + key + "%')", "Id DESC");
 					}
 					else if (Microsoft.VisualBasic.Information.IsNumeric(chudeId))
 					{
-						dtPro = ProductService.Product_GetByTop("", "Active=1 AND ChudeId=" + chudeId, "Ord");
+						dtPro = ProductService.Product_GetByTop("", "Active=1 AND ChudeId like '%," + chudeId + ",%'", "Ord");
 					}
 					else if (string.IsNullOrEmpty(level))
 					{
@@ -42,7 +42,7 @@ namespace MyWeb.Controls
 					}
 					else
 					{
-						dtPro = ProductService.Product_GetByTop("", "Active=1 AND GroupId IN (Select Id from GroupProduct Where Active=1 AND Left(Level,Len('" + level + "'))='" + level + "')", "Ord");
+						dtPro = ProductService.Product_GetByTop("", "Active=1 AND GroupId IN (Select Id from GroupProduct Where Active=1 AND Left(Level,Len('" + level + "'))='" + level + "')", "Id DESC");
 					}
 
 					HttpCookie cookie = Request.Cookies[Consts.GUID_SHOPPING_CART];

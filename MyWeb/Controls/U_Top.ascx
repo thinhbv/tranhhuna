@@ -7,11 +7,11 @@
 		</div>
 	</div>
 	<div class="info-box">
-		<%--<div class="fa-phone">
-			<p>Phone:</p>
-			<asp:Label ID="lblPhone" runat="server"></asp:Label>
+		<div class="fa-phone">
+			<p><strong>Hotline:</strong></p>
+			<a href="tel:0389565595" style="color:red; font-weight:bold; font-size:15px">0389 565 595</a>
 		</div>
-		<div class="fa-map-marker">
+		<%--<div class="fa-map-marker">
 			<p>Địa chỉ:</p>
 			<address>
 				Tầng 7 Tòa nhà A

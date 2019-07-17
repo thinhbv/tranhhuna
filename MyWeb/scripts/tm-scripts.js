@@ -310,7 +310,7 @@ document.write('<meta name="viewport" content="width=device-width,initial-scale=
         $(document).ready(function () {
             o.camera({
                 autoAdvance: true,
-                height: '26.63414634146341%',
+                height: '30.634146%',
                 minHeight: '350px',
                 pagination: false,
                 thumbnails: false,

@@ -56,7 +56,8 @@
 				</asp:TemplateColumn>
 				<asp:TemplateColumn ItemStyle-CssClass="Number">
 					<HeaderTemplate>
-						Giá
+						Giá<asp:ImageButton ID="imgUpdatePrice" runat="server" ToolTip="Cập nhật giá"
+							ImageUrl="~/Images/Update.png" OnClick="imgUpdatePrice_Click" />
 					</HeaderTemplate>
 					<ItemTemplate>
 						<asp:TextBox ID="txtPrice" Width="60" runat="server" Text='<%#StringClass.ConvertPrice(Eval("Price").ToString()) %>'></asp:TextBox>

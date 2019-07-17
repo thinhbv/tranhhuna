@@ -77,7 +77,7 @@
 																<img src="<%# StringClass.ThumbImage(Eval("Image1").ToString()) %>" alt="<%# Eval("Name") %>" title="<%# Eval("Name") %>"></a>
 															</div>
 															<h6 class="badge col-md-12 col-sm-12 col-xs-12">
-																<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> Đ</span>
+																<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> xu</span>
 																<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>
 															</h6>
 															<p class="l-height"><%# StringClass.FormatContentNews(Eval("Content").ToString(),100) %></p>
@@ -95,7 +95,7 @@
 																<img src="<%# Eval("Image1").ToString() %>" alt="<%# Eval("Name") %>" title="<%# Eval("Name") %>"></a>
 															</div>
 															<h6 class="badge col-md-12 col-sm-12 col-xs-12">
-																<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> Đ</span>
+																<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> xu</span>
 																<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>
 															</h6>
 															<p class="l-height"><%# StringClass.FormatContentNews(Eval("Content").ToString(),100) %></p>
@@ -136,7 +136,7 @@
 																<img src="<%# StringClass.ThumbImage(Eval("Image1").ToString()) %>" alt="<%# Eval("Name") %>" title="<%# Eval("Name") %>"></a>
 															</div>
 																<h6 class="badge col-md-12 col-sm-12 col-xs-12">
-																<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> Đ</span>
+																<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> xu</span>
 																<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>
 															</h6>
 															<h6 class="title-pro" style="clear:left;"><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 60) %></a></h6>
@@ -154,7 +154,7 @@
 																<img src="<%# Eval("Image1").ToString() %>" alt="<%# Eval("Name") %>" title="<%# Eval("Name") %>"></a>
 															</div>
 															<h6 class="badge col-md-12 col-sm-12 col-xs-12">
-																<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> Đ</span>
+																<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> xu</span>
 																<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>
 															</h6>
 															
@@ -172,7 +172,7 @@
 						</asp:Repeater>
 				</div>
 			</section>
-			<section class="well1 bg-white center479">
+			<%--<section class="well1 bg-white center479">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-8 col-md-7 col-sm-12 col-xs-12 wow fadeInLeft">
@@ -191,14 +191,14 @@
 						</div>
 					</div>
 				</div>
-			</section>
-			<section class="well center991">
+			</section>--%>
+			<%--<section class="well center991">
 				<div class="container">				
 					<uc2:U_NewsList runat="server" id="idU_NewsList" />
 				</div>
-			</section>
-			<section class="well4 text-center">			
+			</section>--%>
+			<%--<section class="well4 text-center">			
 				<uc4:U_ImageList runat="server" id="idU_ImageList" />
-			</section>
+			</section>--%>
 		</main>
 </asp:Content>

@@ -42,7 +42,7 @@ namespace MyWeb.Controls
 				{
 					string id = DataBinder.Eval(item.DataItem, "Id").ToString();
 					string itemCnt = DataBinder.Eval(item.DataItem, "Items").ToString();
-					DataTable dtPro = ProductService.Product_GetByTop("10", "Active = 1 AND GroupId=" + id, "Ord");
+					DataTable dtPro = ProductService.Product_GetByTop("10", "Active = 1 AND GroupId=" + id, "Id DESC");
 					if (dtPro.Rows.Count == 0)
 					{
 						item.Visible = false;

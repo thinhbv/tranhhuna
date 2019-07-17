@@ -2152,13 +2152,13 @@ cursor:default;
 }
 
 #list-product .wow{
-height:305px;
+height:auto;
 }
 #list-product-04 .wow{
-height:360px;
+min-height:360px;
 }
 #group02 .wow{
-height:330px;
+height:auto;
 }
 .mg_add {
   margin-top: 54px;

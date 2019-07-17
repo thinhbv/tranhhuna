@@ -41,7 +41,7 @@
 						<img src="<%# StringClass.ThumbImage(Eval("Image1").ToString()) %>" alt="<%# Eval("Name") %>" title="<%# Eval("Name") %>"></a>
 					</div>
 						<h6 class="badge col-md-12 col-sm-12 col-xs-12">
-						<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> Đ</span>
+						<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> xu</span>
 						<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>
 					</h6>
 					<p class="l-height"><%# StringClass.FormatContentNews(Eval("Content").ToString(),100) %></p>
@@ -59,7 +59,7 @@
 						<img src="<%# Eval("Image1").ToString() %>" alt="<%# Eval("Name") %>" title="<%# Eval("Name") %>"></a>
 					</div>
 					<%--<h6 class="badge col-md-12 col-sm-12 col-xs-12">
-						<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> Đ</span>
+						<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> xu</span>
 						<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>
 					</h6>--%>
 					<p class="l-height"><%# StringClass.FormatContentNews(Eval("Content").ToString(),100) %></p>

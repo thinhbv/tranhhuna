@@ -274,7 +274,7 @@ namespace MyWeb.Admins
 				}
 				if (!string.IsNullOrEmpty(obj.ChudeId))
 				{
-					obj.ChudeId = obj.ChudeId.Substring(0, obj.ChudeId.Length - 1);
+					obj.ChudeId = "," + obj.ChudeId;
 				}
 				obj.Ord = txtOrd.Text != "" ? txtOrd.Text : "1";
 				obj.Active = chkActive.Checked ? "1" : "0";
