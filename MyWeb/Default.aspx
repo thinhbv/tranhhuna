@@ -78,7 +78,7 @@
 															</div>
 															<h6 class="badge col-md-12 col-sm-12 col-xs-12">
 																<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> xu</span>
-																<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>
+																<%--<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>--%>
 															</h6>
 															<p class="l-height"><%# StringClass.FormatContentNews(Eval("Content").ToString(),100) %></p>
 															<h6 class="title-pro" style="clear:left;"><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 45) %></a></h6>
@@ -92,11 +92,11 @@
 														<div class="col-md-3 col-sm-5 col-xs-6 wow fadeInUp">
 															<div class="item-row">
 															<a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>">
-																<img src="<%# Eval("Image1").ToString() %>" alt="<%# Eval("Name") %>" title="<%# Eval("Name") %>"></a>
+																<img src="<%# StringClass.ThumbImage(Eval("Image1").ToString()) %>" alt="<%# Eval("Name") %>" title="<%# Eval("Name") %>"></a>
 															</div>
 															<h6 class="badge col-md-12 col-sm-12 col-xs-12">
 																<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> xu</span>
-																<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>
+																<%--<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>--%>
 															</h6>
 															<p class="l-height"><%# StringClass.FormatContentNews(Eval("Content").ToString(),100) %></p>
 															<h6 class="title-pro" style="clear:left;"><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 45) %></a></h6>
@@ -113,9 +113,9 @@
 						</asp:Repeater>
 				</div>
 			</section>
-			<section class="parallax well well__ins">
+			<%--<section class="parallax well well__ins">
 				<a href="/san-pham/17/tranh-combo" title="Tranh commbo"><img src="uploads/advertise/tranh%20bo.jpg" alt="Tranh commbo" /></a>
-			</section>
+			</section>--%>
 			<section class="well center767">
 				<div class="container" style="padding-top:20px;">
 						<asp:Repeater ID="rptGroup01" runat="server" OnItemDataBound="rptGroup_ItemDataBound">
@@ -137,7 +137,7 @@
 															</div>
 																<h6 class="badge col-md-12 col-sm-12 col-xs-12">
 																<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> xu</span>
-																<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>
+																<%--<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>--%>
 															</h6>
 															<h6 class="title-pro" style="clear:left;"><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 60) %></a></h6>
 															
@@ -151,11 +151,11 @@
 														<div class="col-md-3 col-sm-5 col-xs-6 wow fadeInUp">
 															<div class="item-row">
 															<a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>">
-																<img src="<%# Eval("Image1").ToString() %>" alt="<%# Eval("Name") %>" title="<%# Eval("Name") %>"></a>
+																<img src="<%# StringClass.ThumbImage(Eval("Image1").ToString()) %>" alt="<%# Eval("Name") %>" title="<%# Eval("Name") %>"></a>
 															</div>
 															<h6 class="badge col-md-12 col-sm-12 col-xs-12">
 																<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> xu</span>
-																<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>
+																<%--<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>--%>
 															</h6>
 															
 															<h6 class="title-pro" style="clear:left;"><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 45) %></a></h6>

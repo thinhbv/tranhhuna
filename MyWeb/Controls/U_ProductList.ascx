@@ -42,7 +42,7 @@
 					</div>
 						<h6 class="badge col-md-12 col-sm-12 col-xs-12">
 						<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> xu</span>
-						<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>
+						<%--<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>--%>
 					</h6>
 					<p class="l-height"><%# StringClass.FormatContentNews(Eval("Content").ToString(),100) %></p>
 					<h6 class="title-pro" style="clear: left;"><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 60) %></a></h6>
@@ -56,12 +56,12 @@
 				<div class="col-md-3 col-sm-5 col-xs-6 wow fadeInUp">
 					<div class="item-row">
 					<a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>">
-						<img src="<%# Eval("Image1").ToString() %>" alt="<%# Eval("Name") %>" title="<%# Eval("Name") %>"></a>
+						<img src="<%# StringClass.ThumbImage(Eval("Image1").ToString()) %>" alt="<%# Eval("Name") %>" title="<%# Eval("Name") %>"></a>
 					</div>
-					<%--<h6 class="badge col-md-12 col-sm-12 col-xs-12">
+					<h6 class="badge col-md-12 col-sm-12 col-xs-12">
 						<span class="price"><%# StringClass.ShowPriceRange(Eval("Price").ToString()) %> xu</span>
-						<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>
-					</h6>--%>
+						<%--<span id="<%#Eval("Id").ToString() %>" class="<%#Eval("Class").ToString() %>" title="Thêm vào giỏ hàng"></span>--%>
+					</h6>
 					<p class="l-height"><%# StringClass.FormatContentNews(Eval("Content").ToString(),100) %></p>
 					<h6 class="title-pro" style="clear: left;"><a href="<%#Eval("Link").ToString() %>" title="<%# Eval("Name") %>"><%# StringClass.FormatContentNews(Eval("Name").ToString(), 60) %></a></h6>				
 				</div>
